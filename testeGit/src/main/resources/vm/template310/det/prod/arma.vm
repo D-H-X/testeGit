@@ -1,0 +1,17 @@
+#if( $IT_NFE_PROD_ARMA.getNumRows() > 0 )
+	$IT_NFE_PROD_ARMA.firstRow()
+	#foreach($i in [1..$IT_NFE_PROD_ARMA.getNumRows()] )
+		#if ( $IT_NFE_DET_PROD.getString("ARMA_REF").equals($IT_NFE_PROD_ARMA.getString("ID")) )
+
+			<arma>
+				<tpArma>#getArma("TP_ARMA")</tpArma>
+				<nSerie>#getArma("N_SERIE")</nSerie>
+				<nCano>#getArma("N_CANO")</nCano>
+				<descr>#getArma("DESCR")</descr>
+			</arma>
+			
+		#end	
+		##if vazio para chamar a proxima linha no JcoTable
+		#if($IT_NFE_PROD_ARMA.nextRow())#end
+	#end
+#end

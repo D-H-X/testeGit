@@ -1,0 +1,48 @@
+#if( (! $!{util.isVazio($header, "G_CNPJ", "infNFe.entrega.CNPJ")} ) || 
+	 (! $!{util.isVazio($header, "G_CPF", "infNFe.entrega.CPF")} ) )
+    <entrega>
+#if(! $!{util.isVazioOuZero($header, "G_CNPJ", "infNFe.entrega.CNPJ")} )
+        <CNPJ>#lerString($header, "G_CNPJ", "infNFe.entrega.CNPJ")</CNPJ>
+#else
+        <CPF>#lerString($header, "G_CPF", "infNFe.entrega.CPF"))</CPF>
+#end
+#if(! $!{util.isVazio($header, "XNOME", "infNFe.entrega.xNome")} )
+		<xNome>#removeAcentos($header, "XNOME", "infNFe.entrega.xNome")</xNome>
+#end		
+        <xLgr>#removeAcentos($header, "G_XLGR", "infNFe.entrega.xLgr")</xLgr>
+        <nro>#removeAcentos($header, "G_NRO", "infNFe.entrega.nro")</nro>
+#if(! $!{util.isVazio($header, "G_XCPL", "infNFe.entrega.xCpl")} )
+        <xCpl>#removeAcentos($header, "G_XCPL", "infNFe.entrega.xCpl")</xCpl>
+#end
+#if(! $!{util.isVazio($header, "G_XBAIRRO", "infNFe.entrega.xBairro")} )
+        <xBairro>#removeAcentos($header, "G_XBAIRRO", "infNFe.entrega.xBairro")</xBairro>
+#end
+#if(! $!{util.isVazio($header, "G_CMUN", "infNFe.entrega.cMun")} )        
+        <cMun>#lerString($header, "G_CMUN", "infNFe.entrega.cMun")</cMun>
+#end
+#if(! $!{util.isVazio($header, "G_XMUN", "infNFe.entrega.xMun")} )
+        <xMun>#removeAcentos($header, "G_XMUN", "infNFe.entrega.xMun")</xMun>
+#end
+#if(! $!{util.isVazio($header, "G_UF", "infNFe.entrega.UF")} )        
+        <UF>#lerString($header, "G_UF", "infNFe.entrega.UF")</UF>
+#end
+#if(! $!{util.isVazio($header, "CEP", "infNFe.entrega.cep")} )        
+        <CEP>#lerString($header, "CEP", "infNFe.entrega.cep")</CEP>
+#end
+#if(! $!{util.isVazio($header, "CPAIS", "infNFe.entrega.cPais")} )        
+    	<cPais>#lerString($header, "CPAIS", "infNFe.entrega.cPais")</cPais>
+#end
+#if(! $!{util.isVazio($header, "XPAIS", "infNFe.entrega.xPais")} )    	
+    	<xPais>#removeAcentos($header, "XPAIS", "infNFe.entrega.xPais")</xPais>
+#end
+#if(! $!{util.isVazio($header, "FONE", "infNFe.entrega.fone")} )    	
+    	<fone>#lerString($header, "FONE", "infNFe.entrega.fone")</fone>
+#end
+#if(! $!{util.isVazio($header, "EMAIL", "infNFe.entrega.email")} )    	
+    	<email>#removeAcentos($header, "EMAIL", "infNFe.entrega.email")</email>
+#end    	
+#if(! $!{util.isVazio($header, "IE", "infNFe.entrega.ie")} )    	
+    	<IE>#lerString($header, "IE", "infNFe.entrega.ie")</IE>  
+#end    	
+    </entrega>
+#end

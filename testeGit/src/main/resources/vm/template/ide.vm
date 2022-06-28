@@ -1,0 +1,75 @@
+<ide>
+    <cUF>#getHeader("CUF")</cUF>
+    <cNF>$util.obterNumeroAleatorioTamanho8($header.getString("CNF"))</cNF>
+    ##<natOp>#getHeader("NATOP")</natOp>
+    <natOp>Transferencia merc.adq.recebida de terceiros /</natOp>
+    <indPag>#getHeader("INDPAG")</indPag>
+    <mod>#getHeader("MOD")</mod>
+    <serie>#getHeader("SERIE")</serie>
+    <nNF>$header.getInt("NNF")</nNF>
+    <dEmi>#getHeader("DEMI")</dEmi>
+#if( $header.getString("DSAIENT") != "" && $header.getString("DSAIENT") != "0000-00-00")
+    <dSaiEnt>#getHeader("DSAIENT")</dSaiEnt>
+#end
+#if( $header.getString("HSAIENT") != "" && $header.getString("HSAIENT") != "00:00:00")
+    <hSaiEnt>#getHeader("HSAIENT")</hSaiEnt>
+#end
+    <tpNF>#getHeader("TPNF")</tpNF>
+    <cMunFG>#getHeader("CMUNFG")</cMunFG>
+#if( $referenciada.getNumRows() != 0 )
+#foreach($i in [1..$referenciada.getNumRows()] )
+    <NFref>
+#if( $referenciada.getString("B12_REFNFE") != "" && $referenciada.getString("B12_REFNFE") != "00000000000000000000000000000000000000000000")
+        <refNFe>$!{referenciada.getString("B12_REFNFE")}</refNFe>
+#end
+#if( $referenciada.getString("B12_NNF") != "" && $referenciada.getString("B12_NNF") != "000000000")
+        <refNF>
+            <cUF>#getRef("B12_CUF")</cUF>
+            <AAMM>#getRef("B12_AAMM")</AAMM>
+            <CNPJ>#getRef("B12_CNPJ")</CNPJ>
+            <mod>#getRef("B12_MOD")</mod>
+            <serie>#getRef("B12_SERIE")</serie>
+            <nNF>#getRef("B12_NNF")</nNF>
+        </refNF>
+#end
+#if( $referenciada.getString("B20_NNF") != "" && $referenciada.getString("B20_NNF") != "000000000")
+        <refNFP>
+            <cUF>#getRef("B20_CUF")</cUF>
+            <AAMM>#getRef("B20_AAMM")</AAMM>
+            <CNPJ>#getRef("B20_CNPJ")</CNPJ>
+            <IE>#getRef("B20_IE")</IE>
+            <mod>#getRef("B20F_MOD")</mod>
+            <serie>#getRef("B20_SERIE")</serie>
+            <nNF>#getRef("B20_NNF")</nNF>
+        </refNFP>
+#end
+#if( $referenciada.getString("REFCTE") != "" && $referenciada.getString("REFCTE") != "00000000000000000000000000000000000000000000")
+        <refCTe>#getRef("REFCTE")</refCTe>
+#end
+#if( $referenciada.getString("NECF") != "" && $referenciada.getString("NECF") != "000")
+        <refECF>
+            <mod>#getRef("B20K_MOD")</mod>
+            <nECF>#getRef("NECF")</nECF>
+            <nCOO>#getRef("NECF")</nCOO>
+        </refECF>
+#end
+    </NFref>
+##if vazio para chamar a proxima linha no JcoTable
+#if($referenciada.nextRow())#end
+#end
+#end
+    <tpImp>#getHeader("TPIMP")</tpImp>
+    ##<tpEmis>#getHeader("TPEMIS")</tpEmis>
+    <tpEmis>1</tpEmis>
+    <cDV>#getHeader("CDV")</cDV>
+    <tpAmb>#getHeader("TPAMB")</tpAmb>
+    <finNFe>#getHeader("FINNFE")</finNFe>
+    <procEmi>#getHeader("PROCEMI")</procEmi>
+    <verProc>#getHeader("VERPROC")</verProc>
+#if( $header.getString("DHCONT") != "")
+    <dhCont>#getHeader("DHCONT")</dhCont>
+#end
+#if( $header.getString("XJUST") != "")
+    <xJust>#getHeader("XJUST")</xJust>
+#end
+</ide>

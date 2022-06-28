@@ -1,0 +1,74 @@
+<prod>
+
+
+    ##<cProd>$util.removeZeroEsquerda($null, "CPROD", "infNFe.det%s.prod.cProd", $i)</cProd>
+    <cProd>$util.lerString($null, "CPROD", "infNFe.item%s.danf.cprod", $i)</cProd>
+    <cean>$util.lerString($null, $null, "infNFe.item%s.danf.cean", $i)</cean>
+    <xProd>$util.removeAcentos($null, $null, "infNFe.item%s.danf.xprod", $i).trim()</xProd>
+    <ncm>$util.lerString($null, $null, "infNFe.item%s.danf.ncm", $i)</ncm>
+	
+#if(! $!{util.isVazio($null, $null, "infNFe.det%s.prod.NVE", $i)} )
+	<nve>#getText("TEXT")</nve>			
+#end
+	
+	
+#if (! $!{util.isVazio($null, $null, "infNFe.det%s.prod.CEST", $i)} 
+	&& ! $!{util.lerString($null, "CEST", "infNFe.det%s.prod.CEST", $i).equals("0000000")})
+		<cest>$util.lerString($null, "CEST", "infNFe.det%s.prod.CEST", $i)</cest>
+		<indEscala>S</indEscala>
+##else
+##		<indEscala>N</indEscala>		
+#end
+
+#if(! $!{util.isVazio($null, "EXTIPI", "infNFe.det%s.prod.cBenef", $i)} )
+    <cBenef>$util.lerString($null, "EXTIPI", "infNFe.det%s.prod.cBenef", $i)</cBenef>
+#end
+	
+##if(! $!{util.isVazio($null, "EXTIPI", "infNFe.det%s.prod.EXTIPI", $i)} )
+    ##<EXTIPI>$util.lerString($null, "EXTIPI", "infNFe.det%s.prod.EXTIPI", $i)</EXTIPI>
+##end
+    <cfop>$util.lerString($null, $null, "infNFe.item%s.danf.cfop", $i)</cfop>
+    <uCom>$util.lerString($null, $null, "infNFe.item%s.danf.ucom", $i)</uCom>
+    <qCom>$util.lerDecimal($null, $null, "infNFe.item%s.danf.qcom", 4, $i)</qCom>
+    <vUnCom>$util.lerDecimal($null, $null, "infNFe.item%s.danf.vuncom", 10, $i)</vUnCom>
+    <vProd>$util.lerDecimal($null, $null, "infNFe.item%s.danf.vprod", 2, $i)</vProd>
+    <ceanTrib>$util.lerString($null, $null, "infNFe.item%s.danf.ceantrib", $i)</ceanTrib>
+    <uTrib>$util.lerString($null, $null, "infNFe.item%s.danf.utrib", $i)</uTrib>
+    <qTrib>$util.lerDecimal($null, $null, "infNFe.item%s.danf.qtrib", 4, $i)</qTrib>
+    <vUnTrib>$util.lerString($null, $null, "infNFe.item%s.danf.vuntrib", $i)</vUnTrib>
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.prod.vFrete", $i)} )
+    <vFrete>$util.lerDecimal($null, $null, "infNFe.det%s.prod.vFrete", 2, $i)</vFrete>
+#end
+#if(! $!{util.isVazioOuZero($null, "VSEG", "infNFe.det%s.prod.vSeg", $i)} )
+    <vSeg>$util.lerDecimal($null, "VSEG", "infNFe.det%s.prod.vSeg", 2, $i)</vSeg>
+#end
+#if(! $!{util.isVazioOuZero($null, "VDESC", "infNFe.det%s.prod.vDesc", $i)} )
+    <vDesc>$util.lerDecimal($null, "VDESC", "infNFe.det%s.prod.vDesc", 2, $i)</vDesc>
+#end
+#if(! $!{util.isVazioOuZero($null, "H1_VOUTRO", "infNFe.det%s.prod.vOutro", $i)} )
+    <vOutro>$util.lerDecimal($null, "H1_VOUTRO", "infNFe.det%s.prod.vOutro", 2, $i)</vOutro>
+#end
+    <indTot>$util.lerString($null, "INDTOT", "infNFe.item%s.danf.indtot", $i)</indTot>
+
+##$importacao.firstRow()
+##foreach($j in [1..$util.getNumeroLinhas($importacao, "infNFe.det%s.prod.DI.rowCount", $i)] )
+##if ( $util.lerString($null, "ITMNUM", "infNFe.det%s.itemNum", $i).equals($util.lerString($importacao, "ITMNUM", "infNFe.det%s.prod.DI%s.itemNum", $i, $j)) )
+
+		#if(! $!{util.isVazio($null, "XPED", "infNFe.det%s.prod.xPed", $i)} )
+		    <xPed>$util.removeAcentos($null, "XPED", "infNFe.det%s.prod.xPed", $i)</xPed>
+		#end
+		#if(! $!{util.isVazio($null, "NITEMPED", "infNFe.det%s.prod.nItemPed", $i)} )
+		    <nItemPed>$util.lerString($null, "NITEMPED", "infNFe.det%s.prod.nItemPed", $i)</nItemPed>
+		#end
+#if (! $!{util.isVazio($null, "NFCI", "infNFe.det%s.prod.nFCI", $i)} )
+		<nfci>$util.lerString($null, "NFCI", "infNFe.det%s.prod.nFCI", $i)</nfci>
+#end
+
+#if(! $!{util.isVazio(null, null, "infNFe.item%s.danf.infadprod", $i)} )
+        <infAdProd>$util.removeAcentos(null, null, "infNFe.item%s.danf.infadprod", $i)</infAdProd>
+#end
+#if(! $!{util.isVazio($item, "EXTIPI", "infNFe.det%s.prod.EXTIPI", $i)} )
+    <EXTIPI>$util.lerString($item, "EXTIPI", "infNFe.det%s.prod.EXTIPI", $i)</EXTIPI>
+#end
+
+</prod>

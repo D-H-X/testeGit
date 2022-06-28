@@ -1,0 +1,14 @@
+#if( $util.lerString($null, "L1_40_CST", "infNFe.trib50.danf%s.cst", $i) == "40" ||
+	 $util.lerString($null, "L1_40_CST", "infNFe.trib50.danf%s.cst", $i) == "41" ||
+	 $util.lerString($null, "L1_40_CST", "infNFe.trib50.danf%s.cst", $i) == "50" )
+	<icmS40>
+	    <orig>$util.lerString($null, "L1_40_ORIG", "infNFe.trib50.danf%s.orig", $i)</orig>
+	    <cst>$util.lerString($null, "L1_40_CST", "infNFe.trib50.danf%s.cst", $i)</cst>
+	#if (! $!{util.isVazioOuZero($null, $null, "infNFe.trib50.danf%s.vicmsdeson", $i)} )
+	    ##<-x->		    
+			<vicmsDeson>$util.lerDecimal($null, $null, "infNFe.trib50.danf%s.vicmsdeson", 2, $i)</vicmsDeson>
+			<motDesICMS>$util.lerDecimal($null, $L1_40_MOTDESICMS, "infNFe.trib50.danf%s.motdesicms", 0, $i)</motDesICMS>
+		##</-x->
+	#end
+	</icmS40>
+#end

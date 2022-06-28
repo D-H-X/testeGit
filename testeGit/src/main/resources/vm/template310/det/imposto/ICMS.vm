@@ -1,0 +1,309 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+#if ($IT_NFE_IMPOSTO_ICMS.getNumRows() > 0)
+	$IT_NFE_IMPOSTO_ICMS.firstRow()
+	#foreach($i in [1..$IT_NFE_IMPOSTO_ICMS.getNumRows()] )
+		#if($IT_NFE_DET_IMPOSTO.getString("ICMS_REF").equals($IT_NFE_IMPOSTO_ICMS.getString("ID")))
+	
+		    <ICMS>
+		    
+		    	#if ($IT_NFE_IMPOSTO_ICMS.getString("CST") == "00")	    	
+		    	
+		    	    <ICMS00>
+					    <orig>#getImpostoIcms("ORIG")</orig>
+					    <CST>#getImpostoIcms("CST")</CST>
+					    <modBC>#getImpostoIcms("MOD_BC")</modBC>
+					    <vBC>#getImpostoIcms("V_BC")</vBC>
+					    <pICMS>#getImpostoIcms("P_ICMS")</pICMS>
+					    <vICMS>#getImpostoIcms("V_ICMS")</vICMS>
+				    </ICMS00>
+				
+				#elseif ($IT_NFE_IMPOSTO_ICMS.getString("CST") == "10")
+				
+					<ICMS10>
+					    <orig>#getImpostoIcms("ORIG")</orig>
+					    <CST>#getImpostoIcms("CST")</CST>
+					    <modBC>#getImpostoIcms("MOD_BC")</modBC>
+					    <vBC>#getImpostoIcms("V_BC")</vBC>
+					    <pICMS>#getImpostoIcms("P_ICMS")</pICMS>
+					    <vICMS>#getImpostoIcms("V_ICMS")</vICMS>
+					    <modBCST>#getImpostoIcms("MOD_BCST")</modBCST>
+						
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("P_MVAST") != "0.00" )
+					    <pMVAST>#getImpostoIcms("P_MVAST")</pMVAST>
+						#end
+	
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("P_RED_BCST") != "0.00" )
+					    <pRedBCST>#getImpostoIcms("P_RED_BCST")</pRedBCST>
+						#end
+			
+					    <vBCST>#getImpostoIcms("V_BCST")</vBCST>
+					    <pICMSST>#getImpostoIcms("P_ICMSST")</pICMSST>
+					    <vICMSST>#getImpostoIcms("V_ICMSST")</vICMSST>
+					</ICMS10>
+					
+				#elseif ($IT_NFE_IMPOSTO_ICMS.getString("CST") == "20")
+				
+					<ICMS20>
+					    <orig>#getImpostoIcms("ORIG")</orig>
+					    <CST>#getImpostoIcms("CST")</CST>
+					    <modBC>#getImpostoIcms("MOD_BC")</modBC>
+					    <pRedBC>#getImpostoIcms("P_RED_BC")</pRedBC>
+					    <vBC>#getImpostoIcms("V_BC")</vBC>
+					    <pICMS>#getImpostoIcms("P_ICMS")</pICMS>
+					    <vICMS>#getImpostoIcms("V_ICMS")</vICMS>
+					    
+					    #if ($IT_NFE_IMPOSTO_ICMS.getString("V_ICMSDESON") != "" && $IT_NFE_IMPOSTO_ICMS.getString("V_ICMSDESON") != "0.00")
+					    	<-x->		    
+							    <vICMSDeson>#getImpostoIcms("V_ICMSDESON")</vICMSDeson>
+								<motDesICMS>#getImpostoIcms("MOT_DES_ICMS")/motDesICMS>
+							</-x->
+					    #end
+					    
+					</ICMS20>
+					
+	    		#elseif ($IT_NFE_IMPOSTO_ICMS.getString("CST") == "30")
+	    		
+				    <ICMS30>
+				        <orig>#getImpostoIcms("ORIG")</orig>
+				        <CST>#getImpostoIcms("CST")</CST>
+				        <modBCST>#getImpostoIcms("MOD_BCST")</modBCST>
+						
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("P_MVAST") != "0.00" )
+				        <pMVAST>#getImpostoIcms("P_MVAST")</pMVAST>
+						#end
+			
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("P_RED_BCST") != "0.00" )
+				        <pRedBCST>#getImpostoIcms("P_RED_BCST")</pRedBCST>
+						#end
+				        <vBCST>#getImpostoIcms("V_BCST")</vBCST>
+				        <pICMSST>#getImpostoIcms("P_ICMSST")</pICMSST>
+				        <vICMSST>#getImpostoIcms("V_ICMSST")</vICMSST>
+					    
+					    #if ($IT_NFE_IMPOSTO_ICMS.getString("V_ICMSDESON") != "" && $IT_NFE_IMPOSTO_ICMS.getString("V_ICMSDESON") != "0.00")
+					    	<-x->		    
+							    <vICMSDeson>#getImpostoIcms("V_ICMSDESON")</vICMSDeson>
+								<motDesICMS>#getImpostoIcms("MOT_DES_ICMS")/motDesICMS>
+							</-x->
+					    #end
+					    			        
+				    </ICMS30>    		
+	
+	    		#elseif ( $IT_NFE_IMPOSTO_ICMS.getString("CST") == "40" || $IT_NFE_IMPOSTO_ICMS.getString("CST") == "41" || $IT_NFE_IMPOSTO_ICMS.getString("CST") == "50")
+	    		
+	    			<ICMS40>
+					    <orig>#getImpostoIcms("ORIG")</orig>
+					    <CST>#getImpostoIcms("CST")</CST>
+					    
+					    #if ($IT_NFE_IMPOSTO_ICMS.getString("V_ICMSDESON") != "" && $IT_NFE_IMPOSTO_ICMS.getString("V_ICMSDESON") != "0.00")
+					    	<-x->		    
+							    <vICMSDeson>#getImpostoIcms("V_ICMSDESON")</vICMSDeson>
+								<motDesICMS>#getImpostoIcms("MOT_DES_ICMS")/motDesICMS>
+							</-x->
+					    #end
+					    
+					    
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("V_ICMS") != "0.00" )
+					    <vICMS>#getImpostoIcms("V_ICMS")</vICMS>
+						#end
+			
+						#if( $util.isCampoValido($IT_NFE_IMPOSTO_ICMS, "MOT_DES_ICMS") && $IT_NFE_IMPOSTO_ICMS.getString("_MOT_DES_ICMS") != "0" )
+					    <motDesICMS>#getImpostoIcms("MOT_DES_ICMS")</motDesICMS>
+						#end
+					
+					</ICMS40>
+		    	
+		    	#elseif ($IT_NFE_IMPOSTO_ICMS.getString("CST") == "51")
+		    	
+					<ICMS51>
+					    <orig>#getImpostoIcms("ORIG")</orig>
+					    <CST>#getImpostoIcms("CST")</CST>
+						
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("MOD_BC") != "0" )
+					    <modBC>#getImpostoIcms("MOD_BC")</modBC>
+						#end
+						
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("P_RED_BC") != "0.00" )
+					    <pRedBC>#getImpostoIcms("P_RED_BC")</pRedBC>
+						#end
+				
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("V_BC") != "0.00" )
+					    <vBC>#getImpostoIcms("V_BC")</vBC>
+						#end
+						
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("P_ICMS") != "0.00" )
+					    <pICMS>#getImpostoIcms("P_ICMS")</pICMS>
+						#end
+						
+				    	#if( $IT_NFE_IMPOSTO_ICMS.getString("V_ICMSOP") != "0.00" )
+						<vICMSOp>#getImpostoIcms("V_ICMSOP")</vICMSOp>
+						#end
+						
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("P_DIF") != "0.0000" )			
+						<pDif>#getImpostoIcms("P_DIF")</pDif>
+						#end
+						
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("V_ICMSDIF") != "0.00" )			
+						<vICMSDif>#getImpostoIcms("V_ICMSDIF")</vICMSDif>
+						#end					
+				
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("V_ICMS") != "0.00" )
+					    <vICMS>#getImpostoIcms("V_ICMS")</vICMS>
+						#end
+					</ICMS51>
+			    
+			    #elseif ($IT_NFE_IMPOSTO_ICMS.getString("CST") == "60")
+			    
+			        <ICMS60>
+				        <orig>#getImpostoIcms("ORIG")</orig>
+				        <CST>#getImpostoIcms("CST")</CST>
+						
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("V_BCSTRET") != "0.00" || $IT_NFE_IMPOSTO_ICMS.getString("V_ICMSSTRET") != "0.00")
+						<-x->
+					    <vBCSTRet>#getImpostoIcms("V_BCSTRET")</vBCSTRet>
+					    <vICMSSTRet>#getImpostoIcms("V_ICMSSTRET")</vICMSSTRet>
+					    </-x->
+						#end
+						
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("V_BCST") != "0.00" )
+				        <vBCSTRet>#getImpostoIcms("V_BCST")</vBCSTRet>
+						#end
+				
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("V_ICMSST") != "0.00" )
+				        <vICMSSTRet>#getImpostoIcms("V_ICMSST")</vICMSSTRet>
+						#end
+				    </ICMS60>
+				
+				#elseif ($IT_NFE_IMPOSTO_ICMS.getString("CST") == "70")
+				
+					<ICMS70>
+					    <orig>#getImpostoIcms("ORIG")</orig>
+					    <CST>#getImpostoIcms("CST")</CST>
+					    <modBC>#getImpostoIcms("MOD_BC")</modBC>
+					    <pRedBC>#getImpostoIcms("P_RED_BC")</pRedBC>
+					    <vBC>#getImpostoIcms("V_BC")</vBC>
+					    <pICMS>#getImpostoIcms("P_ICMS")</pICMS>
+					    <vICMS>#getImpostoIcms("V_ICMS")</vICMS>
+					    <modBCST>#getImpostoIcms("MOD_BCST")</modBCST>
+				
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("P_MVAST") != "0.00" )
+					    <pMVAST>#getImpostoIcms("P_MVAST")</pMVAST>
+						#end
+				
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("P_RED_BCST") != "0.00" )
+					    <pRedBCST>#getImpostoIcms("P_RED_BCST")</pRedBCST>
+						#end
+					    
+					    <vBCST>#getImpostoIcms("V_BCST")</vBCST>
+					    <pICMSST>#getImpostoIcms("P_ICMSST")</pICMSST>
+					    <vICMSST>#getImpostoIcms("V_ICMSST")</vICMSST>
+						    
+					    #if($IT_NFE_IMPOSTO_ICMS.getString("V_ICMSDESON") != "0.00")
+					    <-x->		    
+					    <vICMSDeson>#getImpostoIcms("V_ICMSDESON")</vICMSDeson>
+						<motDesICMS>#getImpostoIcms("MOT_DES_ICMS")</motDesICMS>
+						</-x->
+						#end				    
+					</ICMS70>
+	
+				#elseif ($IT_NFE_IMPOSTO_ICMS.getString("CST") == "90")
+				
+					<ICMS90>
+					    <orig>#getImpostoIcms("ORIG")</orig>
+					    <CST>#getImpostoIcms("CST")</CST>
+					    
+					    #if ($IT_NFE_IMPOSTO_ICMS.getString("V_BC") != "0.00")
+					    	<-x->
+							    <modBC>#getImpostoIcms("MOD_BC")</modBC>
+							    <vBC>#getImpostoIcms("V_BC")</vBC>
+						
+								#if( $IT_NFE_IMPOSTO_ICMS.getString("P_RED_BC") != "0.00" )
+							    <pRedBC>#getImpostoIcms("P_RED_BC")</pRedBC>
+								#end
+							    
+							    <pICMS>#getImpostoIcms("P_ICMS")</pICMS>
+							    <vICMS>#getImpostoIcms("V_ICMS")</vICMS>
+							</-x->					    
+					    #end
+					    
+					    #if ($IT_NFE_IMPOSTO_ICMS.getString("P_MVAST") != "0.0000")
+					    	<-x->				    
+					    
+							    <modBCST>#getImpostoIcms("MOD_BCST")</modBCST>
+						
+								#if( $IT_NFE_IMPOSTO_ICMS.getString("P_MVAST") != "0.0000" )
+							    <pMVAST>#getImpostoIcms("P_MVAST")</pMVAST>
+								#end
+								
+								#if( $IT_NFE_IMPOSTO_ICMS.getString("P_RED_BCST") != "0.00" )
+							    <pRedBCST>#getImpostoIcms("P_RED_BCST")</pRedBCST>
+								#end
+								
+							    <vBCST>#getImpostoIcms("V_BCST")</vBCST>
+							    <pICMSST>#getImpostoIcms("P_ICMSST")</pICMSST>
+							    <vICMSST>#getImpostoIcms("V_ICMSST")</vICMSST>
+							    
+							</-x->
+						#end
+						
+						#if ($IT_NFE_IMPOSTO_ICMS.getString("V_ICMSDESON") != "0.00")
+						    <-x->		    
+						    <vICMSDeson>#getImpostoIcms("V_ICMSDESON")</vICMSDeson>
+							<motDesICMS>#getImpostoIcms("MOT_DES_ICMS")</motDesICMS>
+							</-x->
+						#end
+						
+					</ICMS90>
+					
+				#elseif ( ($IT_NFE_IMPOSTO_ICMS.getString("CST") == "10" || $IT_NFE_IMPOSTO_ICMS.getString("CST") == "90") &&
+	      				  ($IT_NFE_IMPOSTO_ICMS.getString("UFST") != "" && $IT_NFE_IMPOSTO_ICMS.getString("UFST") != "0" && $IT_NFE_IMPOSTO_ICMS.getString("UFST") != "00"))
+	
+				    <ICMSPart>
+				        <orig>#getImpostoIcms("ORIG")</orig>
+				        <CST>#getImpostoIcms("CST")</CST>
+				        <modBC>#getImpostoIcms("MOD_BC")</modBC>
+				        <vBC>#getImpostoIcms("V_BC")</vBC>
+						
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("P_RED_BC") != "0.00" )
+				        <pRedBC>#getImpostoIcms("P_RED_BC")</pRedBC>
+						#end
+				        
+				        <pICMS>#getImpostoIcms("P_ICMS")</pICMS>
+				        <vICMS>#getImpostoIcms("V_ICMS")</vICMS>
+				        <modBCST>#getImpostoIcms("MOD_BCST")</modBCST>
+						
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("P_MVAST") != "0.00" )
+				        <pMVAST>#getImpostoIcms("P_MVAST")</pMVAST>
+						#end
+						
+						#if( $IT_NFE_IMPOSTO_ICMS.getString("P_RED_BCST") != "0.00" )
+				        <pRedBCST>#getImpostoIcms("P_RED_BCST")</pRedBCST>
+						#end
+						
+				        <vBCST>#getImpostoIcms("V_BCST")</vBCST>
+				        <pICMSST>#getImpostoIcms("P_ICMSST")</pICMSST>
+				        <vICMSST>#getImpostoIcms("V_ICMSST")</vICMSST>
+				        <pBCOp>#getImpostoIcms("P_BCOP")</pBCOp>
+				        <UFST>#getImpostoIcms("UFST")</UFST>
+				    </ICMSPart>
+	    		#end
+	    		
+	    		#if ($IT_NFE_IMPOSTO_ICMS.getString("CST") == "41")
+	    		    
+	    		    <ICMSST>
+				        <orig>#getImpostoIcms("ORIG")</orig>
+				        <CST>#getImpostoIcms("CST")</CST>
+				        <vBCSTRet>#getImpostoIcms("V_BCSTRET")</vBCSTRet>
+				        <vICMSSTRet>#getImpostoIcms("V_ICMSSTRET")</vICMSSTRet>
+				        <vBCSTDest>#getImpostoIcms("V_ICMSSTRET")</vBCSTDest>
+				        <vICMSSTDest>#getImpostoIcms("V_ICMSSTDEST")</vICMSSTDest>
+				    </ICMSST>
+				    
+	    		#end
+	    		
+		    </ICMS>
+		#end
+		
+		#if($IT_NFE_IMPOSTO_ICMS.nextRow())
+		#end
+	#end       
+#end

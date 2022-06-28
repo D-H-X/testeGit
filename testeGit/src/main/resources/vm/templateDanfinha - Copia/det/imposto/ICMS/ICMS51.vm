@@ -1,0 +1,116 @@
+###if( $util.lerString($null, "L1_51_CST", "infNFe.det%s.imposto.ICMS.ICMS51.CST", $i) == "51" )
+##	<icmS51>
+##	    <orig>$util.lerString($null, "L1_51_ORIG", "infNFe.det%s.imposto.ICMS.ICMS51.orig", $i)</orig>
+##	    
+##	###if( $util.lerString($null, "L1_51_MODBC", "infNFe.det%s.imposto.ICMS.ICMS51.modBC", $i) != "0" )
+##	    ##<modBC>$util.lerString($null, "L1_51_MODBC", "infNFe.det%s.imposto.ICMS.ICMS51.modBC", $i)</modBC>
+##	###end
+##	
+##		#if( $util.lerString($null, "L1_51_MODBC", "infNFe.det%s.imposto.ICMS.ICMS51.modBC", $i) == "0" )
+##            <modBC>3</modBC>
+##        #elseif( $util.lerString($null, "L1_51_MODBC", "infNFe.det%s.imposto.ICMS.ICMS51.modBC", $i) != "0" )			
+##	    <modBC>$util.lerString($null, "L1_51_MODBC", "infNFe.det%s.imposto.ICMS.ICMS51.modBC", $i)</modBC>
+##        #end
+##	
+##	#if(! $!{util.isVazioOuZero($null, "L1_51_PREDBC", "infNFe.det%s.imposto.ICMS.ICMS51.pRedBC", $i)} )
+##	    <pRedBC>$util.lerDecimal($null, "L1_51_PREDBC", "infNFe.det%s.imposto.ICMS.ICMS51.pRedBC", 4, $i)</pRedBC>
+##	#end
+##	
+##	
+##		#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vBC51", $i)} )
+##	    <vbc>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vBC51", 2, $i)</vbc>
+##	#elseif(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vBC", $i)} )
+##	    <vbc>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vBC", 2, $i)</vbc>
+##        #else
+##	    <vbc>0.00</vbc>
+##	#end
+##	
+##	
+##	###if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vBC", $i)} )
+##	 ##<vbc>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vBC", 2, $i)</vbc>
+##	###end
+##	
+##
+##		#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.pICMS51", $i)} )
+##	    <picms>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.pICMS51", 4, $i)</picms>
+##	#elseif(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.pICMS", $i)} )
+##	    <picms>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.pICMS", 4, $i)</picms>   
+##        #else
+##	    <picms>0.00</picms>
+##        #end
+##	
+##	
+##	###if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vICMSOp", $i)} )
+##		##<vicmsOp>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vICMSOp", 2, $i)</vicmsOp>
+##	###end
+##	
+##	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vICMSOp", $i)} )
+##		<vicmsOp>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vICMSOp", 2, $i)</vicmsOp>
+##	#else
+##	        <vicmsOp>0.00</vicmsOp>
+##	#end
+##						
+##	###if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.pDif", $i)} )		
+##		##<pDif>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.pDif", 4, $i)</pDif>
+##	###end
+##	
+##		#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.pDif", $i)} )		
+##		<pDif>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.pDif", 4, $i)</pDif>
+##	#else
+##		<pDif>0.00</pDif>
+##	#end
+##		
+##		
+##		
+##						
+##	##if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vICMSDif", $i)} )
+##		##<vicmsDif>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vICMSDif", 2, $i)</vicmsDif>
+##	###end
+##	
+##	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vICMSDif", $i)} )
+##		<vicmsDif>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vICMSDif", 2, $i)</vicmsDif>
+##	#else
+##		<vicmsDif>0.00</vicmsDif>
+##	#end
+##	
+##	
+##						
+##	###if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vICMS", $i)} )
+##	    ##<vicms>$util.lerDecimal($null, $null , "infNFe.det%s.imposto.ICMS.ICMS51.vICMS", 2, $i)</vicms>
+##	###end
+##	
+##	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vICMS51", $i)} )
+##	    <vicms>$util.lerDecimal($null, $null , "infNFe.det%s.imposto.ICMS.ICMS51.vICMS51", 2, $i)</vicms>					
+##	#elseif(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vICMS", $i)} )
+##	    <vicms>$util.lerDecimal($null, $null , "infNFe.det%s.imposto.ICMS.ICMS51.vICMS", 2, $i)</vicms>
+##	#else
+##            <vicms>$util.lerDecimal($null, $null , "infNFe.det%s.imposto.ICMS.ICMS51.vICMS", 2, $i)</vicms>
+##        #end
+##	
+##	
+###if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vBCFCP", $i)} )	
+##	    <vbcfcp>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vBCFCP", 2, $i)</vbcfcp>
+###end	    
+##
+###if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.pFCP", $i)} )	    
+##	    <pfcp>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.pFCP", 2, $i)</pfcp>
+###end	    
+##
+###if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vFCP", $i)} )	    
+##	    <vfcp>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.vFCP", 2, $i)</vfcp>
+###end
+##
+##
+## #if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.PFCPDIF", $i)} )
+##     <pFCPDif>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.PFCPDIF", 2, $i)</pFCPDif>
+## #end
+##
+## #if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.VFCPDIF", $i)} )
+##     <vFCPDif>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.VFCPDIF", 2, $i)</vFCPDif>
+## #end
+##
+## #if(! $!{util.isVazio($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.VFCPEFET", $i)} )
+##     <vFCPEfet>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.VFCPEFET", 2, $i)</vFCPEfet>
+## #end
+##	</icmS51>
+###end

@@ -1,0 +1,104 @@
+
+    <transp>
+        <modFrete>#lerString($header, "T_MODFRETE", "infNFe.transp.modFrete")</modFrete>
+#if( (! $!{util.isVazio($header, "T1_CNPJ", "infNFe.transp.transporta.CNPJ")} ) || 
+	 (! $!{util.isVazio($header, "T1_CPF", "infNFe.transp.transporta.CPF")} ) ||
+	 (! $!{util.isVazio($header, "T1_XNOME", "infNFe.transp.transporta.xNome")} ) ||
+	 (! $!{util.isVazio($header, "T1_IE", "infNFe.transp.transporta.IE")} ) ||
+	 (! $!{util.isVazio($header, "T1_XEND", "infNFe.transp.transporta.xEnder")} ) ||
+	 (! $!{util.isVazio($header, "T1_XMUN", "infNFe.transp.transporta.xMun")} ) || 
+	 (! $!{util.isVazio($header, "T1_UF", "infNFe.transp.transporta.UF")} ) )
+        <transporta>
+	#if(! $!{util.isVazioOuZero($header, "T1_CNPJ", "infNFe.transp.transporta.CNPJ")} )
+	        <CNPJ>#lerString($header, "T1_CNPJ", "infNFe.transp.transporta.CNPJ")</CNPJ>
+	#end
+	#if(! $!{util.isVazioOuZero($header, "T1_CPF", "infNFe.transp.transporta.CPF")} )
+            <CPF>#lerString($header, "T1_CPF", "infNFe.transp.transporta.CPF")</CPF>
+	#end
+	#if(! $!{util.isVazio($header, "T1_XNOME", "infNFe.transp.transporta.xNome")} )
+            <xNome>#removeAcentos($header, "T1_XNOME", "infNFe.transp.transporta.xNome")</xNome>
+	#end
+	#if(! $!{util.isVazio($header, "T1_IE", "infNFe.transp.transporta.IE")} )
+            <IE>#lerString($header, "T1_IE", "infNFe.transp.transporta.IE")</IE>
+	#end
+	#if(! $!{util.isVazio($header, "T1_XEND", "infNFe.transp.transporta.xEnder")} )
+            <xEnder>#removeAcentos($header, "T1_XEND", "infNFe.transp.transporta.xEnder")</xEnder>
+	#end
+	#if(! $!{util.isVazio($header, "T1_XMUN", "infNFe.transp.transporta.xMun")} )
+            <xMun>#removeAcentos($header, "T1_XMUN", "infNFe.transp.transporta.xMun")</xMun>
+	#end
+	#if(! $!{util.isVazio($header, "T1_UF", "infNFe.transp.transporta.UF")} )
+            <UF>#lerString($header, "T1_UF", "infNFe.transp.transporta.UF")</UF>
+	#end
+        </transporta>
+#end
+			
+#if(! $!{util.isVazioOuZero($header, "T5_CMUNFG", "infNFe.transp.retTransp.cMunFG")} )
+        <retTransp>
+            <vServ>#lerDecimal($header, "T5_VSERV", "infNFe.transp.retTransp.vServ", 2)</vServ>
+            <vBCRet>#lerDecimal($header, "T5_VBCRET", "infNFe.transp.retTransp.vBCRet", 2)</vBCRet>
+            <pICMSRet>#lerDecimal($header, "T5_PICMSRET", "infNFe.transp.retTransp.pICMSRet", 4)</pICMSRet>
+            <vICMSRet>#lerDecimal($header, "T5_VICMSRET", "infNFe.transp.retTransp.vICMSRet", 2)</vICMSRet>
+            <CFOP>#lerString($header, "T5_CFOP", "infNFe.transp.retTransp.CFOP")</CFOP>
+            <cMunFG>#lerString($header, "T5_CMUNFG", "infNFe.transp.retTransp.cMunFG")</cMunFG>
+        </retTransp>
+#end
+#if(! $!{util.isVazio($header, "T2_PLACA", "infNFe.transp.veicTransp.placa")} )
+        <veicTransp>
+            <placa>#lerString($header, "T2_PLACA", "infNFe.transp.veicTransp.placa")</placa>
+            <UF>#lerString($header, "T2_UF1", "infNFe.transp.veicTransp.UF")</UF>
+            #if(! $!{util.isVazio($header, "T2_RNTC", "infNFe.transp.veicTransp.RNTC")} )
+               <RNTC>#lerString($header, "T2_RNTC", "infNFe.transp.veicTransp.RNTC")</RNTC>
+            #end
+        </veicTransp>
+#end
+#if(! $!{util.isVazio($header, "T3_PLACA", "infNFe.transp.reboque.placa")} )
+        <reboque>
+            <placa>#lerString($header, "T3_PLACA", "infNFe.transp.reboque.placa")</placa>
+            <UF>#lerString($header, "T3_UF1", "infNFe.transp.reboque.UF")</UF>
+            #if(! $!{util.isVazio($header, "T3_RNTC", "infNFe.transp.veicTransp.RNTC")} )
+               <RNTC>#lerString($header, "T3_RNTC", "infNFe.transp.reboque.RNTC")</RNTC>
+            #end
+        </reboque>
+#end
+#if(! $!{util.isVazio($header, "T3_VAGAO", "infNFe.transp.vagao")} )
+            <vagao>#lerString($header, "T3_VAGAO", "infNFe.transp.vagao")</vagao>
+#end
+#if(! $!{util.isVazio($header, "T3_BALSA", "infNFe.transp.balsa")} )
+            <balsa>#lerString($header, "T3_BALSA", "infNFe.transp.balsa")</balsa>
+#end
+
+#if( (! $!{util.isVazioOuZero($util.obterVolume($vol, $header), "T4_QVOL", "infNFe.transp.vol.qVol")} ) ||
+     (! $!{util.isVazio($util.obterVolume($vol, $header), "T4_ESP", "infNFe.transp.vol.esp")} ) ||
+     (! $!{util.isVazio($util.obterVolume($vol, $header), "T4_MARCA", "infNFe.transp.vol.marca")} ) ||
+     (! $!{util.isVazio($util.obterVolume($vol, $header), "T4_NVOL", "infNFe.transp.vol.nVol")} ) ||
+     (! $!{util.isVazioOuZero($util.obterVolume($vol, $header), "T4_PESOL", "infNFe.transp.vol.pesoL")} ) ||
+     (! $!{util.isVazioOuZero($util.obterVolume($vol, $header), "T4_PESOB", "infNFe.transp.vol.pesoB")} ) ||
+     (! $!{util.isVazio($util.obterVolume($vol, $header), "T4_NLACRE", "infNFe.transp.lacres.nLacre")} ) )
+        <vol>
+#if(! $!{util.isVazioOuZero($util.obterVolume($vol, $header), "T4_QVOL", "infNFe.transp.vol.qVol")} )
+            <qVol>$util.lerInt($util.obterVolume($vol, $header), "T4_QVOL", "infNFe.transp.vol.qVol")</qVol>
+#end
+#if(! $!{util.isVazio($util.obterVolume($vol, $header), "T4_ESP", "infNFe.transp.vol.esp")} )
+            <esp>$util.lerEspecie($util.obterVolume($vol, $header), "T4_ESP", "infNFe.transp.vol.esp")</esp>
+#end
+#if(! $!{util.isVazio($util.obterVolume($vol, $header), "T4_MARCA", "infNFe.transp.vol.marca")} )
+            <marca>#lerString($util.obterVolume($vol, $header), "T4_MARCA", "infNFe.transp.vol.marca")</marca>
+#end
+#if(! $!{util.isVazio($util.obterVolume($vol, $header), "T4_NVOL", "infNFe.transp.vol.nVol")} )
+            <nVol>#lerString($util.obterVolume($vol, $header), "T4_NVOL", "infNFe.transp.vol.nVol")</nVol>
+#end
+#if(! $!{util.isVazioOuZero($util.obterVolume($vol, $header), "T4_PESOL", "infNFe.transp.vol.pesoL")} )
+            <pesoL>#lerDecimal($util.obterVolume($vol, $header), "T4_PESOL", "infNFe.transp.vol.pesoL", 3)</pesoL>
+#end
+#if(! $!{util.isVazioOuZero($util.obterVolume($vol, $header), "T4_PESOB", "infNFe.transp.vol.pesoB")} )
+            <pesoB>#lerDecimal($util.obterVolume($vol, $header), "T4_PESOB", "infNFe.transp.vol.pesoB", 3)</pesoB>
+#end
+#if(! $!{util.isVazio($util.obterVolume($vol, $header), "T4_NLACRE", "infNFe.transp.lacres.nLacre")} )
+            <lacres>
+                <nLacre>#removeAcentos($util.obterVolume($vol, $header), "T4_NLACRE", "infNFe.transp.lacres.nLacre")</nLacre>
+            </lacres>
+#end
+        </vol>
+#end
+    </transp>

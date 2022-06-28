@@ -1,0 +1,16 @@
+    <pag>
+        <detPag>
+##if(! $!{util.isVazioOuZero($header, "INDPAG", "infNFe.ide.indPag")} )     
+    		<indPag>#lerString($header, "INDPAG", "infNFe.ide.indPag")</indPag>
+##end    				        
+            <tPag>#lerString($null, $null, "infNFe.pag.detPag.tPag")</tPag>
+            <vPag>#lerString($null, $null, "infNFe.pag.detPag.vPag")</vPag>	
+##		#if ($IT_NFE_PAG.getString("C_AUT") != "")
+##		<card>	
+##			<CNPJ>#getPag("CNPJ")</CNPJ>
+##			<tBand>#getPag("T_BAND")</tBand>
+##			<cAut>#getPag("C_AUT")</cAut>	
+##		</card>
+##	    #end
+        </detPag>
+    </pag>

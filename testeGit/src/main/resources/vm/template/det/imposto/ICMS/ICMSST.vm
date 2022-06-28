@@ -1,0 +1,10 @@
+#if( $item.getString("CST") == "41" )
+    <ICMSST>
+        <orig>#getItem("ORIG")</orig>
+        <CST>#getItem("CST")</CST>
+        <vBCSTRet>#getItem("VBCSTRET")</vBCSTRet>
+        <vICMSSTRet>#getItem("VICMSSTRET")</vICMSSTRet>
+        <vBCSTDest>#getItem("VICMSSTRET")</vBCSTDest>
+        <vICMSSTDest>#getItem("VICMSSTDEST")</vICMSSTDest>
+    </ICMSST>
+#end

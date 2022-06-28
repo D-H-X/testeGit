@@ -1,0 +1,21 @@
+#if( (! $!{util.isVazio($header, "F_CNPJ", "infNFe.retirada.CNPJ")} ) || 
+	 (! $!{util.isVazio($header, "F_CPF", "infNFe.retirada.CPF")} ) )
+    <retirada>
+#if(! $!{util.isVazioOuZero($header, "F_CNPJ", "infNFe.retirada.CNPJ")} )
+        <cnpj>#lerString($header, "F_CNPJ", "infNFe.retirada.CNPJ")</cnpj>
+#else
+        <cpf>#lerString($header, "F_CPF", "infNFe.retirada.CPF"))</cpf>
+#end
+        <xLgr>#removeAcentos($header, "F_XLGR", "infNFe.retirada.xLgr")</xLgr>
+        <nro>#removeAcentos($header, "F_NRO", "infNFe.retirada.nro")</nro>
+#if(! $!{util.isVazio($header, "F_XCPL", "infNFe.retirada.xCpl")} )
+        <xCpl>#removeAcentos($header, "F_XCPL", "infNFe.retirada.xCpl")</xCpl>
+#end
+#if(! $!{util.isVazio($header, "F_XBAIRRO", "infNFe.retirada.xBairro")} )
+        <xBairro>#removeAcentos($header, "F_XBAIRRO", "infNFe.retirada.xBairro")</xBairro>
+#end        
+#if(! $!{util.isVazio($header, "F_CMUN", "infNFe.retirada.cMun")} )        
+        <cMun>#lerString($header, "F_CMUN", "infNFe.retirada.cMun")</cMun>
+#end        
+    </retirada>
+#end

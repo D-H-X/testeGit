@@ -1,0 +1,78 @@
+<prod>
+    <cProd>#getItem("CPROD")</cProd>
+    <cEAN>#getItem("CEAN")</cEAN>
+    <xProd>#getItem("XPROD")</xProd>
+    <NCM>#getItem("NCM")</NCM>
+#if( $item.getString("EXTIPI") != "" )
+    <EXTIPI>#getItem("EXTIPI")</EXTIPI>
+#end
+    <CFOP>#getItem("CFOP")</CFOP>
+    <uCom>#getItem("UCOM")</uCom>
+    <qCom>#getItem("QCOM_V20")</qCom>
+    <vUnCom>#getItem("VUNCOM_V20")</vUnCom>
+    <vProd>#getItem("VPROD")</vProd>
+    <cEANTrib>#getItem("CEANTRIB")</cEANTrib>
+    <uTrib>#getItem("UTRIB")</uTrib>
+    <qTrib>#getItem("QTRIB_V20")</qTrib>
+    <vUnTrib>#getItem("VUNTRIB_V20")</vUnTrib>
+#if( $item.getString("VFRETE") != "0.00" )
+    <vFrete>#getItem("VFRETE")</vFrete>
+#end
+#if( $item.getString("VSEG") != "0.00" )
+    <vSeg>#getItem("VSEG")</vSeg>
+#end
+#if( $item.getString("VDESC") != "0.00" )
+    <vDesc>#getItem("VDESC")</vDesc>
+#end
+#if( $item.getString("H1_VOUTRO") != "0.00" )
+    <vOutro>#getItem("H1_VOUTRO")</vOutro>
+#end
+    <indTot>#getItem("INDTOT")</indTot>
+#if( $importacao.getNumRows() != 0 )
+$importacao.firstRow()
+#foreach($i in [1..$importacao.getNumRows()] )
+#if ( $item.getString("ITMNUM").equals($importacao.getString("ITMNUM")) )
+    <DI>
+        <nDI>#getImportacao("NDI")</nDI>
+        <dDI>#getImportacao("DDI")</dDI>
+        <xLocDesemb>#getImportacao("XLOCDESEMB")</xLocDesemb>
+        <UFDesemb>#getImportacao("UFDESEMB")</UFDesemb>
+        <dDesemb>#getImportacao("DDESEMB")</dDesemb>
+        <cExportador>#getImportacao("CEXPORTADOR")</cExportador>
+#if ( $adicao.getNumRows() != 0 )
+$adicao.firstRow()
+#foreach($j in [1..$adicao.getNumRows()] )
+#if ( $importacao.getString("ITMNUM").equals($adicao.getString("ITMNUM")) && $importacao.getString("NDI").equals($adicao.getString("NDI")) )
+<adi>
+<nAdicao>$adicao.getInt("NADICAO")</nAdicao>
+<nSeqAdic>$adicao.getInt("NSEQADIC")</nSeqAdic>
+<cFabricante>$adicao.getString("CFABRICANTE")</cFabricante>
+#if( $adicao.getString("VDESCDI") != "0.00" )
+<vDescDI>$adicao.getString("VDESCDI")</vDescDI>
+#end
+</adi>
+#end
+##if vazio para chamar a proxima linha no JcoTable
+#if($adicao.nextRow())#end
+#end
+#end
+    </DI>
+#end
+##if vazio para chamar a proxima linha no JcoTable
+#if($importacao.nextRow())#end
+#end
+#end
+#if( $item.getString("XPED") != "" )
+    <xPed>#getItem("XPED")</xPed>
+#end
+#if( $item.getString("NITEMPED") != "" )
+    <nItemPed>#getItem("NITEMPED")</nItemPed>
+#end
+#if ($util.isCampoValido($item, "NFCI") && $item.getString("NFCI") != "")
+		<nFCI>#getItem("NFCI")</nFCI>
+#end
+#parse("/vm/template/det/prod/veicProd.vm")
+#parse("/vm/template/det/prod/med.vm")
+#parse("/vm/template/det/prod/arma.vm")
+#parse("/vm/template/det/prod/comb.vm")
+</prod>

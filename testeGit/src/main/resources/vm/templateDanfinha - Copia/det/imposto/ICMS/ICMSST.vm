@@ -1,0 +1,10 @@
+###if( $util.lerString($null, "CST", $null) == "41" )
+##    <icmsst>
+##        <orig>$util.lerString($null, "ORIG", "infNFe.det%s.imposto.ICMS.ICMSST.orig", $i)</orig>
+##        <cst>$util.lerString($null, "CST", "infNFe.det%s.imposto.ICMS.ICMSST.CST", $i)</cst>
+##        <vbcstRet>$util.lerDecimal($null, "VBCSTRET", "infNFe.det%s.imposto.ICMS.ICMSST.vBCSTRet", 2, $i)</vbcstRet>
+##        <vicmsstRet>$util.lerDecimal($null, "VICMSSTRET", "infNFe.det%s.imposto.ICMS.ICMSST.vICMSSTRet", 2, $i)</vicmsstRet>
+##        <vbcstDest>$util.lerDecimal($null, "VBCSTDest", "infNFe.det%s.imposto.ICMS.ICMSST.vBCSTDest", 2, $i)</vbcstDest>
+##        <vicmsstDest>$util.lerDecimal($null, "VICMSSTDest", "infNFe.det%s.imposto.ICMS.ICMSST.vICMSSTDest", 2, $i)</vicmsstDest>
+##    </icmsst>
+###end

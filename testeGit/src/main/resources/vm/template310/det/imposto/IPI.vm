@@ -1,0 +1,56 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+#if ($IT_NFE_IMPOSTO_IPI.getNumRows() > 0)
+	$IT_NFE_IMPOSTO_IPI.firstRow()
+	#foreach($i in [1..$IT_NFE_IMPOSTO_IPI.getNumRows()] )
+		#if($IT_NFE_DET_IMPOSTO.getString("IPI_REF").equals($IT_NFE_IMPOSTO_IPI.getString("ID")))
+	
+			<IPI>
+				
+				#if( $IT_NFE_IMPOSTO_IPI.getString("CL_ENQ") != "" )
+				<clEnq>#getImpostoIpi("CL_ENQ")</clEnq>
+				#end
+				
+				#if( $IT_NFE_IMPOSTO_IPI.getString("CNPJPROD") != "" )
+				<CNPJProd>#getImpostoIpi("CNPJPROD")</CNPJProd>
+				#end
+				
+				#if( $IT_NFE_IMPOSTO_IPI.getString("C_SELO") != "" )
+				<cSelo>#getImpostoIpi("C_SELO")</cSelo>
+				#end
+				
+				#if( $IT_NFE_IMPOSTO_IPI.getString("Q_SELO") != "000000000000" )
+				<qSelo>#getImpostoIpi("Q_SELO")</qSelo>
+				#end
+				
+				<cEnq>#getImpostoIpi("C_ENQ")</cEnq>
+				
+				#if( $IT_NFE_IMPOSTO_IPI.getString("CST") == "00" ||
+				     $IT_NFE_IMPOSTO_IPI.getString("CST") == "49" ||
+				     $IT_NFE_IMPOSTO_IPI.getString("CST") == "50" ||
+				     $IT_NFE_IMPOSTO_IPI.getString("CST") == "99"  )
+				     
+				    <IPITrib>
+				        <CST>#getImpostoIpi("CST")</CST>
+						
+						#if( $IT_NFE_IMPOSTO_IPI.getString("V_BC") != "0.00" )
+				        	<vBC>#getImpostoIpi("V_BC")</vBC>
+				        	<pIPI>#getImpostoIpi("P_IPI")</pIPI>
+						#elseif($IT_NFE_IMPOSTO_IPI.getString("VUNID") != "0.0000")
+				        	<qUnid>#getImpostoIpi("Q_UNID")</qUnid>
+				        	<vUnid>#getImpostoIpi("V_UNID")</vUnid>
+						#end
+				        <vIPI>#getImpostoIpi("V_IPI")</vIPI>
+				    </IPITrib>
+				#else
+				    <IPINT>
+				        <CST>#getImpostoIpi("CST")</CST>
+				    </IPINT>
+				#end
+			</IPI>
+	
+		#end
+		
+		#if($IT_NFE_IMPOSTO_ICMS.nextRow())
+		#end
+	#end     
+#end

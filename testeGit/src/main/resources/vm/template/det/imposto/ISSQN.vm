@@ -1,0 +1,10 @@
+#if( $item.getString("X_VBC") != "0.00" )
+	<ISSQN>
+		<vBC>#getItem("X_VBC")</vBC>
+		<vAliq>#getItem("X_VALIQ")</vAliq>
+		<vISSQN>#getItem("X_VISSQN")</vISSQN>
+		<cMunFG>#getItem("X_CMUNFG")</cMunFG>
+		<cListServ>#getItem("X_CLISTSERV")</cListServ>
+		<cSitTrib>#getItem("X_CSITTRIB")</cSitTrib>
+	</ISSQN>
+#end

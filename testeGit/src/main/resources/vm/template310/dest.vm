@@ -1,0 +1,76 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+$IT_NFE_PARTNER.firstRow()
+#foreach($i in [1..$IT_NFE_PARTNER.getNumRows()] )
+	#if($IS_NFE_PARTNER_IDS.getString("PARTNER_ID_DEST").equals($IT_NFE_PARTNER.getString("ID")))
+
+    <dest>
+        
+		#if( $IT_NFE_PARTNER.getString("CPF") != "" && $IT_NFE_PARTNER.getString("CPF") != "00000000000" )
+        <CPF>#getPartner("CPF")</CPF>
+		#else        
+        <CNPJ>#getPartner("CNPJ")</CNPJ>
+		#end
+		
+		#if($IT_NFE_PARTNER.getString("ID_ESTRANGEIRO") != "")
+		<idEstrangeiro>getPartner("ID_ESTRANGEIRO")</idEstrangeiro>
+		#end
+		
+        <xNome>#getPartner("X_NOME")</xNome>
+        <enderDest>
+            <xLgr>#getPartner("X_LGR")</xLgr>
+            <nro>#getPartner("NRO")</nro>
+			
+			#if( $IT_NFE_PARTNER.getString("X_CPL") != "" )
+            <xCpl>#getPartner("X_CPL")</xCpl>
+			#end
+            
+            <xBairro>#getPartner("X_BAIRRO")</xBairro>
+            <cMun>#getPartner("C_MUN")</cMun>
+            <xMun>#getPartner("X_MUN")</xMun>
+            <UF>#getPartner("UF")</UF>
+
+			#if( $IT_NFE_PARTNER.getString("CEP") != "" )
+            <CEP>#getPartner("CEP")</CEP>
+			#end
+
+			#if($IT_NFE_PARTNER.getString("C_PAIS") != "" )
+            <cPais>#getPartner("C_PAIS")</cPais>
+			#end
+
+			#if( $IT_NFE_PARTNER.getString("X_PAIS") != "" )
+            <xPais>#getPartner("X_PAIS")</xPais>
+			#end
+
+			#if( $IT_NFE_PARTNER.getString("FONE") != "" )
+            <fone>#getPartner("FONE")</fone>
+			#end
+        </enderDest>
+
+		<indIEDest>#getPartner("IND_IEDEST")</indIEDest>
+		
+        <IE>#getPartner("IE")</IE>
+		
+		#if( $IT_NFE_PARTNER.getString("ISUF") != "" )
+        <ISUF>#getPartner("ISUF")</ISUF>
+		#end
+		
+		#if( $IT_NFE_PARTNER.getString("IM") != "" )
+		<IM>#getPartner("IM")</IM>
+		#end
+
+		#set( $email =  $util.getValueFromExt2($IT_NFE_EXT2, "EMAIL"))
+		#if ($util.isCampoValidoETemValor($zXmlOut, "EMAIL_CUSTOM"))
+		        <email>#getZXmlOut("EMAIL_CUSTOM")</email>
+		#elseif ($email != "" )
+				<email>$email</email>
+		#elseif ( $IT_NFE_PARTNER.getString("EMAIL") != "" )
+		        <email>#getPartner("EMAIL")</email>
+		#end
+
+    </dest>
+    
+	#end
+	
+#if($IT_NFE_PARTNER.nextRow())
+#end
+#end    

@@ -1,0 +1,28 @@
+#if( $item.getString("I_CHASSI") != "" )
+	<veicProd>
+		<tpOp>#getItem("I_TPOP")</tpOp>
+		<chassi>#getItem("I_CHASSI")</chassi>
+		<cCor>#getItem("I_COR")</cCor>
+		<xCor>#getItem("I_XCOR")</xCor>
+		<pot>#getItem("I_POT")</pot>
+		<cilin>#getItem("I_CM3")</cilin>
+		<pesoL>#getItem("I_PESOL")</pesoL>
+		<pesoB>#getItem("I_PESOB")</pesoB>
+		<nSerie>#getItem("I_NSERIE")</nSerie>
+		<tpComb>#getItem("I_TPCOMB")</tpComb>
+		<nMotor>#getItem("I_NMOTOR")</nMotor>
+		<CMT>#getItem("I_CMKG")</CMT>
+		<dist>#getItem("I_DIST")</dist>
+		<anoMod>#getItem("I_ANOMOD")</anoMod>
+		<anoFab>#getItem("I_ANOFAB")</anoFab>
+		<tpPint>#getItem("I_TPPINT")</tpPint>
+		<tpVeic>#getItem("I_TPVEIC")</tpVeic>
+		<espVeic>#getItem("I_ESPVEIC")</espVeic>
+		<VIN>#getItem("I_VIN")</VIN>
+		<condVeic>#getItem("I_CONDVEIC")</condVeic>
+		<cMod>#getItem("I_CMOD")</cMod>
+		<cCorDENATRAN>#getItem("CCORDEN")</cCorDENATRAN>
+		<lota>#getItem("LOTA")</lota>
+		<tpRest>#getItem("TPREST")</tpRest>
+	</veicProd>
+#end

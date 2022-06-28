@@ -1,0 +1,37 @@
+<nfeSap>
+    <docNum>$!{IS_NFE_HEADER.getString("DOCNUM")}</docNum>
+	
+	#if ($IS_NFE_IDE.getString("DH_CONT") != "" && $IS_NFE_IDE.getString("X_JUST") != "")
+    <dataEntradaCont>$!{IS_NFE_IDE.getString("DH_CONT")}</dataEntradaCont>
+    <dsMotivoCont>$!{IS_NFE_IDE.getString("X_JUST")}</dsMotivoCont>
+	#end
+	
+	<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+	    <infNFe Id="NFe$!{IS_NFE_HEADER.getString("ACCESSKEY")}" versao="3.10">
+	        #parse("/vm/template310/macro.vm")
+	        #parse("/vm/template310/ide.vm")
+	        #parse("/vm/template310/emi.vm")
+	##      #parse("/vm/template310/avulsa.vm")
+	        #parse("/vm/template310/dest.vm")
+	        #parse("/vm/template310/retirada.vm")
+	        #parse("/vm/template310/entrega.vm")
+			#parse("/vm/template310/aut.vm")	
+			$IT_NFE_DET.firstRow()
+			#foreach($i in [1..$IT_NFE_DET.getNumRows()] )
+			    
+			    #parse("/vm/template310/det/det.vm")
+				
+				##if vazio para chamar a proxima linha no JcoTable
+				#if($IT_NFE_DET.nextRow())#end
+			#end
+	        
+	        #parse("/vm/template310/total.vm")
+	        #parse("/vm/template310/transp.vm")
+	        #parse("/vm/template310/cobranca.vm")
+	        #parse("/vm/template310/pag.vm")
+	        #parse("/vm/template310/infAdic.vm")
+	        #parse("/vm/template310/exporta.vm")
+	        #parse("/vm/template310/compra.vm")
+	    </infNFe>
+	</NFe>
+</nfeSap>

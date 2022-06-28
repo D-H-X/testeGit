@@ -1,0 +1,14 @@
+#if( $util.lerString($null, "L1_40_CST", "infNFe.det%s.imposto.ICMS.ICMS40.CST", $i) == "40" ||
+	 $util.lerString($null, "L1_40_CST", "infNFe.det%s.imposto.ICMS.ICMS40.CST", $i) == "41" ||
+	 $util.lerString($null, "L1_40_CST", "infNFe.det%s.imposto.ICMS.ICMS40.CST", $i) == "50" )
+	<icmS40>
+	    <orig>$util.lerString($null, "L1_40_ORIG", "infNFe.det%s.imposto.ICMS.ICMS40.orig", $i)</orig>
+	    <cst>$util.lerString($null, "L1_40_CST", "infNFe.det%s.imposto.ICMS.ICMS40.CST", $i)</cst>
+	#if (! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS40.x.vICMSDeson", $i)} )
+	    ##<-x->		    
+			<vicmsDeson>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS40.x.vICMSDeson", 2, $i)</vicmsDeson>
+			<motDesICMS>$util.lerDecimal($null, $L1_40_MOTDESICMS, "infNFe.det%s.imposto.ICMS.ICMS40.x.motDesICMS", 0, $i)</motDesICMS>
+		##</-x->
+	#end
+	</icmS40>
+#end

@@ -1,0 +1,81 @@
+<ide>
+    <cUF>#getIde("C_UF")</cUF>
+    <cNF>$util.obterNumeroAleatorioTamanho8($IS_NFE_IDE.getString("C_NF"))</cNF>
+    <natOp>#getIde("NAT_OP")</natOp>
+    <indPag>#getIde("IND_PAG")</indPag>
+    <mod>#getIde("MOD")</mod>
+    <serie>#getIde("SERIE")</serie>
+    <nNF>#getIde("N_NF")</nNF>
+    <dhEmi>$!{util.dateiso8601SAP($IS_NFE_IDE.getString("DH_EMI"))}</dhEmi>
+    <tpNF>#getIde("TP_NF")</tpNF>
+    <idDest>#getIde("ID_DEST")</idDest>
+    <cMunFG>#getIde("C_MUN_FG")</cMunFG>
+    
+	#if( $IT_NFE_NFREF.getNumRows() != 0 )
+		#foreach($i in [1..$IT_NFE_NFREF.getNumRows()] )
+		
+		    <NFref>
+				
+				#if( $IT_NFE_NFREF.getString("REF_NFE") != "" && $IT_NFE_NFREF.getString("REF_NFE") != "00000000000000000000000000000000000000000000")
+		        <refNFe>#getRef("REF_NFE")</refNFe>
+				#end
+				
+				#if( $IT_NFE_NFREF.getString("N_NF") != "" && $IT_NFE_NFREF.getString("N_NF") != "000000000")
+		        <refNF>
+		            <cUF>#getRef("C_UF")</cUF>
+		            <AAMM>#getRef("AAMM")</AAMM>
+		            <CNPJ>#getRef("CNPJ")</CNPJ>
+		            <mod>#getRef("MOD")</mod>
+		            <serie>#getRef("SERIE")</serie>
+		            <nNF>#getRef("N_NF")</nNF>
+		        </refNF>
+				#end
+				
+				##if( $IT_NFE_NFREF.getString("B20_NNF") != "" && $referenciada.getString("B20_NNF") != "000000000")
+		        ##<refNFP>
+		        ##    <cUF>#getRef("B20_CUF")</cUF>
+		        ##    <AAMM>#getRef("B20_AAMM")</AAMM>
+		        ##    <CNPJ>#getRef("B20_CNPJ")</CNPJ>
+		        ##    <IE>#getRef("B20_IE")</IE>
+		        ##    <mod>#getRef("B20F_MOD")</mod>
+		        ##    <serie>#getRef("B20_SERIE")</serie>
+		        ##    <nNF>#getRef("B20_NNF")</nNF>
+		        ##</refNFP>
+				##end
+				
+				#if( $IT_NFE_NFREF.getString("REF_CTE") != "" && $IT_NFE_NFREF.getString("REF_CTE") != "00000000000000000000000000000000000000000000")
+		        <refCTe>#getRef("REF_CTE")</refCTe>
+				#end
+				
+				#if( $IT_NFE_NFREF.getString("N_ECF") != "" && $IT_NFE_NFREF.getString("N_ECF") != "000")
+		        <refECF>
+		            <mod>#getRef("MOD_ECF")</mod>
+		            <nECF>#getRef("N_ECF")</nECF>
+		            <nCOO>#getRef("N_COO")</nCOO>
+		        </refECF>
+				#end
+		    </NFref>
+		    
+		##if vazio para chamar a proxima linha no JcoTable
+		#if($IT_NFE_NFREF.nextRow())#end
+		#end
+	#end
+    <tpImp>#getIde("TP_IMP")</tpImp>
+    <tpEmis>#getIde("TP_EMIS")</tpEmis>
+    <cDV>#getIde("C_DV")</cDV>
+    <tpAmb>#getIde("TP_AMB")</tpAmb>
+    <finNFe>#getIde("FIN_NFE")</finNFe>    
+    <indFinal>#getIde("IND_FINAL")</indFinal>
+	<indPres>#getIde("IND_PRES")</indPres>
+    <procEmi>#getIde("PROC_EMI")</procEmi>
+    <verProc>#getIde("VER_PROC")</verProc>
+	
+	#if( $IS_NFE_IDE.getString("DH_CONT") != "")
+    <dhCont>$!{util.dateiso8601SAP($IS_NFE_IDE.getString("DH_CONT"))}</dhCont>
+	#end
+	
+	#if( $IS_NFE_IDE.getString("X_JUST") != "")
+	<xJust>#getIde("X_JUST")</xJust>
+	#end
+	
+</ide>

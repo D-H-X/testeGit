@@ -1,0 +1,53 @@
+###if( $util.lerString($null, "Q1_CST", "infNFe.det%s.imposto.COFINS.COFINSAliq.CST", $i) == "01" ||
+##     $util.lerString($null, "Q1_CST", "infNFe.det%s.imposto.COFINS.COFINSAliq.CST", $i) == "02" || 
+##     $util.lerString($null, "Q2_CST", "infNFe.det%s.imposto.COFINS.COFINSQtde.CST", $i) == "03" || 
+##     $util.lerString($null, "Q3_CST", "infNFe.det%s.imposto.COFINS.COFINSNT.CST", $i) == "04" ||
+##	 $util.lerString($null, "Q3_CST", "infNFe.det%s.imposto.COFINS.COFINSNT.CST", $i) == "06" ||
+##	 $util.lerString($null, "Q3_CST", "infNFe.det%s.imposto.COFINS.COFINSNT.CST", $i) == "07" ||
+##	 $util.lerString($null, "Q3_CST", "infNFe.det%s.imposto.COFINS.COFINSNT.CST", $i) == "08" ||
+##	 $util.lerString($null, "Q3_CST", "infNFe.det%s.imposto.COFINS.COFINSNT.CST", $i) == "09" ||
+##	 $util.lerInt($null, "Q4_CST", "infNFe.det%s.imposto.COFINS.COFINSOutr.CST", $i) >= 49 )
+##	<cofins>
+###if( $util.lerString($null, "Q1_CST", "infNFe.det%s.imposto.COFINS.COFINSAliq.CST", $i) == "01" ||
+##     $util.lerString($null, "Q1_CST", "infNFe.det%s.imposto.COFINS.COFINSAliq.CST", $i) == "02" )
+##	    <cofinsAliq>
+##	        <cst>$util.lerString($null, "Q1_CST", "infNFe.det%s.imposto.COFINS.COFINSAliq.CST", $i)</cst>
+##	        <vbc>$util.lerDecimal($null, "Q1_VBC", "infNFe.det%s.imposto.COFINS.COFINSAliq.vBC", 2, $i)</vbc>
+##	        <pcofins>$util.lerDecimal($null, "Q1_PCOFINS", "infNFe.det%s.imposto.COFINS.COFINSAliq.pCOFINS", 4, $i)</pcofins>
+##	        <vcofins>$util.lerDecimal($null, "Q1_VCOFINS", "infNFe.det%s.imposto.COFINS.COFINSAliq.vCOFINS", 2, $i)</vcofins>
+##	    </cofinsAliq>
+###elseif( $util.lerString($null, "Q2_CST", "infNFe.det%s.imposto.COFINS.COFINSQtde.CST", $i) == "03" )
+##	    <cofinsQtde>
+##	        <CST>$util.lerString($null, "Q2_CST", "infNFe.det%s.imposto.COFINS.COFINSQtde.CST", $i)</CST>
+##	        <qBCProd>$util.lerDecimal($null, "Q2_QBCPROD", "infNFe.det%s.imposto.COFINS.COFINSQtde.qBCProd", 4, $i)</qBCProd>
+##	        <vAliqProd>$util.lerDecimal($null, "Q2_VALIQPROD", "infNFe.det%s.imposto.COFINS.COFINSQtde.vAliqProd", 4, $i)</vAliqProd>
+##	        <vcofins>$util.lerDecimal($null, "Q2_VCOFINS", "infNFe.det%s.imposto.COFINS.COFINSQtde.vCOFINS", 2, $i)</vcofins>
+##	    </cofinsQtdes>
+###elseif( $util.lerString($null, "Q3_CST", "infNFe.det%s.imposto.COFINS.COFINSNT.CST", $i) == "04" ||
+##         $util.lerString($null, "Q3_CST", "infNFe.det%s.imposto.COFINS.COFINSNT.CST", $i) == "06" ||
+##         $util.lerString($null, "Q3_CST", "infNFe.det%s.imposto.COFINS.COFINSNT.CST", $i) == "07" ||
+##         $util.lerString($null, "Q3_CST", "infNFe.det%s.imposto.COFINS.COFINSNT.CST", $i) == "08" ||
+##         $util.lerString($null, "Q3_CST", "infNFe.det%s.imposto.COFINS.COFINSNT.CST", $i) == "09" )
+##	    <cofinsnt>
+##	        <cst>$util.lerString($null, "Q3_CST", "infNFe.det%s.imposto.COFINS.COFINSNT.CST", $i)</cst>
+##	    </cofinsnt>
+###elseif( $util.lerInt($null, "Q4_CST", "infNFe.det%s.imposto.COFINS.COFINSOutr.CST", $i) >= 49 )
+##	    <cofinsOutr>
+##	        <cst>$util.lerString($null, "Q4_CST", "infNFe.det%s.imposto.COFINS.COFINSOutr.CST", $i)</cst>
+###if(! $!{util.isVazioOuZero($null, "Q4_VBC", "infNFe.det%s.imposto.COFINS.COFINSOutr.vBC", $i)} )
+##	        <vbc>$util.lerDecimal($null, "Q4_VBC", "infNFe.det%s.imposto.COFINS.COFINSOutr.vBC", 2, $i)</vbc>
+##	        <pcofins>$util.lerDecimal($null, "Q4_PCOFINS", "infNFe.det%s.imposto.COFINS.COFINSOutr.pCOFINS", 4, $i)</pcofins>
+###elseif ( $!{util.isVazioOuZero($null, "Q4_VBC", "infNFe.det%s.imposto.COFINS.COFINSOutr.vBC", $i)} &&
+##          $!{util.isVazioOuZero($null, "Q4_QBCPROD", "infNFe.det%s.imposto.COFINS.COFINSOutr.qBCProd", $i)} &&
+##          $!{util.isVazioOuZero($null, "Q4_VALIQPROD", "infNFe.det%s.imposto.COFINS.COFINSOutr.vAliqProd", $i)} )
+##	        <vBC>$util.lerDecimal($null, "Q4_VBC", "infNFe.det%s.imposto.COFINS.COFINSOutr.vBC", 2, $i)</vBC>
+##	        <pcofins>$util.lerDecimal($null, "Q4_PCOFINS", "infNFe.det%s.imposto.COFINS.COFINSOutr.pCOFINS", 4, $i)</pcofins>
+###else
+##	        <qbcProd>$util.lerDecimal($null, "Q4_QBCPROD", "infNFe.det%s.imposto.COFINS.COFINSOutr.qBCProd", 4, $i)</qbcProd>
+##	        <vAliqProd>$util.lerDecimal($null, "Q4_VALIQPROD", "infNFe.det%s.imposto.COFINS.COFINSOutr.vAliqProd", 4, $i)</vAliqProd>
+###end
+##	        <vcofins>$util.lerDecimal($null, "Q4_VCOFINS", "infNFe.det%s.imposto.COFINS.COFINSOutr.vCOFINS", 2, $i)</vcofins>
+##	    </cofinsOutr>
+###end
+##	</cofins>
+###end

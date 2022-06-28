@@ -1,0 +1,35 @@
+###if( (! $!{util.isVazio($null, "N1_CST", "infNFe.det%s.imposto.IPI.IPITrib.CST", $i)} ) || 
+##     (! $!{util.isVazio($null, "N2_CST", "infNFe.det%s.imposto.IPI.IPINT.CST", $i)} ))
+##<IPI>
+###if(! $!{util.isVazio($null, "N_CNPJPROD", "infNFe.det%s.imposto.IPI.CNPJProd", $i)} )
+##    <CNPJProd>$util.lerString($null, "N_CNPJPROD", "infNFe.det%s.imposto.IPI.CNPJProd", $i)</CNPJProd>
+###end
+###if(! $!{util.isVazio($null, "N_CSELO", "infNFe.det%s.imposto.IPI.cSelo", $i)} )
+##    <cSelo>$util.lerString($null, "N_CSELO", "infNFe.det%s.imposto.IPI.cSelo", $i)</cSelo>
+###end
+###if(! $!{util.isVazioOuZero($null, "N_QSELO", "infNFe.det%s.imposto.IPI.qSelo", $i)} )
+##    <qSelo>$util.lerString($null, "N_QSELO", "infNFe.det%s.imposto.IPI.qSelo", $i)</qSelo>
+###end
+##    <cEnq>$util.lerString($null, "N_CENQ", "infNFe.det%s.imposto.IPI.cEnq", $i)</cEnq>
+###if( $util.lerString($null, "N1_CST", "infNFe.det%s.imposto.IPI.IPITrib.CST", $i) == "00" ||
+##     $util.lerString($null, "N1_CST", "infNFe.det%s.imposto.IPI.IPITrib.CST", $i) == "49" ||
+##     $util.lerString($null, "N1_CST", "infNFe.det%s.imposto.IPI.IPITrib.CST", $i) == "50" ||
+##     $util.lerString($null, "N1_CST", "infNFe.det%s.imposto.IPI.IPITrib.CST", $i) == "99"  )
+##    <IPITrib>
+##        <CST>$util.lerString($null, "N1_CST", "infNFe.det%s.imposto.IPI.IPITrib.CST", $i)</CST>
+###if(! $!{util.isVazioOuZero($null, "N1_VBC", "infNFe.det%s.imposto.IPI.IPITrib.vBC", $i)} )
+##        <vBC>$util.lerDecimal($null, "N1_VBC", "infNFe.det%s.imposto.IPI.IPITrib.vBC", 2, $i)</vBC>
+##        <pIPI>$util.lerDecimal($null, "N1_PIPI", "infNFe.det%s.imposto.IPI.IPITrib.pIPI", 4, $i)</pIPI>
+###elseif(! $!{util.isVazioOuZero($null, "N1_VUNID", "infNFe.det%s.imposto.IPI.IPITrib.vUnid", $i)} )
+##        <qUnid>$util.lerDecimal($null, "N1_QUNID", "infNFe.det%s.imposto.IPI.IPITrib.qUnid", 4, $i)</qUnid>
+##        <vUnid>$util.lerDecimal($null, "N1_VUNID", "infNFe.det%s.imposto.IPI.IPITrib.vUnid", 4, $i)</vUnid>
+###end
+##        <vIPI>$util.lerDecimal($null, "N1_VIPI", "infNFe.det%s.imposto.IPI.IPITrib.vIPI", 2, $i)</vIPI>
+##    </IPITrib>
+###else
+##    <IPINT>
+##        <CST>$util.lerString($null, "N2_CST", "infNFe.det%s.imposto.IPI.IPINT.CST", $i)</CST>
+##    </IPINT>
+###end
+##</IPI>
+###end

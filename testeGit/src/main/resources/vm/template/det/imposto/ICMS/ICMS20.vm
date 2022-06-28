@@ -1,0 +1,11 @@
+#if( $item.getString("L1_20_CST") == "20" )
+	<ICMS20>
+	    <orig>#getItem("L1_20_ORIG")</orig>
+	    <CST>#getItem("L1_20_CST")</CST>
+	    <modBC>#getItem("L1_20_MODBC")</modBC>
+	    <pRedBC>#getItem("L1_20_PREDBC")</pRedBC>
+	    <vBC>#getItem("L1_20_VBC")</vBC>
+	    <pICMS>#getItem("L1_20_PICMS")</pICMS>
+	    <vICMS>#getItem("L1_20_VICMS")</vICMS>
+	</ICMS20>
+#end

@@ -1,0 +1,30 @@
+#if( ($item.getString("L1_10_CST") == "10"  ||
+      $item.getString("L1_10_CST") == "90") &&
+      ( $item.getString("L1_2R_UFST") != "" &&
+        $item.getString("L1_2R_UFST") != "0" &&
+        $item.getString("L1_2R_UFST") != "00" &&
+        $item.getString("L1_2R_UFST") != "000" ) )
+    <ICMSPart>
+        <orig>#getItem("L1_2R_ORIG")</orig>
+        <CST>#getItem("L1_2R_CST")</CST>
+        <modBC>#getItem("L1_2R_MODBC")</modBC>
+        <vBC>#getItem("L1_2R_VBC")</vBC>
+#if( $item.getString("L1_2R_PREDBC") != "0.00" )
+        <pRedBC>#getItem("L1_2R_PREDBC")</pRedBC>
+#end
+        <pICMS>#getItem("L1_2R_PICMS")</pICMS>
+        <vICMS>#getItem("L1_2R_VICMS")</vICMS>
+        <modBCST>#getItem("L1_2R_MODBCST")</modBCST>
+#if( $item.getString("L1_2R_PMVAST") != "0.00" )
+        <pMVAST>#getItem("L1_2R_PMVAST")</pMVAST>
+#end
+#if( $item.getString("L1_2R_PREDBCST") != "0.00" )
+        <pRedBCST>#getItem("L1_2R_PREDBCST")</pRedBCST>
+#end
+        <vBCST>#getItem("L1_2R_VBCST")</vBCST>
+        <pICMSST>#getItem("L1_2R_PICMSST")</pICMSST>
+        <vICMSST>#getItem("L1_2R_VICMSST")</vICMSST>
+        <pBCOp>#getItem("L1_2R_PBCOP")</pBCOp>
+        <UFST>#getItem("L1_2R_UFST")</UFST>
+    </ICMSPart>
+#end

@@ -1,0 +1,25 @@
+#if( $util.lerString($item, "L1_20_CST", "infNFe.det%s.imposto.ICMS.ICMS20.cst", $i) == "20" )
+	<icmS20>
+	    <orig>$util.lerString($null, "$null", "infNFe.trib20.danf%s.orig", $i)</orig>
+	    <modBC>$util.lerString($null, "$null", "infNFe.trib20.danf%s.modbc", $i)</modBC>
+		<pRedBC>$util.lerDecimal($null, "$null", "infNFe.trib20.danf%s.predbc", 4, $i)</pRedBC>
+	    <vbc>$util.lerDecimal($null, "$null", "infNFe.trib20.danf%s.vbc", 2, $i)</vbc>
+	    <picms>$util.lerDecimal($null, "$null", "infNFe.trib20.danf%s.picms", 4, $i)</picms>
+	    <vicms>$util.lerDecimal($null, "$null", "infNFe.trib20.danf%s.vicms", 2, $i)</vicms>
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib20.danf%s.vbcfcp", $i)} )	    
+	    <vbcfcp>$util.lerDecimal($null, $null, "infNFe.trib20.danf%s.vbcfcp", 2, $i)</vbcfcp>
+#end	    
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib20.danf%s.pfcp", $i)} )	    
+	    <pfcp>$util.lerDecimal($null, $null, "infNFe.trib20.danf%s.pfcp", 2, $i)</pfcp>
+#end	    
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib20.danf%s.vfcp", $i)} )	    
+	    <vfcp>$util.lerDecimal($null, $null, "infNFe.trib20.danf%s.vfcp", 2, $i)</vfcp>
+#end	    					    
+	#if (! $!{util.isVazioOuZero($null, $null, "infNFe.trib20.danf%s.vicmsdeson", $i)} )
+	    ##<-x->		    
+			<vicmsDeson>$util.lerDecimal($null, $null, "infNFe.trib20.danf%s.vicmsdeson", 2, $i)</vicmsDeson>
+			<motDesICMS>$util.lerDecimal($null, $null, "infNFe.trib20.danf%s.motdesicms", 0, $i)</motDesICMS>
+		##</-x->
+	#end	
+	</icmS20>
+#end

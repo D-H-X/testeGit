@@ -1,0 +1,10 @@
+#if(! $!{util.isVazioOuZero($null, "X_VBC", "infNFe.det%s.imposto.ISSQN.vBC", $i)} )
+	<ISSQN>
+		<vBC>$util.lerDecimal($null, "X_VBC", "infNFe.det%s.imposto.ISSQN.vBC", 2, $i)</vBC>
+		<vAliq>$util.lerDecimal($null, "X_VALIQ", "infNFe.det%s.imposto.ISSQN.vAliq", 4, $i)</vAliq>
+		<vISSQN>$util.lerDecimal($null, "X_VISSQN", "infNFe.det%s.imposto.ISSQN.vISSQN", 2, $i)</vISSQN>
+		<cMunFG>$util.lerString($null, "X_CMUNFG", "infNFe.det%s.imposto.ISSQN.cMunFG", $i)</cMunFG>
+		<cListServ>$util.lerString($null, "X_CLISTSERV", "infNFe.det%s.imposto.ISSQN.cListServ", $i)</cListServ>
+		<cSitTrib>$util.lerString($null, "X_CSITTRIB", "infNFe.det%s.imposto.ISSQN.cSitTrib", $i)</cSitTrib>
+	</ISSQN>
+#end

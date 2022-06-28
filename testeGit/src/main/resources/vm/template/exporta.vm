@@ -1,0 +1,11 @@
+#if((! $!{util.isVazio($null, $null, "infNFe.exporta.UFSaidaPais")} ) ||
+	(! $!{util.isVazio($null, $null, "infNFe.exporta.xLocExporta")} ))
+    <exporta>
+        <UFSaidaPais>$util.lerString($null, $null, "infNFe.exporta.UFSaidaPais")</UFSaidaPais>
+        <xLocExporta>$util.lerString($null, $null, "infNFe.exporta.xLocExporta")</xLocExporta>
+        
+        #if (! $!{util.isVazio($null, $null, "infNFe.exporta.xLocDespacho")} )
+        	<xLocDespacho>$util.lerString($null, $null, "infNFe.exporta.xLocDespacho")</xLocDespacho>
+        #end
+    </exporta>
+#end

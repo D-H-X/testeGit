@@ -1,0 +1,60 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+$IT_NFE_PARTNER.firstRow()
+#foreach($i in [1..$IT_NFE_PARTNER.getNumRows()] )
+	#if($IS_NFE_PARTNER_IDS.getString("PARTNER_ID_EMIT").equals($IT_NFE_PARTNER.getString("ID")))
+
+    <emit>
+        <CNPJ>#getPartner("CNPJ")</CNPJ>
+        <xNome>#getPartner("X_NOME")</xNome>
+		
+		#if( $IT_NFE_PARTNER.getString("X_FANT") != "" )
+        <xFant>#getPartner("X_FANT")</xFant>
+		#end
+        
+        <enderEmit>
+            <xLgr>#getPartner("X_LGR")</xLgr>
+            <nro>#getPartner("NRO")</nro>
+			
+			#if( $IT_NFE_PARTNER.getString("X_CPL") != "" )
+            <xCpl>#getPartner("X_CPL")</xCpl>
+			#end
+            
+            <xBairro>#getPartner("X_BAIRRO")</xBairro>
+            <cMun>#getPartner("C_MUN")</cMun>
+            <xMun>#getPartner("X_MUN")</xMun>
+            <UF>#getPartner("UF")</UF>
+            <CEP>#getPartner("CEP")</CEP>
+			
+			#if( $IT_NFE_PARTNER.getString("C_PAIS") != "" )
+            <cPais>#getPartner("C_PAIS")</cPais>
+			#end
+
+			#if( $IT_NFE_PARTNER.getString("X_PAIS") != "" )
+            <xPais>#getPartner("X_PAIS")</xPais>
+			#end
+			
+			#if( $IT_NFE_PARTNER.getString("FONE") != "" )
+            <fone>#getPartner("FONE")</fone>
+			#end
+        </enderEmit>
+        <IE>#getPartner("IE")</IE>
+		
+		#if( $IT_NFE_PARTNER.getString("IEST") != "" )
+        <IEST>#getPartner("IEST")</IEST>
+		#end
+
+		#if( $IT_NFE_PARTNER.getString("IM") != "" )
+        <IM>#getPartner("IM")</IM>
+		#end
+
+		#if( $IT_NFE_PARTNER.getString("CNAE") != "" )
+        <CNAE>#getPartner("CNAE")</CNAE>
+		#end
+       <CRT>#getPartner("CRT")</CRT>
+    </emit>
+
+	#end
+	
+	#if($IT_NFE_PARTNER.nextRow())
+	#end
+#end

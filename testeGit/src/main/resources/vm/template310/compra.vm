@@ -1,0 +1,7 @@
+#if( $IS_NFE_COMPRA.getString("XNEMP") != "" || $IS_NFE_COMPRA.getString("X_PED") != "" || $IS_NFE_COMPRA.getString("X_CONT") != "")
+    <compra>
+        <xNEmp>#getCompra("XNEMP")</xNEmp>
+        <xPed>#getCompra("X_PED")</xPed>
+        <xCont>#getCompra("X_CONT")</xCont>
+    </compra>
+#end

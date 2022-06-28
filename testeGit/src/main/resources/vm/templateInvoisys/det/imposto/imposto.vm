@@ -1,0 +1,21 @@
+    <imposto>
+##if ($!{util.isCampoValido($null, "VTOTTRIB")})
+##		<vTotTrib>$util.lerDecimal($null, "VTOTTRIB", "infNFe.det%s.imposto.vTotTrib", 2, $i)</vTotTrib>
+###end
+#if( $util.lerString($null, "VTOTTRIB", "infNFe.det%s.imposto.vTotTrib", $i) != "")
+    <vTotTrib>$util.lerDecimal($null, "VTOTTRIB", "infNFe.det%s.imposto.vTotTrib", 2, $i)</vTotTrib>
+#else
+    <vTotTrib>0.00</vTotTrib>
+#end
+		#parse("/vm/templateInvoisys/det/imposto/ICMS/ICMS.vm")
+		#parse("/vm/templateInvoisys/det/imposto/PIS.vm")
+		#parse("/vm/templateInvoisys/det/imposto/PISST.vm")
+		#parse("/vm/templateInvoisys/det/imposto/COFINS.vm")
+		#parse("/vm/templateInvoisys/det/imposto/COFINSST.vm")
+		#parse("/vm/templateInvoisys/det/imposto/IPI.vm")
+		#parse("/vm/templateInvoisys/det/imposto/II.vm")
+		##parse("/vm/templateInvoisys/det/imposto/ISSQN.vm")
+		
+		
+	
+    </imposto>

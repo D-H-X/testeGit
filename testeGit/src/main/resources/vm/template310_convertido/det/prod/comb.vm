@@ -1,0 +1,19 @@
+#if(! $!{util.isVazioOuZero($null, "OIL_CPRODANP", "infNFe.det%s.prod.comb.cProdANP", $i)} )
+	<comb>
+	    <cProdANP>$util.lerString($null, "OIL_CPRODANP", "infNFe.det%s.prod.comb.cProdANP", $i)</cProdANP>
+	#if(! $!{util.isVazioOuZero($null, "OIL_CODIF", "infNFe.det%s.prod.comb.CODIF", $i)} )
+	    <CODIF>$util.lerString($null, "OIL_CODIF", "infNFe.det%s.prod.comb.CODIF", $i)</CODIF>
+	#end
+	#if(! $!{util.isVazioOuZero($null, "OIL_GTEMP", "infNFe.det%s.prod.comb.qTemp", $i)} )
+	    <qTemp>$util.lerDecimal($null, "OIL_GTEMP", "infNFe.det%s.prod.comb.qTemp", 4, $i)</qTemp>
+	#end
+	    <UFCons>$util.lerString($null, "OIL_UFCONS", "infNFe.det%s.prod.comb.UFCons", $i)</UFCons>
+	#if(! $!{util.isVazioOuZero($null, "OIL_QBCPROD", "infNFe.det%s.prod.comb.CIDE.qBCProd", $i)} )
+	    <CIDE>
+	        <qBCProd>$util.lerDecimal($null, "OIL_QBCPROD", "infNFe.det%s.prod.comb.CIDE.qBCProd", 4, $i)</qBCProd>
+	        <vAliqProd>$util.lerDecimal($null, "OIL_VALIGPROD", "infNFe.det%s.prod.comb.CIDE.vAliqProd", 4, $i)</vAliqProd>
+	        <vCIDE>$util.lerDecimal($null, "OIL_VCIDE", "infNFe.det%s.prod.comb.CIDE.vCIDE", 2, $i)</vCIDE>
+	    </CIDE>
+	#end
+	</comb>
+#end

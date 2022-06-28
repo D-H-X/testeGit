@@ -1,0 +1,30 @@
+<nfeSap>
+    <docNum>$!{header.getString("DOCNUM")}</docNum>
+#if ($header.getString("DHCONT") != "" && $header.getString("XJUST") != "")
+    <dataEntradaCont>$!{header.getString("DHCONT")}</dataEntradaCont>
+    <dsMotivoCont>$!{header.getString("XJUST")}</dsMotivoCont>
+#end
+	<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+	    <infNFe Id="NFe$!{header.getString("ID")}" versao="2.00">
+	        #parse("/vm/template/macro.vm")
+	        #parse("/vm/template/ide.vm")
+	        #parse("/vm/template/emi.vm")
+	##      #parse("/vm/template/avulsa.vm")
+	        #parse("/vm/template/dest.vm")
+	        #parse("/vm/template/retirada.vm")
+	        #parse("/vm/template/entrega.vm")
+	$item.firstRow()
+	#foreach($i in [1..$item.getNumRows()] )
+	        #parse("/vm/template/det/det.vm")
+	##if vazio para chamar a proxima linha no JcoTable
+	#if($item.nextRow())#end
+	#end
+	        #parse("/vm/template/total.vm")
+	        #parse("/vm/template/transp.vm")
+	        #parse("/vm/template/cobranca.vm")
+	        #parse("/vm/template/infAdic.vm")
+	        #parse("/vm/template/exporta.vm")
+	        #parse("/vm/template/compra.vm")
+	    </infNFe>
+	</NFe>
+</nfeSap>

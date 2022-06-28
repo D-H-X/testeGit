@@ -1,0 +1,41 @@
+#if( $util.lerString($item, "L1_10_CST", "infNFe.det%s.imposto.ICMS.ICMS10.CST", $i) == "10" )
+	<icmS10>
+	    <orig>$util.lerString($item, "L1_10_ORIG", "infNFe.det%s.imposto.ICMS.ICMS10.orig", $i)</orig>
+	    ##<CST>$util.lerString($item, "L1_10_CST", "infNFe.det%s.imposto.ICMS.ICMS10.CST", $i)</CST>
+	    <modBC>$util.lerString($item, "L1_10_MODBC", "infNFe.det%s.imposto.ICMS.ICMS10.modBC", $i)</modBC>
+	    <vbc>$util.lerDecimal($item, "L1_10_VBC", "infNFe.det%s.imposto.ICMS.ICMS10.vBC", 2, $i)</vbc>
+	    
+	      #if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS10.FCP_PICMS", $i)} )
+		<picms>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS51.pICMS_FCP", 4, $i)</picms>
+	   #else
+	       #if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS10.pICMS10",  $i)} )
+	           <picms>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS10.pICMS10", 4, $i)</picms>
+               #elseif(! $!{util.isVazioOuZero($item, "L1_10_PICMS", "infNFe.det%s.imposto.ICMS.ICMS10.pICMS",  $i)} )
+	           <picms>$util.lerDecimal($item, "L1_10_PICMS", "infNFe.det%s.imposto.ICMS.ICMS10.pICMS", 4, $i)</picms>
+               #end	
+	   #end
+	    
+	    
+	    <vicms>$util.lerDecimal($item, "L1_10_VICMS", "infNFe.det%s.imposto.ICMS.ICMS10.vICMS", 2, $i)</vicms>
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS10.vBCFCP", $i)} )	    
+		<vbcfcp>$util.lerDecimal($item, "L1_10_VICMS", "infNFe.det%s.imposto.ICMS.ICMS10.vBCFCP", 2, $i)</vbcfcp>
+		<pfcp>$util.lerDecimal($item, "L1_10_VICMS", "infNFe.det%s.imposto.ICMS.ICMS10.pFCP", 4, $i)</pfcp>
+		<vfcp>$util.lerDecimal($item, "L1_10_VICMS", "infNFe.det%s.imposto.ICMS.ICMS10.vFCP", 2, $i)</vfcp>
+#end																			
+	    <modBCST>$util.lerString($item, "L1_10_MODBCST", "infNFe.det%s.imposto.ICMS.ICMS10.modBCST", $i)</modBCST>
+#if(! $!{util.isVazioOuZero($item, "L1_10_PMVAST", "infNFe.det%s.imposto.ICMS.ICMS10.pMVAST", $i)} )
+	    <pmvast>$util.lerDecimal($item, "L1_10_PMVAST", "infNFe.det%s.imposto.ICMS.ICMS10.pMVAST", 4, $i)</pmvast>
+#end
+#if(! $!{util.isVazioOuZero($item, "L1_10_PREDBCST", "infNFe.det%s.imposto.ICMS.ICMS10.pRedBCST", $i)} )
+	    <pRedBCST>$util.lerDecimal($item, "L1_10_PREDBCST", "infNFe.det%s.imposto.ICMS.ICMS10.pRedBCST", 4, $i)</pRedBCST>
+#end
+	    <vbcst>$util.lerDecimal($item, "L1_10_VBCST", "infNFe.det%s.imposto.ICMS.ICMS10.vBCST", 2, $i)</vbcst>
+	    <picmsst>$util.lerDecimal($item, "L1_10_PICMSST", "infNFe.det%s.imposto.ICMS.ICMS10.pICMSST", 4, $i)</picmsst>
+	    <vicmsst>$util.lerDecimal($item, "L1_10_VICMSST", "infNFe.det%s.imposto.ICMS.ICMS10.vICMSST", 2, $i)</vicmsst>
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS10.vBCFCPST", $i)} )	    
+	    <vbcfcpst>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS10.vBCFCPST", 2, $i)</vbcfcpst>
+	    <pfcpst>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS10.pFCPST", 2, $i)</pfcpst>
+	    <vfcpst>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS10.vFCPST", 2, $i)</vfcpst>
+#end	    
+	</icmS10>
+#end

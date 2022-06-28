@@ -1,0 +1,32 @@
+#if( $IT_NFE_PROD_COMB.getNumRows() > 0 )
+	$IT_NFE_PROD_COMB.firstRow()
+	#foreach($i in [1..$IT_NFE_PROD_COMB.getNumRows()] )
+		#if ( $IT_NFE_DET_PROD.getString("COMB_REF").equals($IT_NFE_PROD_COMB.getString("ID")) )
+
+			<comb>
+			    <cProdANP>#getComb("C_PROD_ANP")</cProdANP>
+				
+				#if( $IT_NFE_PROD_COMB.getString("CODIF") != "000000000000000000000" )
+			    <CODIF>#getComb("CODIF")</CODIF>
+				#end
+		
+				#if( $IT_NFE_PROD_COMB.getString("Q_TEMP") != "0.0000" )
+			    <qTemp>#getComb("Q_TEMP")</qTemp>
+				#end
+			    
+			    <UFCons>#getComb("UFCONS")</UFCons>
+		
+				#if( $IT_NFE_PROD_COMB.getString("Q_BCPROD") != "0.0000" )
+			    <CIDE>
+			        <qBCProd>#getComb("Q_BCPROD")</qBCProd>
+			        <vAliqProd>#getComb("V_ALIG_PROD")</vAliqProd>
+			        <vCIDE>#getComb("V_CIDE")</vCIDE>
+			    </CIDE>
+				#end
+			</comb>
+			
+		#end	
+		##if vazio para chamar a proxima linha no JcoTable
+		#if($IT_NFE_PROD_COMB.nextRow())#end
+	#end
+#end

@@ -1,0 +1,27 @@
+    <pag>
+        <detPag>
+##if(! $!{util.isVazioOuZero($header, "INDPAG", "infNFe.ide.indPag")} )     
+    		<indPag>#lerString($header, "INDPAG", "infNFe.ide.indPag")</indPag>
+##end    	
+
+		  #if( $util.lerString($null, $null, "infNFe.pag.detPag.tPag") == "99")			        
+           	<tPag>90</tPag>
+          #else	
+            <tPag>#lerString($null, $null, "infNFe.pag.detPag.tPag")</tPag>
+          #end 
+          
+          #if(! $!util.lerString($null, $null, "infNFe.pag.detPag.tPag") == "99" ||! $!util.lerString($null, $null, "infNFe.pag.detPag.tPag") == "90" )	
+            <vPag>0</vPag>
+             	
+           #else
+            <vPag>#lerString($null, $null, "infNFe.pag.detPag.vPag")</vPag> 	
+          #end  
+##		#if ($IT_NFE_PAG.getString("C_AUT") != "")
+##		<card>	
+##			<CNPJ>#getPag("CNPJ")</CNPJ>
+##			<tBand>#getPag("T_BAND")</tBand>
+##			<cAut>#getPag("C_AUT")</cAut>	
+##		</card>
+##	    #end
+        </detPag>
+    </pag>

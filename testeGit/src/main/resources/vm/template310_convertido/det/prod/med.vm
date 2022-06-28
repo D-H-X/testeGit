@@ -1,0 +1,14 @@
+#if($util.getNumeroLinhas($medicamento, "infNFe.det%s.prod.med.rowCount", $i) > 0)
+	$medicamento.firstRow()
+	#foreach($j in [1..$util.getNumeroLinhas($medicamento, "infNFe.det%s.prod.med.rowCount", $i)] )
+		<med>
+			<nLote>$util.lerString($medicamento, "J_NLOTE", "infNFe.det%s.prod.med%s.nLote", $i, $j)</nLote>
+			<qLote>$util.lerDecimal($medicamento, "J_QLOTE", "infNFe.det%s.prod.med%s.qLote", 3, $i, $j)</qLote>
+			<dFab>$util.lerString($medicamento, "J_DFAB", "infNFe.det%s.prod.med%s.dFab", $i, $j)</dFab>
+			<dVal>$util.lerString($medicamento, "J_DVAL", "infNFe.det%s.prod.med%s.dVal", $i, $j)</dVal>
+			<vPMC>$util.lerDecimal($medicamento, "J_VPMC", "infNFe.det%s.prod.med%s.vPMC", 2, $i, $j)</vPMC>
+		</med>
+	##if vazio para chamar a proxima linha no JcoTable
+	#if($medicamento.nextRow())#end
+	#end
+#end

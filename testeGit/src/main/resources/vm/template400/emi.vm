@@ -1,0 +1,39 @@
+    <emit>
+        <CNPJ>#lerString($header, "C_CNPJ", "infNFe.emit.CNPJ")</CNPJ>
+        <xNome>#removeAcentos($header, "C_XNOME", "infNFe.emit.xNome")</xNome>
+	#if (! $!{util.isVazio($header, "C_XFANT", "infNFe.emit.xFant")} )
+        <xFant>#removeAcentos($header, "C_XFANT", "infNFe.emit.xFant")</xFant>
+	#end
+        <enderEmit>
+            <xLgr>#removeAcentos($header, "C1_XLGR", "infNFe.emit.enderEmit.xLgr")</xLgr>
+            <nro>#removeAcentos($header, "C1_NRO", "infNFe.emit.enderEmit.nro")</nro>
+	#if(! $!{util.isVazio($header, "C1_XCPL", "infNFe.emit.enderEmit.xCpl")} )
+            <xCpl>#removeAcentos($header, "C1_XCPL", "infNFe.emit.enderEmit.xCpl")</xCpl>
+	#end
+            <xBairro>#removeAcentos($header, "C1_XBAIRRO", "infNFe.emit.enderEmit.xBairro")</xBairro>
+            <cMun>#lerString($header, "C1_CMUN", "infNFe.emit.enderEmit.cMun")</cMun>
+            <xMun>#removeAcentos($header, "C1_XMUN", "infNFe.emit.enderEmit.xMun")</xMun>
+            <UF>#lerString($header, "C1_UF", "infNFe.emit.enderEmit.UF")</UF>
+            <CEP>#lerString($header, "C1_CEP", "infNFe.emit.enderEmit.CEP")</CEP>
+	#if(! $!{util.isVazio($header, "C1_CPAIS", "infNFe.emit.enderEmit.cPais")} )
+            <cPais>#lerString($header, "C1_CPAIS", "infNFe.emit.enderEmit.cPais")</cPais>
+	#end
+	#if(! $!{util.isVazio($header, "C1_XPAIS", "infNFe.emit.enderEmit.xPais")} )
+            <xPais>#removeAcentos($header, "C1_XPAIS", "infNFe.emit.enderEmit.xPais")</xPais>
+	#end
+	#if(! $!{util.isVazio($header, "C1_FONE", "infNFe.emit.enderEmit.fone")} )
+            <fone>#lerString($header, "C1_FONE", "infNFe.emit.enderEmit.fone")</fone>
+	#end
+        </enderEmit>
+        <IE>#lerString($header, "C1_IE", "infNFe.emit.IE")</IE>
+	#if(! $!{util.isVazio($header, "C1_IEST", "infNFe.emit.IEST")} )
+        <IEST>#lerString($header, "C1_IEST", "infNFe.emit.IEST")</IEST>
+	#end
+	#if(! $!{util.isVazio($header, "C1_IM", "infNFe.emit.IM")} )
+        <IM>#lerString($header, "C1_IM", "infNFe.emit.IM")</IM>
+	#end
+	#if(! $!{util.isVazio($header, "C1_CNAE", "infNFe.emit.CNAE")} )
+        <CNAE>#lerString($header, "C1_CNAE", "infNFe.emit.CNAE")</CNAE>
+	#end
+       <CRT>#lerString($header, "CRT", "infNFe.emit.CRT")</CRT>
+    </emit>

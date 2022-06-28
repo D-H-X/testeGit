@@ -1,0 +1,155 @@
+    <transp>
+        <modFrete>#getTransportadora("MOD_FRETE")</modFrete>
+        
+		#if( $IS_NFE_PARTNER_IDS.getString("PARTNER_ID_TRANSPORTA")  != "" && $IS_NFE_PARTNER_IDS.getString("PARTNER_ID_TRANSPORTA")  != "000000" )
+	 
+	 		## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+			$IT_NFE_PARTNER.firstRow()
+			#foreach($i in [1..$IT_NFE_PARTNER.getNumRows()] )
+				#if($IS_NFE_PARTNER_IDS.getString("PARTNER_ID_TRANSPORTA").equals($IT_NFE_PARTNER.getString("ID")))
+		        
+			        <transporta>
+						#if( $IT_NFE_PARTNER.getString("CNPJ") != "" && $IT_NFE_PARTNER.getString("CNPJ") != "00000000000000" )
+					    <CNPJ>#getPartner("CNPJ")</CNPJ>
+						#end
+					
+						#if( $IT_NFE_PARTNER.getString("CPF") != "" && $IT_NFE_PARTNER.getString("CPF") != "00000000000" )
+				        <CPF>#getPartner("CPF")</CPF>
+						#end
+						
+						#if( $IT_NFE_PARTNER.getString("X_NOME") != "" )
+					    <xNome>#getPartner("X_NOME")</xNome>
+						#end
+						
+						#if( $IT_NFE_PARTNER.getString("IE") != "" )
+					    <IE>#getPartner("IE")</IE>
+						#end
+						
+						#if( $IT_NFE_PARTNER.getString("X_END") != "" )
+					    <xEnder>#getPartner("X_END")</xEnder>
+						#end
+						
+						#if( $IT_NFE_PARTNER.getString("X_MUN") != "" )
+					    <xMun>#getPartner("X_MUN")</xMun>
+						#end
+						
+						#if( $IT_NFE_PARTNER.getString("UF") != "" )
+					    <UF>#getPartner("UF")</UF>
+						#end
+						
+		        	</transporta>
+				#end
+					
+				#if($IT_NFE_PARTNER.nextRow())
+				#end
+			#end
+		#end	
+			
+		#if( $IS_NFE_TRANSP.getString("C_MUN_FG") != "" && $IS_NFE_TRANSP.getString("C_MUN_FG") != "0000000" )
+        <retTransp>
+            <vServ>#getTransportadora("V_SERV")</vServ>
+            <vBCRet>#getTransportadora("V_BCRET")</vBCRet>
+            <pICMSRet>#getTransportadora("P_ICMSRET")</pICMSRet>
+            <vICMSRet>#getTransportadora("V_ICMSRET")</vICMSRet>
+            <CFOP>#getTransportadora("CFOP")</CFOP>
+            <cMunFG>#getTransportadora("C_MUN_FG")</cMunFG>
+        </retTransp>
+		#end
+
+		#if( $IS_NFE_TRANSP.getString("PLACA") != "" )
+        <veicTransp>
+            <placa>#getTransportadora("PLACA")</placa>
+            <UF>#getTransportadora("UF")</UF>
+            #if( $IS_NFE_TRANSP.getString("RNTC") != "" )
+               <RNTC>#getTransportadora("RNTC")</RNTC>
+            #end
+        </veicTransp>
+		#end
+		
+		#if ($IT_NFE_REBOQUE.getNumRows() > 0)
+			$IT_NFE_REBOQUE.firstRow()
+			#foreach($reb in [1..$IT_NFE_REBOQUE.getNumRows()] )
+			
+				#if( $IT_NFE_REBOQUE.getString("PLACA") != "" )
+		        <reboque>
+		            <placa>#getReboque("PLACA")</placa>
+		            <UF>#getReboque("UF")</UF>
+		            #if( $IT_NFE_REBOQUE.getString("RNTC") != "" )
+		               <RNTC>#getReboque("RNTC")</RNTC>
+		            #end 
+		        </reboque>
+				#end
+				
+			    #if($IT_NFE_REBOQUE.nextRow())
+				#end
+			#end
+		#end
+		
+		#if( $IS_NFE_TRANSP.getString("VAGAO") != "" )
+        <vagao>#getTransportadora("VAGAO")</vagao>
+		#end
+
+		#if( $IS_NFE_TRANSP.getString("BALSA") != "" )
+        <balsa>#getTransportadora("BALSA")</balsa>
+		#end
+		
+		#if ($IT_NFE_VOL.getNumRows() > 0)
+		
+			$IT_NFE_VOL.firstRow()
+			#foreach($vol in [1..$IT_NFE_VOL.getNumRows()] )
+					
+				#if( $IT_NFE_VOL.getString("Q_VOL") != "" ||
+				     $IT_NFE_VOL.getString("ESP") != ""  ||
+				     $IT_NFE_VOL.getString("MARCA") != ""||
+				     $IT_NFE_VOL.getString("N_VOL") != "" ||
+				     $IT_NFE_VOL.getString("PESO_L") != ""||
+				     $IT_NFE_VOL.getString("PESO_B") != "")
+		        <vol>
+					
+					#if( $IT_NFE_VOL.getString("Q_VOL") != "0" )
+					<qVol>#getVol("QVOL")</qVol>
+					#end
+					
+					#if( $IT_NFE_VOL.getString("ESP") != "" )
+		            <esp>#getVol("ESP")</esp>
+					#end
+					
+					#if( $IT_NFE_VOL.getString("MARCA") != "" )
+		            <marca>#getVol("MARCA")</marca>
+					#end
+					
+					#if( $IT_NFE_VOL.getString("N_VOL") != "" )
+		            <nVol>#getVol("N_VOL")</nVol>
+					#end
+					
+					#if( $IT_NFE_VOL.getString("PESO_L") != "" && $header.getString("PESO_L") != "0.000" )
+		            <pesoL>#getVol("PESO_L")</pesoL>
+					#end
+					
+					#if( $IT_NFE_VOL.getString("PESO_B") != "" &&  $header.getString("PESO_B") != "0.000" )
+		            <pesoB>#getVol("PESO_B")</pesoB>
+					#end
+					
+					#if( $IT_NFE_VOL.getString("TEXT_ID_LACRES") != "" && $IT_NFE_VOL.getString("TEXT_ID_LACRES") != "000000" )
+						$IT_NFE_TEXT.firstRow()
+						#foreach($i in [1..$IT_NFE_TEXT.getNumRows()] )
+							#if($IT_NFE_VOL.getString("TEXT_ID_LACRES").equals($IT_NFE_TEXT.getString("ID")))
+				            <lacres>
+				                <nLacre>#getText("TEXT")</nLacre>
+				            </lacres>
+				            #end
+				            
+				            #if($IT_NFE_TEXT.nextRow())
+							#end
+			            #end
+					#end
+					
+		        </vol>
+				#end
+				
+		    #if($IT_NFE_VOL.nextRow())
+			#end				
+			#end
+		#end
+		
+    </transp>

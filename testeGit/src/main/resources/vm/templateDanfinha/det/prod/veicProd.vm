@@ -1,0 +1,28 @@
+#if(! $!{util.isVazio($null, "I_CHASSI", "infNFe.det%s.prod.veicProd.chassi", $i)} )
+	<veicProd>
+		<tpOp>$util.lerString($null, "I_TPOP", "infNFe.det%s.prod.veicProd.tpOp", $i)</tpOp>
+		<chassi>$util.lerString($null, "I_CHASSI", "infNFe.det%s.prod.veicProd.chassi", $i)</chassi>
+		<cCor>$util.lerString($null, "I_COR", "infNFe.det%s.prod.veicProd.cCor", $i)</cCor>
+		<xCor>$util.lerString($null, "I_XCOR", "infNFe.det%s.prod.veicProd.xCor", $i)</xCor>
+		<pot>$util.lerString($null, "I_POT", "infNFe.det%s.prod.veicProd.pot", $i)</pot>
+		<cilin>$util.lerString($null, "I_CM3", "infNFe.det%s.prod.veicProd.cilin", $i)</cilin>
+		<pesoL>$util.lerString($null, "I_PESOL", "infNFe.det%s.prod.veicProd.pesoL", $i))</pesoL>
+		<pesoB>$util.lerString($null, "I_PESOB", "infNFe.det%s.prod.veicProd.pesoB", $i)</pesoB>
+		<nSerie>$util.lerString($null, "I_NSERIE", "infNFe.det%s.prod.veicProd.nSerie", $i)</nSerie>
+		<tpComb>$util.lerString($null, "I_TPCOMB", "infNFe.det%s.prod.veicProd.tpComb", $i)</tpComb>
+		<nMotor>$util.lerString($null, "I_NMOTOR", "infNFe.det%s.prod.veicProd.nMotor", $i)</nMotor>
+		<CMT>$util.lerString($null, "I_CMKG", "infNFe.det%s.prod.veicProd.CMT", $i)</CMT>
+		<dist>$util.lerString($null, "I_DIST", "infNFe.det%s.prod.veicProd.dist", $i)</dist>
+		<anoMod>$util.lerString($null, "I_ANOMOD", "infNFe.det%s.prod.veicProd.anoMod", $i)</anoMod>
+		<anoFab>$util.lerString($null, "I_ANOFAB", "infNFe.det%s.prod.veicProd.anoFab", $i)</anoFab>
+		<tpPint>$util.lerString($null, "I_TPPINT", "infNFe.det%s.prod.veicProd.tpPint", $i)</tpPint>
+		<tpVeic>$util.lerString($null, "I_TPVEIC", "infNFe.det%s.prod.veicProd.tpVeic", $i)</tpVeic>
+		<espVeic>$util.lerString($null, "I_ESPVEIC", "infNFe.det%s.prod.veicProd.espVeic", $i)</espVeic>
+		<VIN>$util.lerString($null, "I_VIN", "infNFe.det%s.prod.veicProd.VIN", $i)</VIN>
+		<condVeic>$util.lerString($null, "I_CONDVEIC", "infNFe.det%s.prod.veicProd.condVeic", $i)</condVeic>
+		<cMod>$util.lerString($null, "I_CMOD", "infNFe.det%s.prod.veicProd.cMod", $i)</cMod>
+		<cCorDENATRAN>$util.lerString($null, "CCORDEN", "infNFe.det%s.prod.veicProd.cCorDENATRAN", $i)</cCorDENATRAN>
+		<lota>$util.lerString($null, "LOTA", "infNFe.det%s.prod.veicProd.lota", $i)</lota>
+		<tpRest>$util.lerString($null, "TPREST", "infNFe.det%s.prod.veicProd.tpRest", $i)</tpRest>
+	</veicProd>
+#end

@@ -1,0 +1,13 @@
+    <det>
+    	<nItem>$util.lerInt($null, "NITEM", "infNFe.det%s.nItem", $i)</nItem>
+        #parse("/vm/templateInvoisys/det/prod/prod.vm")
+        #parse("/vm/templateInvoisys/det/imposto/imposto.vm")
+	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.impostoDevol.pDevol", $i)} )
+		<impostoDevol>
+			<pDevol>$util.lerDecimal($null, $null, "infNFe.det%s.impostoDevol.pDevol", 2, $i)</pDevol>
+			<IPI>
+				<vIPIDevol>$util.lerDecimal($null, $null, "infNFe.det%s.impostoDevol.IPI.vIPIDevol", 2, $i)</vIPIDevol>
+			</IPI>
+		</impostoDevol>
+	#end
+    </det>

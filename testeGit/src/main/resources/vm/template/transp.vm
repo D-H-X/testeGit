@@ -1,0 +1,131 @@
+    <transp>
+        ##<modFrete>#getHeader("T_MODFRETE")</modFrete>
+        <modFrete>0</modFrete>
+#if( $header.getString("T1_CNPJ")  != "" || 
+	 $header.getString("T1_CPF")   != "" ||
+	 $header.getString("T1_XNOME") != "" ||
+	 $header.getString("T1_IE")    != "" ||
+	 $header.getString("T1_XEND")  != "" ||
+	 $header.getString("T1_XMUN")  != "" || 
+	 $header.getString("T1_UF")    != "" )
+        <transporta>
+	#if( $header.getString("T1_CNPJ") != "" && $header.getString("T1_CNPJ") != "00000000000000" )
+	        <CNPJ>#getHeader("T1_CNPJ")</CNPJ>
+	#end
+	#if( $header.getString("T1_CPF") != "" && $header.getString("T1_CPF") != "00000000000" )
+            <CPF>#getHeader("T1_CPF")</CPF>
+	#end
+	#if( $header.getString("T1_XNOME") != "" )
+            <xNome>#getHeader("T1_XNOME")</xNome>
+	#end
+	#if( $header.getString("T1_IE") != "" )
+            <IE>#getHeader("T1_IE")</IE>
+	#end
+	#if( $header.getString("T1_XEND") != "" )
+            <xEnder>#getHeader("T1_XEND")</xEnder>
+	#end
+	#if( $header.getString("T1_XMUN") != "" )
+            <xMun>#getHeader("T1_XMUN")</xMun>
+	#end
+	#if( $header.getString("T1_UF") != "" )
+            <UF>#getHeader("T1_UF")</UF>
+	#end
+        </transporta>
+#end
+#if( $header.getString("T5_CMUNFG") != "" )
+        <retTransp>
+            <vServ>#getHeader("T5_VSERV")</vServ>
+            <vBCRet>#getHeader("T5_VBCRET")</vBCRet>
+            <pICMSRet>#getHeader("T5_PICMSRET")</pICMSRet>
+            <vICMSRet>#getHeader("T5_VICMSRET")</vICMSRet>
+            <CFOP>#getHeader("T5_CFOP")</CFOP>
+            <cMunFG>#getHeader("T5_CMUNFG")</cMunFG>
+        </retTransp>
+#end
+#if( $header.getString("T2_PLACA") != "" )
+        <veicTransp>
+            <placa>#getHeader("T2_PLACA")</placa>
+            <UF>#getHeader("T2_UF1")</UF>
+            #if( $header.getString("T2_RNTC") != "" )
+               <RNTC>#getHeader("T2_RNTC")</RNTC>
+            #end
+        </veicTransp>
+#end
+#if( $header.getString("T3_PLACA") != "" )
+        <reboque>
+            <placa>#getHeader("T3_PLACA")</placa>
+            <UF>#getHeader("T3_UF1")</UF>
+            #if( $header.getString("T3_RNTC") != "" )
+               <RNTC>#getHeader("T3_RNTC")</RNTC>
+            #end 
+        </reboque>
+#end
+#if( $header.getString("T3_VAGAO") != "" )
+            <vagao>#getHeader("T3_VAGAO")</vagao>
+#end
+#if( $header.getString("T3_BALSA") != "" )
+            <balsa>#getHeader("T3_BALSA")</balsa>
+#end
+#if( $header.getString("T4_QVOL") != "0" ||
+     $header.getString("T4_ESP") != ""  ||
+     $header.getString("T4_MARCA") != ""||
+     $header.getString("T4_NVOL") != "" ||
+     $header.getString("T4_PESOL") != "0.000"||
+     $header.getString("T4_PESOB") != "0.000"||
+     $header.getString("T4_NLACRE") != "")
+        <vol>
+#if( $header.getString("T4_QVOL") != "0" )
+            <qVol>#getHeader("T4_QVOL")</qVol>
+#end
+#if( $header.getString("T4_ESP") != "" )
+            <esp>#getHeader("T4_ESP")</esp>
+#end
+#if( $header.getString("T4_MARCA") != "" )
+            <marca>#getHeader("T4_MARCA")</marca>
+#end
+#if( $header.getString("T4_NVOL") != "" )
+            <nVol>#getHeader("T4_NVOL")</nVol>
+#end
+#if( $header.getString("T4_PESOL") != "" && $header.getString("T4_PESOL") != "0.000" )
+            <pesoL>#getHeader("T4_PESOL")</pesoL>
+#end
+#if( $header.getString("T4_PESOB") != "" &&  $header.getString("T4_PESOB") != "0.000" )
+            <pesoB>#getHeader("T4_PESOB")</pesoB>
+#end
+#if( $header.getString("T4_NLACRE") != "" )
+            <lacres>
+                <nLacre>#getHeader("T4_NLACRE")</nLacre>
+            </lacres>
+#end
+        </vol>
+#elseif( $vol.getNumRows() != 0 ) 
+
+#if( $vol.getString("T4_QVOL") != "0" ||
+     $vol.getString("T4_ESP") != ""  ||
+     $vol.getString("T4_MARCA") != "" ||
+     $header.getString("T4_NVOL") != "" ||
+     $header.getString("T4_PESOL") != "0.000"||
+     $header.getString("T4_PESOB") != "0.000" ) 
+        <vol>
+#if( $vol.getString("T4_QVOL") != "0" )
+            <qVol>#getVol("T4_QVOL")</qVol>
+#end
+#if( $vol.getString("T4_ESP") != "" )
+            <esp>#getVol("T4_ESP")</esp>
+#end
+#if( $vol.getString("T4_MARCA") != "" )
+            <marca>#getVol("T4_MARCA")</marca>
+#end
+#if( $vol.getString("T4_NVOL") != "" )
+            <nVol>#getVol("T4_NVOL")</nVol>
+#end
+#if( $vol.getString("T4_PESOL") != "" && $vol.getString("T4_PESOL") != "0.000" )
+            <pesoL>#getVol("T4_PESOL")</pesoL>
+#end
+#if( $vol.getString("T4_PESOB") != "" &&  $vol.getString("T4_PESOB") != "0.000" )
+            <pesoB>#getVol("T4_PESOB")</pesoB>
+#end
+        </vol>
+#end
+#end
+    </transp>

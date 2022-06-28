@@ -1,0 +1,10 @@
+    <det nItem="$IT_NFE_DET.getInt("N_ITEM")">
+    
+        #parse("/vm/template310/det/prod/prod.vm")
+        #parse("/vm/template310/det/imposto/imposto.vm")
+		
+		#if( $IT_NFE_DET.getString("INF_AD_PROD") && $IT_NFE_DET.getString("INF_AD_PROD") != "")
+        <infAdProd>#getItem("INF_AD_PROD")</infAdProd>
+		#end
+		
+    </det>

@@ -1,0 +1,44 @@
+<nfeSap>
+	#parse("/vm/template400/macro.vm")
+    <docNum>#lerString($header, "DOCNUM", "sap.docnum")</docNum>
+#if (!$!{util.isVazio($header, "DHCONT", "infNFe.ide.dhCont")} && !$!{util.isVazio($header, "XJUST", "infNFe.ide.xJust")})
+    <dataEntradaCont>#lerString($header, "DHCONT", "infNFe.ide.dhCont")</dataEntradaCont>
+    <dsMotivoCont>#lerString($header, "XJUST", "infNFe.ide.xJust")</dsMotivoCont>
+#end
+	<!-- VERSÃO DO TEMPLATE: 20150120.1118 -->
+	<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+	    <infNFe Id="NFe#lerString($header, "ID", "infNFe.ide.Id")" versao="4.00">
+	        #parse("/vm/template400/ide.vm")
+	        #parse("/vm/template400/emi.vm")
+	##      #parse("/vm/template400/avulsa.vm")
+	        #parse("/vm/template400/dest.vm")
+	        #parse("/vm/template400/retirada.vm")
+	        #parse("/vm/template400/entrega.vm")
+			#parse("/vm/template400/aut.vm")
+	
+			#if($util.getNumeroLinhas($null, "infNFe.det.rowCount") > 0)
+			    ## Como os valores podem ser agrupados, não é possível iterar simultaneamente
+				## os itens customizados e os itens retornados pelo SAP.
+				## $item.firstRow()
+				
+				#foreach($i in [1..$util.getNumeroLinhas($null, "infNFe.det.rowCount")] )
+					
+					#parse("/vm/template400/det/det.vm")
+					##if vazio para chamar a proxima linha no JcoTable
+					## Removida a iteração com $item, pois em caso de itens agrupados
+					## a correspondência entre os itens customizados e os retornados
+					## pelo SAP pode não ocorrer.
+					##if($item.nextRow())#end
+				#end
+	        #end
+			
+	        #parse("/vm/template400/total.vm")
+	        #parse("/vm/template400/transp.vm")
+	        #parse("/vm/template400/cobranca.vm")
+		#parse("/vm/template400/pag.vm")
+	        #parse("/vm/template400/infAdic.vm")
+	        #parse("/vm/template400/exporta.vm")
+	        #parse("/vm/template400/compra.vm")
+	    </infNFe>
+	</NFe>
+</nfeSap>

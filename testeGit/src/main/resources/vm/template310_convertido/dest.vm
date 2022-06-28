@@ -1,0 +1,56 @@
+    <dest>
+        
+	#if(! $!{util.isVazioOuZero($header, "E_CPF", "infNFe.dest.CPF")} )
+        <CPF>#lerString($header, "E_CPF", "infNFe.dest.CPF")</CPF>
+	#else
+        <CNPJ>#lerString($header, "E_CNPJ", "infNFe.dest.CNPJ")</CNPJ>
+	#end
+		
+	#if (! $!{util.isVazio($null, $null, "infNFe.dest.idEstrangeiro")} )
+		<idEstrangeiro>#lerString($null, $null, "infNFe.dest.idEstrangeiro")</idEstrangeiro>
+	#end
+		
+        <xNome>#removeAcentos($header, "E_XNOME", "infNFe.dest.xNome")</xNome>
+        <enderDest>
+            <xLgr>#removeAcentos($header, "E1_XLGR", "infNFe.dest.enderDest.xLgr")</xLgr>
+            <nro>#lerString($header, "E1_NRO", "infNFe.dest.enderDest.nro")</nro>
+	#if(! $!{util.isVazio($header, "E1_XCPL", "infNFe.dest.enderDest.xCpl")} )
+            <xCpl>#lerString($header, "E1_XCPL", "infNFe.dest.enderDest.xCpl")</xCpl>
+	#end
+            <xBairro>#removeAcentos($header, "E1_XBAIRRO", "infNFe.dest.enderDest.xBairro")</xBairro>
+            <cMun>#lerString($header, "E1_CMUN", "infNFe.dest.enderDest.cMun")</cMun>
+            <xMun>#removeAcentos($header, "E1_XMUN", "infNFe.dest.enderDest.xMun")</xMun>
+            <UF>#lerString($header, "E1_UF", "infNFe.dest.enderDest.UF")</UF>
+	#if(! $!{util.isVazio($header, "E1_CEP", "infNFe.dest.enderDest.CEP")} )
+            <CEP>#lerString($header, "E1_CEP", "infNFe.dest.enderDest.CEP")</CEP>
+	#end
+	#if(! $!{util.isVazio($header, "E1_CPAIS", "infNFe.dest.enderDest.cPais")} )
+            <cPais>#lerString($header, "E1_CPAIS", "infNFe.dest.enderDest.cPais")</cPais>
+	#end
+	#if(! $!{util.isVazio($header, "E1_XPAIS", "infNFe.dest.enderDest.xPais")} )
+            <xPais>#removeAcentos($header, "E1_XPAIS", "infNFe.dest.enderDest.xPais")</xPais>
+	#end
+	#if(! $!{util.isVazio($header, "E1_FONE", "infNFe.dest.enderDest.fone")} )
+            <fone>#lerString($header, "E1_FONE", "infNFe.dest.enderDest.fone")</fone>
+	#end
+        </enderDest>
+
+		<indIEDest>#lerString($null, $null, "infNFe.dest.indIEDest")</indIEDest>
+	#if(! $!{util.isVazio($header, "E1_IE", "infNFe.dest.IE")} )
+        <IE>#lerString($header, "E1_IE", "infNFe.dest.IE")</IE>
+	#end
+		
+	#if(! $!{util.isVazio($header, "E1_ISUF", "infNFe.dest.ISUF")} )
+        <ISUF>#lerString($header, "E1_ISUF", "infNFe.dest.ISUF")</ISUF>
+	#end
+		
+	#if(! $!{util.isVazio($null, $null, "infNFe.dest.IM")} )
+		<IM>#lerString($null, $null, "infNFe.dest.IM")</IM>
+	#end
+
+
+	#if (! $!{util.isVazio($header, "EMAIL", "infNFe.dest.email")} )
+        <email>#lerString($header, "EMAIL", "infNFe.dest.email")</email>
+	#end
+
+    </dest>

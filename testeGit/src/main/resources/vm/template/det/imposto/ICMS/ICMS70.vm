@@ -1,0 +1,21 @@
+#if( $item.getString("L1_70_CST") == "70" )
+	<ICMS70>
+	    <orig>#getItem("L1_70_ORIG")</orig>
+	    <CST>#getItem("L1_70_CST")</CST>
+	    <modBC>#getItem("L1_70_MODBC")</modBC>
+	    <pRedBC>#getItem("L1_70_PREDBC")</pRedBC>
+	    <vBC>#getItem("L1_70_VBC")</vBC>
+	    <pICMS>#getItem("L1_70_PICMS")</pICMS>
+	    <vICMS>#getItem("L1_70_VICMS")</vICMS>
+	    <modBCST>#getItem("L1_70_MODBCST")</modBCST>
+#if( $item.getString("L1_70_PMVAST") != "0.00" )
+	    <pMVAST>#getItem("L1_70_PMVAST")</pMVAST>
+#end
+#if( $item.getString("L1_70_PREDBCST") != "0.00" )
+	    <pRedBCST>#getItem("L1_70_PREDBCST")</pRedBCST>
+#end
+	    <vBCST>#getItem("L1_70_VBCST")</vBCST>
+	    <pICMSST>#getItem("L1_70_PICMSST")</pICMSST>
+	    <vICMSST>#getItem("L1_70_VICMSST")</vICMSST>
+	</ICMS70>
+#end

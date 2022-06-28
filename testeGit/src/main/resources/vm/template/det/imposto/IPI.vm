@@ -1,0 +1,38 @@
+#if( $item.getString("N1_CST") != "" || $item.getString("N2_CST") != "" )
+<IPI>
+#if( $item.getString("N_CLENQ") != "" )
+    <clEnq>#getItem("N_CLENQ")</clEnq>
+#end
+#if( $item.getString("N_CNPJPROD") != "" )
+    <CNPJProd>#getItem("N_CNPJPROD")</CNPJProd>
+#end
+#if( $item.getString("N_CSELO") != "" )
+    <cSelo>#getItem("N_CSELO")</cSelo>
+#end
+#if( $item.getString("N_QSELO") != "000000000000" )
+    <qSelo>#getItem("N_QSELO")</qSelo>
+#end
+    <cEnq>#getItem("N_CENQ")</cEnq>
+#if( $item.getString("N1_CST") == "00" ||
+     $item.getString("N1_CST") == "49" ||
+     $item.getString("N1_CST") == "50" ||
+     $item.getString("N1_CST") == "99"  )
+    <IPITrib>
+        ##<CST>#getItem("N1_CST")</CST>
+        <CST>52</CST>
+#if( $item.getString("N1_VBC") != "0.00" )
+        <vBC>#getItem("N1_VBC")</vBC>
+        <pIPI>#getItem("N1_PIPI")</pIPI>
+#elseif($item.getString("N1_VUNID") != "0.0000")
+        <qUnid>#getItem("N1_QUNID")</qUnid>
+        <vUnid>#getItem("N1_VUNID")</vUnid>
+#end
+        <vIPI>#getItem("N1_VIPI")</vIPI>
+    </IPITrib>
+#else
+    <IPINT>
+        <CST>#getItem("N2_CST")</CST>
+    </IPINT>
+#end
+</IPI>
+#end

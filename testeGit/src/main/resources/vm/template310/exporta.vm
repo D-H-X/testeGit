@@ -1,0 +1,11 @@
+#if( $IS_NFE_EXPORTA.getString("UF_SAIDA_PAIS") != "" || $IS_NFE_EXPORTA.getString("X_LOC_EXPORTA") != "")
+    <exporta>
+        <UFSaidaPais>#getExporta("UF_SAIDA_PAIS")</UFSaidaPais>
+        <xLocExporta>#getExporta("X_LOC_EXPORTA")</xLocExporta>
+        
+        #if ( $IS_NFE_EXPORTA.getString("X_LOC_DESPACHO") != "" )
+        	<xLocDespacho>#getExporta("X_LOC_DESPACHO")</xLocDespacho>
+        #end
+        
+    </exporta>
+#end

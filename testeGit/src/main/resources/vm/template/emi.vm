@@ -1,0 +1,40 @@
+    <emit>
+        <CNPJ>#getHeader("C_CNPJ")</CNPJ>
+        ##<xNome>#getHeader("C_XNOME")</xNome>
+        <xNome>FABRICA ITU</xNome>
+#if( $header.getString("C_XFANT") != "" )
+        <xFant>#getHeader("C_XFANT")</xFant>
+#end
+        <enderEmit>
+            <xLgr>#getHeader("C1_XLGR")</xLgr>
+            <nro>#getHeader("C1_NRO")</nro>
+#if( $header.getString("C1_XCPL") != "" )
+            <xCpl>#getHeader("C1_XCPL")</xCpl>
+#end
+            <xBairro>#getHeader("C1_XBAIRRO")</xBairro>
+            <cMun>#getHeader("C1_CMUN")</cMun>
+            <xMun>#getHeader("C1_XMUN")</xMun>
+            <UF>#getHeader("C1_UF")</UF>
+            <CEP>#getHeader("C1_CEP")</CEP>
+#if( $header.getString("C1_CPAIS") != "" )
+            <cPais>#getHeader("C1_CPAIS")</cPais>
+#end
+#if( $header.getString("C1_XPAIS") != "" )
+            <xPais>#getHeader("C1_XPAIS")</xPais>
+#end
+#if( $header.getString("C1_FONE") != "" )
+            <fone>#getHeader("C1_FONE")</fone>
+#end
+        </enderEmit>
+        <IE>#getHeader("C1_IE")</IE>
+#if( $header.getString("C1_IEST") != "" )
+        <IEST>#getHeader("C1_IEST")</IEST>
+#end
+#if( $header.getString("C1_IM") != "" )
+        <IM>#getHeader("C1_IM")</IM>
+#end
+#if( $header.getString("C1_CNAE") != "" )
+        <CNAE>#getHeader("C1_CNAE")</CNAE>
+#end
+       <CRT>#getHeader("CRT")</CRT>
+    </emit>

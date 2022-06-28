@@ -1,0 +1,16 @@
+#if( $IT_NFE_PROD_MED.getNumRows() > 0 )
+	$IT_NFE_PROD_MED.firstRow()
+	#foreach($i in [1..$IT_NFE_PROD_MED.getNumRows()] )
+		#if ( $IT_NFE_DET_PROD.getString("MED_REF").equals($IT_NFE_PROD_MED.getString("ID")) )
+			<med>
+			    <nLote>#getMedicamento("N_LOTE")</nLote>
+			    <qLote>#getMedicamento("Q_LOTE")</qLote>
+			    <dFab>#getMedicamento("D_FAB")</dFab>
+			    <dVal>#getMedicamento("D_VAL")</dVal>
+			    <vPMC>#getMedicamento("V_PMC")</vPMC>
+			</med>
+		#end	
+		##if vazio para chamar a proxima linha no JcoTable
+		#if($IT_NFE_PROD_MED.nextRow())#end
+	#end
+#end

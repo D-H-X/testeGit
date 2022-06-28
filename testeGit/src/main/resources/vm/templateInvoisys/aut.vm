@@ -1,0 +1,10 @@
+#if( (! $!{util.isVazio($null, $null, "infNFe.autXML.CNPJ")} ) || 
+	 (! $!{util.isVazio($null, $null, "infNFe.autXML.CPF")} ) )
+		<autXML>
+			#if (! $!{util.isVazio($null, $null, "infNFe.autXML.CNPJ")} )
+			<cnpj>#lerString($null, $null, "infNFe.autXML.CNPJ")</cnpj>
+			#else
+			<cpf>#lerString($null, $null, "infNFe.autXML.CPF")</cpf>
+			#end		
+		</autXML>
+#end

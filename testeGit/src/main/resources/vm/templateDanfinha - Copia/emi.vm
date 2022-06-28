@@ -1,0 +1,3 @@
+##    <emit>
+##        <CNPJ>#lerString($header, "C_CNPJ", "infNFe.emit.CNPJ")</CNPJ>
+##    </emit>

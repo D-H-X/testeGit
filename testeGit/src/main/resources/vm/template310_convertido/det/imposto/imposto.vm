@@ -1,0 +1,19 @@
+    <imposto>
+##if ($!{util.isCampoValido($null, "VTOTTRIB")})
+##		<vTotTrib>$util.lerDecimal($null, "VTOTTRIB", "infNFe.det%s.imposto.vTotTrib", 2, $i)</vTotTrib>
+###end
+#if( $util.lerString($null, "VTOTTRIB", "infNFe.det%s.imposto.vTotTrib", $i) != "")
+    <vTotTrib>$util.lerDecimal($null, "VTOTTRIB", "infNFe.det%s.imposto.vTotTrib", 2, $i)</vTotTrib>
+#else
+    <vTotTrib>0.00</vTotTrib>
+#end
+		#parse("/vm/template310_convertido/det/imposto/ICMS/ICMS.vm")
+		#parse("/vm/template310_convertido/det/imposto/IPI.vm")
+		#parse("/vm/template310_convertido/det/imposto/II.vm")
+		#parse("/vm/template310_convertido/det/imposto/ISSQN.vm")
+		#parse("/vm/template310_convertido/det/imposto/PIS.vm")
+		#parse("/vm/template310_convertido/det/imposto/PISST.vm")
+		#parse("/vm/template310_convertido/det/imposto/COFINS.vm")
+		#parse("/vm/template310_convertido/det/imposto/COFINSST.vm")
+		
+    </imposto>

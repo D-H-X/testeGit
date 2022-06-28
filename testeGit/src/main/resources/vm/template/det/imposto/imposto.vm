@@ -1,0 +1,13 @@
+    <imposto>
+#if ($!{util.isCampoValido($item, "VTOTTRIB")})
+		<vTotTrib>#getItem("VTOTTRIB")</vTotTrib>
+#end
+#parse("/vm/template/det/imposto/ICMS/ICMS.vm")
+#parse("/vm/template/det/imposto/IPI.vm")
+#parse("/vm/template/det/imposto/II.vm")
+#parse("/vm/template/det/imposto/ISSQN.vm")
+#parse("/vm/template/det/imposto/PIS.vm")
+#parse("/vm/template/det/imposto/PISST.vm")
+#parse("/vm/template/det/imposto/COFINS.vm")
+#parse("/vm/template/det/imposto/COFINSST.vm")
+    </imposto>

@@ -1,0 +1,12 @@
+#if(! $!{util.isVazioOuZero($null, "P5_VPIS", "infNFe.det%s.imposto.PISST.vPIS", $i)} )
+	<PISST>
+#if(! $!{util.isVazioOuZero($null, "P5_VBC", "infNFe.det%s.imposto.PISST.vBC", $i)} )
+	    <vBC>$util.lerDecimal($null, "P5_VBC", "infNFe.det%s.imposto.PISST.vBC", 2, $i)</vBC>
+	    <pPIS>$util.lerDecimal($null, "P5_PPIS", "infNFe.det%s.imposto.PISST.pPIS", 4, $i)</pPIS>
+#elseif(! $!{util.isVazioOuZero($null, "P5_QBCPROD", "infNFe.det%s.imposto.PISST.qBCProd", $i)} )
+	    <qBCProd>$util.lerDecimal($null, "P5_QBCPROD", "infNFe.det%s.imposto.PISST.qBCProd", 4, $i)</qBCProd>
+	    <vAliqProd>$util.lerDecimal($null, "P5_VALIQPROD", "infNFe.det%s.imposto.PISST.vAliqProd", 4, $i)</vAliqProd>
+#end
+	    <vPIS>$util.lerDecimal($null, "P5_VPIS", "infNFe.det%s.imposto.PISST.vPIS", 2, $i)</vPIS>
+	</PISST>
+#end

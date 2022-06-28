@@ -1,0 +1,10 @@
+#if( $util.lerString($null, "L1_60_CST", "infNFe.det%s.imposto.ICMS.ICMS60.CST", $i) == "60" )
+	<ICMS60>
+	    <orig>$util.lerString($null, "L1_60_ORIG", "infNFe.det%s.imposto.ICMS.ICMS60.orig", $i)</orig>
+	    <CST>$util.lerString($null, "L1_60_CST", "infNFe.det%s.imposto.ICMS.ICMS60.CST", $i)</CST>
+#if(! $!{util.isVazioOuZero($null, "L1_60_VBCSTRET", "infNFe.det%s.imposto.ICMS.ICMS60.vBCSTRet", $i)} )
+        <vBCSTRet>$util.lerDecimal($null, "L1_60_VBCSTRET", "infNFe.det%s.imposto.ICMS.ICMS60.vBCSTRet", 2, $i)</vBCSTRet>
+        <vICMSSTRet>$util.lerDecimal($null, "L1_60_VICMSSTRET", "infNFe.det%s.imposto.ICMS.ICMS60.vICMSSTRet", 2, $i)</vICMSSTRet>
+#end
+    </ICMS60>
+#end

@@ -1,0 +1,18 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+#if ($IT_NFE_AUTXML.getNumRows() > 0)
+	$IT_NFE_AUTXML.firstRow()
+	#foreach($aut in [1..$IT_NFE_AUTXML.getNumRows()] )
+	
+		<autXML>
+			#if ($IT_NFE_AUTXML.getString("CNPJ") && $IT_NFE_AUTXML.getString("CNPJ") != "0000000000000000" )
+			<CNPJ>#getAut("CNPJ")</CNPJ>
+			#else
+			<CPF>#getAut("CPF")</CPF>
+			#end		
+		</autXML>
+	
+		#if($IT_NFE_AUTXML.nextRow())
+		#end
+	
+	#end
+#end

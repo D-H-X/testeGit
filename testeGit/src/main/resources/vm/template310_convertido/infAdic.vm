@@ -1,0 +1,11 @@
+#if( (! $!{util.isVazio($header, "INFADFISCO", "infNFe.infAdic.infAdFisco")} ) ||
+	 (! $!{util.isVazio($header, "INFCOMP", "infNFe.infAdic.infCpl")} ))
+    <infAdic>
+#if(! $!{util.isVazio($header, "INFADFISCO", "infNFe.infAdic.infAdFisco")} )
+        <infAdFisco>#removeAcentos($header, "INFADFISCO", "infNFe.infAdic.infAdFisco")</infAdFisco>
+#end
+#if(! $!{util.isVazio($header, "INFCOMP", "infNFe.infAdic.infCpl")} )
+        <infCpl>#removeAcentos($header, "INFCOMP", "infNFe.infAdic.infCpl")</infCpl>
+#end
+    </infAdic>
+#end

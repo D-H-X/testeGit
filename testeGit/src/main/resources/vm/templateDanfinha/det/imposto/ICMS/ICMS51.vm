@@ -1,0 +1,73 @@
+#if( $util.lerString($null, "L1_51_CST", "infNFe.det%s.imposto.ICMS.ICMS51.CST", $i) == "51" )
+	<icmS51>
+	    <orig>$util.lerString($null, "L1_51_ORIG", "infNFe.trib51.danf%s.orig", $i)</orig>
+	    	
+	    <modBC>$util.lerString($null, "L1_51_MODBC", "infNFe.trib51.danf%s.modbc", $i)</modBC>
+	
+	#if(! $!{util.isVazioOuZero($null, "L1_51_PREDBC", "infNFe.trib51.danf%s.predbc", $i)} )
+	    <pRedBC>$util.lerDecimal($null, "L1_51_PREDBC", "infNFe.trib51.danf%s.predbc", 4, $i)</pRedBC>
+	#end
+	
+	
+	
+	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib51.danf%s.vbc", $i)} )
+	    <vbc>$util.lerDecimal($null, $null, "infNFe.trib51.danf%s.vbc", 2, $i)</vbc>
+    #else
+	    <vbc>0.00</vbc>
+	#end
+	
+
+	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib51.danf%s.picms", $i)} )
+	    <picms>$util.lerDecimal($null, $null, "infNFe.trib51.danf%s.picms", 4, $i)</picms>
+    #else
+	    <picms>0.00</picms>
+    #end
+		
+	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib51.danf%s.vicmsop", $i)} )
+		<vicmsOp>$util.lerDecimal($null, $null, "infNFe.trib51.danf%s.vicmsop", 2, $i)</vicmsOp>
+	#else
+	    <vicmsOp>0.00</vicmsOp>
+	#end
+							
+	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib51.danf%s.pdif", $i)} )		
+		<pDif>$util.lerDecimal($null, $null, "infNFe.trib51.danf%s.pdif", 4, $i)</pDif>
+	#else
+		<pDif>0.00</pDif>
+	#end
+		
+	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib51.danf%s.vicmsdif", $i)} )
+		<vicmsDif>$util.lerDecimal($null, $null, "infNFe.trib51.danf%s.vicmsdif", 2, $i)</vicmsDif>
+	#else
+		<vicmsDif>0.00</vicmsDif>
+	#end
+	
+    <vicms>$util.lerDecimal($null, $null , "infNFe.trib51.danf%s.vicms", 2, $i)</vicms>					
+
+	
+	
+	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib51.danf%s.vbcfcp", $i)} )	
+	    <vbcfcp>$util.lerDecimal($null, $null, "infNFe.trib51.danf%s.vbcfcp", 2, $i)</vbcfcp>
+	#end	    
+
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib51.danf%s.pfcp", $i)} )	    
+	    <pfcp>$util.lerDecimal($null, $null, "infNFe.trib51.danf%s.pfcp", 2, $i)</pfcp>
+#end	    
+
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib51.danf%s.vfcp", $i)} )	    
+	    <vfcp>$util.lerDecimal($null, $null, "infNFe.trib51.danf%s.vfcp", 2, $i)</vfcp>
+#end
+
+
+ #if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib51.danf%s.pfcpdif", $i)} )
+     <pFCPDif>$util.lerDecimal($null, $null, "infNFe.trib51.danf%s.pfcpdif", 2, $i)</pFCPDif>
+ #end
+
+ #if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib51.danf%s.vfcpdif", $i)} )
+     <vFCPDif>$util.lerDecimal($null, $null, "infNFe.trib51.danf%s.vfcpdif", 2, $i)</vFCPDif>
+ #end
+
+ #if(! $!{util.isVazio($null, $null, "infNFe.trib51.danf%s.vfcpefet", $i)} )
+     <vFCPEfet>$util.lerDecimal($null, $null, "infNFe.trib51.danf%s.vfcpefet", 2, $i)</vFCPEfet>
+ #end
+	</icmS51>
+#end

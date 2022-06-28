@@ -1,0 +1,30 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+#if ($IT_NFE_IMPOSTO_COFINSST.getNumRows() > 0)
+	$IT_NFE_IMPOSTO_COFINSST.firstRow()
+	#foreach($i in [1..$IT_NFE_IMPOSTO_COFINSST.getNumRows()] )
+		#if($IT_NFE_DET_IMPOSTO.getString("COFINSST_REF").equals($IT_NFE_IMPOSTO_COFINSST.getString("ID")))
+	
+			<COFINSST>
+				#if( $IT_NFE_IMPOSTO_COFINSST.getString("V_BC") != "0.00" )
+			
+				    <vBC>#getImpostoCofinsst("V_BC")</vBC>
+				    <pCOFINS>#getImpostoCofinsst("P_COFINS")</pCOFINS>
+					
+				#elseif($IT_NFE_IMPOSTO_COFINSST.getString("Q_BCPROD") != "0.0000")
+			    
+				    <qBCProd>#getImpostoCofinsst("Q_BCPROD")</qBCProd>
+				    <vAliqProd>#getImpostoCofinsst("V_ALIQ_PROD")</vAliqProd>
+	
+				#end
+			
+			    <vCOFINS>#getImpostoCofinsst("V_COFINS")</vCOFINS>
+			
+			</COFINSST>
+	
+	
+		#end
+		
+		#if($IT_NFE_IMPOSTO_COFINSST.nextRow())
+		#end
+	#end
+#end

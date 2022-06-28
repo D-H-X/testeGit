@@ -1,0 +1,12 @@
+###if(! $!{util.isVazioOuZero($null, "Q5_VCOFINS", "infNFe.det%s.imposto.COFINSST.vCOFINS", $i)} )
+##	<COFINSST>
+###if(! $!{util.isVazioOuZero($null, "Q5_VBC", "infNFe.det%s.imposto.COFINSST.vBC", $i)} )
+##	    <vBC>$util.lerDecimal($null, "Q5_VBC", "infNFe.det%s.imposto.COFINSST.vBC", 2, $i)</vBC>
+##	    <pCOFINS>$util.lerDecimal($null, "Q5_PCOFINS", "infNFe.det%s.imposto.COFINSST.pCOFINS", 4, $i)</pCOFINS>
+###elseif(! $!{util.isVazioOuZero($null, "Q5_QBCPROD", "infNFe.det%s.imposto.COFINSST.qBCProd", $i)} )
+##	    <qBCProd>$util.lerDecimal($null, "Q5_QBCPROD", "infNFe.det%s.imposto.COFINSST.qBCProd", 4, $i)</qBCProd>
+##	    <vAliqProd>$util.lerDecimal($null, "Q5_VALIQPROD", "infNFe.det%s.imposto.COFINSST.vAliqProd", 4, $i)</vAliqProd>
+###end
+##	    <vCOFINS>$util.lerDecimal($null, "Q5_VCOFINS", "infNFe.det%s.imposto.COFINSST.vCOFINS", 2, $i)</vCOFINS>
+##	</COFINSST>
+###end

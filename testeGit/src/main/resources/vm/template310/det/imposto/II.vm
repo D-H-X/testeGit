@@ -1,0 +1,19 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+#if ($IT_NFE_IMPOSTO_II.getNumRows() > 0)
+	$IT_NFE_IMPOSTO_II.firstRow()
+	#foreach($i in [1..$IT_NFE_IMPOSTO_II.getNumRows()] )
+		#if($IT_NFE_DET_IMPOSTO.getString("II_REF").equals($IT_NFE_IMPOSTO_II.getString("ID")))
+	
+		<II>
+			<vBC>#getImpostoIi("V_BC")</vBC>
+			<vDespAdu>#getImpostoIi("V_DESP_ADU")</vDespAdu>
+			<vII>#getImpostoIi("V_II")</vII>
+			<vIOF>#getImpostoIi("V_IOF")</vIOF>
+		</II>
+		
+		#end
+		
+		#if($IT_NFE_IMPOSTO_II.nextRow())
+		#end
+	#end    
+#end

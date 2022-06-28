@@ -1,0 +1,12 @@
+#if( $item.getString("Q5_VCOFINS") != "0.00" )
+	<COFINSST>
+#if( $item.getString("Q5_VBC") != "0.00" )
+	    <vBC>#getItem("Q5_VBC")</vBC>
+	    <pCOFINS>#getItem("Q5_PCOFINS")</pCOFINS>
+#elseif($item.getString("Q5_QBCPROD") != "0.0000")
+	    <qBCProd>#getItem("Q5_QBCPROD")</qBCProd>
+	    <vAliqProd>#getItem("Q5_VALIQPROD")</vAliqProd>
+#end
+	    <vCOFINS>#getItem("Q5_VCOFINS")</vCOFINS>
+	</COFINSST>
+#end

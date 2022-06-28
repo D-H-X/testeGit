@@ -1,0 +1,43 @@
+	<COFINS>
+#if( $item.getString("Q1_CST") == "01" ||
+     $item.getString("Q1_CST") == "02" )
+	    <COFINSAliq>
+	        <CST>#getItem("Q1_CST")</CST>
+	        <vBC>#getItem("Q1_VBC")</vBC>
+	        <pCOFINS>#getItem("Q1_PCOFINS")</pCOFINS>
+	        <vCOFINS>#getItem("Q1_VCOFINS")</vCOFINS>
+	    </COFINSAliq>
+#elseif( $item.getString("Q2_CST") == "03" )
+	    <COFINSQtde>
+	        <CST>#getItem("Q2_CST")</CST>
+	        <qBCProd>#getItem("Q2_QBCPROD")</qBCProd>
+	        <vAliqProd>#getItem("Q2_VALIQPROD")</vAliqProd>
+	        <vCOFINS>#getItem("Q2_VCOFINS")</vCOFINS>
+	    </COFINSQtde>
+#elseif( $item.getString("Q3_CST") == "04" ||
+         $item.getString("Q3_CST") == "06" ||
+         $item.getString("Q3_CST") == "07" ||
+         $item.getString("Q3_CST") == "08" ||
+         $item.getString("Q3_CST") == "09" )
+	    <COFINSNT>
+	        <CST>#getItem("Q3_CST")</CST>
+	    </COFINSNT>
+#elseif( $item.getInt("Q4_CST") >= 49 )
+	    <COFINSOutr>
+	        <CST>#getItem("Q4_CST")</CST>
+#if( $item.getString("Q4_VBC") != "0.00" )
+	        <vBC>#getItem("Q4_VBC")</vBC>
+	        <pCOFINS>#getItem("Q4_PCOFINS")</pCOFINS>
+#elseif ( $item.getString("Q4_VBC") == "0.00" &&
+          $item.getString("Q4_QBCPROD") == "0.00" &&
+          $item.getString("Q4_VALIQPROD") == "0.00" )
+	        <vBC>#getItem("Q4_VBC")</vBC>
+	        <pCOFINS>#getItem("Q4_PCOFINS")</pCOFINS>
+#else
+	        <qBCProd>#getItem("Q4_QBCPROD")</qBCProd>
+	        <vAliqProd>#getItem("Q4_VALIQPROD")</vAliqProd>
+#end
+	        <vCOFINS>#getItem("Q4_VCOFINS")</vCOFINS>
+	    </COFINSOutr>
+#end
+	</COFINS>

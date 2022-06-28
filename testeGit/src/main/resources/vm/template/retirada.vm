@@ -1,0 +1,18 @@
+#if( $header.getString("F_CNPJ") != "" || $header.getString("F_CPF") != "")
+    <retirada>
+#if( $header.getString("G_CPF") == "00000000000" || $header.getString("F_CPF") != "")
+        <CNPJ>#getHeader("F_CNPJ")</CNPJ>
+#else
+        <CPF>#getHeader("F_CPF")</CPF>
+#end
+        <xLgr>#getHeader("F_XLGR")</xLgr>
+        <nro>#getHeader("F_NRO")</nro>
+#if( $header.getString("F_XCPL") != "" )
+        <xCpl>#getHeader("F_XCPL")</xCpl>
+#end
+        <xBairro>#getHeader("F_XBAIRRO")</xBairro>
+        <cMun>#getHeader("F_CMUN")</cMun>
+        <xMun>#getHeader("F_XMUN")</xMun>
+        <UF>#getHeader("F_UF")</UF>
+    </retirada>
+#end

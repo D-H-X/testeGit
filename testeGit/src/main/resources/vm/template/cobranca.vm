@@ -1,0 +1,29 @@
+#if( ($header.getString("NFAT") != "" && $header.getString("NFAT") != "0000000000") || ($duplicata.getNumRows() != 0))
+    <cobr>
+#if( ($header.getString("NFAT") != "" && $header.getString("NFAT") != "0000000000") )
+        <fat>
+            <nFat>#getHeader("NFAT")</nFat>
+#if( $header.getString("VORIG") != "0.00" )
+            <vOrig>#getHeader("VORIG")</vOrig>
+#end
+#if( $header.getString("VDESC") != "0.00" )
+            <vDesc>#getHeader("VDESC")</vDesc>
+#end
+#if( $header.getString("VLIQ") != "0.00" )
+            <vLiq>#getHeader("VLIQ")</vLiq>
+#end
+        </fat>
+#end
+#if( $duplicata.getNumRows() != 0 )
+#foreach($i in [1..$duplicata.getNumRows()] )
+        <dup>
+            <nDup>#getDuplicata("NDUP")</nDup>
+            <dVenc>#getDuplicata("DVENC")</dVenc>
+            <vDup>#getDuplicata("VDUP")</vDup>
+        </dup>
+##if vazio para chamar a proxima linha no JcoTable
+#if($duplicata.nextRow())#end
+#end
+#end
+    </cobr>
+#end

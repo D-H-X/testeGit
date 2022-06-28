@@ -1,0 +1,13 @@
+    <det>
+		<nItem>$util.lerInt($null, "$null", "infNFe.item%s.danf.itmnum", $i)</nItem>
+        #parse("/vm/templateDanfinha/det/prod/prod.vm")
+        #parse("/vm/templateDanfinha/det/imposto/imposto.vm")
+	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.impostoDevol.pDevol", $i)} )
+		<impostoDevol>
+			<pDevol>$util.lerDecimal($null, $null, "infNFe.det%s.impostoDevol.pDevol", 2, $i)</pDevol>
+			<IPI>
+				<vIPIDevol>$util.lerDecimal($null, $null, "infNFe.det%s.impostoDevol.IPI.vIPIDevol", 2, $i)</vIPIDevol>
+			</IPI>
+		</impostoDevol>
+	#end
+    </det>

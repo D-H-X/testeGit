@@ -1,0 +1,111 @@
+    <tot>
+        <ICMSTot>
+            ##<vBC>#lerDecimal($header, "S1_VBC", "infNFe.total.ICMSTot.vBC", 2)</vBC>
+            <vICMS>#lerDecimal($null, "$null", "infNFe.total.danf.ICMSTot.vICMS", 2)</vICMS>
+            ##<vICMSDeson>$util.lerDecimal($null, $null, "infNFe.total.ICMSTot.vICMSDeson", 2)</vICMSDeson>
+			##<vFCPUFDest>#lerString($null, $null, "infNFe.total.ICMSTot.vFCPUFDest")</vFCPUFDest>
+			##<vICMSUFDest>#lerString($null, $null, "infNFe.total.ICMSTot.vICMSUFDest")</vICMSUFDest>
+			##<vICMSUFRemet>#lerString($null, $null, "infNFe.total.ICMSTot.vICMSUFRemet")</vICMSUFRemet>
+            ##<vFCP>#lerString($null, $null, "infNFe.total.ICMSTot.vFCP")</vFCP>            
+            ##<vBCST>#lerDecimal($header, "S1_VBCST", "infNFe.total.ICMSTot.vBCST", 2)</vBCST>
+            ##<vST>#lerDecimal($header, "S1_VST", "infNFe.total.ICMSTot.vST", 2)</vST>
+            ##<vFCPST>#lerDecimal($null, $null, "infNFe.total.ICMSTot.vFCPST", 2)</vFCPST>
+            ##<vFCPSTRet>#lerDecimal($null, $null, "infNFe.total.ICMSTot.vFCPSTRet", 2)</vFCPSTRet>
+            ##<vProd>#lerDecimal($header, "S1_VPROD", "infNFe.total.ICMSTot.vProd", 2)</vProd>
+            ##<vFrete>#lerDecimal($header, "S1_VFRETE", "infNFe.total.ICMSTot.vFrete", 2)</vFrete>
+            ##<vSeg>#lerDecimal($header, "S1_VSEG", "infNFe.total.ICMSTot.vSeg", 2)</vSeg>
+            ##<vDesc>#lerDecimal($header, "S1_VDESC", "infNFe.total.ICMSTot.vDesc", 2)</vDesc>
+            ##<vII>#lerDecimal($header, "S1_VII", "infNFe.total.ICMSTot.vII", 2)</vII>
+            ##<vIPI>#lerDecimal($header, "S1_VIPI", "infNFe.total.ICMSTot.vIPI", 2)</vIPI>
+			###if( $util.lerString($null, $null, "infNFe.total.ICMSTot.vIPIDevol.exibir") == "1" )            
+			##<vIPIDevol>#lerDecimal($header, "S1_VIPI", "infNFe.total.ICMSTot.vIPIDevol", 2)</vIPIDevol>
+			###end            
+            ##<vPIS>#lerDecimal($header, "S1_VPIS", "infNFe.total.ICMSTot.vPIS", 2)</vPIS>
+            ##<vCOFINS>#lerDecimal($header, "S1_VCOFINS", "infNFe.total.ICMSTot.vCOFINS", 2)</vCOFINS>
+            ##<vOutro>#lerDecimal($header, "S1_VOUTRO", "infNFe.total.ICMSTot.vOutro", 2)</vOutro>
+            ##<vNF>#lerDecimal($header, "S1_VNF", "infNFe.total.ICMSTot.vNF", 2)</vNF>
+			###if ( $!{util.isCampoValido($header, "VTOTTRIB")} )
+			##<vTotTrib>#lerDecimal($header, "VTOTTRIB", "infNFe.total.ICMSTot.vTotTrib", 2)</vTotTrib>
+			###end
+        </ICMSTot>
+	###if(! $!{util.isVazioOuZero($header, "S2_VSERV", "infNFe.total.ISSQNtot.vServ")} )
+        ##<ISSQNtot>
+			
+		###if(! $!{util.isVazioOuZero($header, "S2_VSERV", "infNFe.total.ISSQNtot.vServ")} )
+            ##<vServ>#lerDecimal($header, "S2_VSERV", "infNFe.total.ISSQNtot.vServ", 2)</vServ>
+		###end
+		###if(! $!{util.isVazioOuZero($header, "S2_VBC", "infNFe.total.ISSQNtot.vBC")} )
+            ##<vBC>#lerDecimal($header, "S2_VBC", "infNFe.total.ISSQNtot.vBC", 2)</vBC>
+		###end
+		###if(! $!{util.isVazioOuZero($header, "S2_VISS", "infNFe.total.ISSQNtot.vISS")} )
+            ##<vISS>#lerDecimal($header, "S2_VISS", "infNFe.total.ISSQNtot.vISS", 2)</vISS>
+		###end
+		###if(! $!{util.isVazioOuZero($header, "S2_VPISISS", "infNFe.total.ISSQNtot.vPIS")} )
+            ##<vPIS>#lerDecimal($header, "S2_VPISISS", "infNFe.total.ISSQNtot.vPIS", 2)</vPIS>
+		###end
+		###if(! $!{util.isVazioOuZero($header, "S2_VCOFINSISS", "infNFe.total.ISSQNtot.vCOFINS")} )
+            ##<vCOFINS>#lerDecimal($header, "S2_VCOFINSISS", "infNFe.total.ISSQNtot.vCOFINS", 2)</vCOFINS>
+		###end						
+		###if(! $!{util.isDataVazia($header, "S2_VCOFINSISS", "infNFe.total.ISSQNtot.dCompet")} )
+			##<dCompet>$!{util.obterDataHoraSAP($null, $null, "infNFe.total.ISSQNtot.dCompet")}</dCompet>
+		###end
+		###if(! $!{util.isVazioOuZero($null, $null, "infNFe.total.ISSQNtot.vDeducao")} )
+			##<vDeducao>#lerDecimal($null, $null, "infNFe.total.ISSQNtot.vDeducao", 2)</vDeducao>
+		###end
+			
+		###if(! $!{util.isVazioOuZero($null, $null, "infNFe.total.ISSQNtot.vOutro")} )
+			##<vOutro>#lerDecimal($null, $null, "infNFe.total.ISSQNtot.vOutro", 2)</vOutro>
+		###end
+			
+		###if(! $!{util.isVazioOuZero($null, $null, "infNFe.total.ISSQNtot.vDescIncond")} )
+			##<vDescIncond>#lerDecimal($null, $null, "infNFe.total.ISSQNtot.vDescIncond", 2)</vDescIncond>
+		###end
+			
+		###if(! $!{util.isVazioOuZero($null, $null, "infNFe.total.ISSQNtot.vDescCond")} )
+			##<vDescCond>#lerDecimal($null, $null, "infNFe.total.ISSQNtot.vDescCond", 2)</vDescCond>
+		###end
+			
+		###if(! $!{util.isVazioOuZero($null, $null, "infNFe.total.ISSQNtot.vISSRet")} )
+			##<vISSRet>#lerDecimal($null, $null, "infNFe.total.ISSQNtot.vISSRet", 2)</vISSRet>
+		###end
+			
+		###if(! $!{util.isVazioOuZero($null, $null, "infNFe.total.ISSQNtot.cRegTrib")} )
+			##<cRegTrib>#lerString($null, $null, "infNFe.total.ISSQNtot.cRegTrib")</cRegTrib>
+		###end
+        ##</ISSQNtot>
+	###end
+
+	#if( (! $!{util.isVazioOuZero($header, "S3_VRETPIS", "infNFe.total.retTrib.vRetPIS")} ) ||
+		 (! $!{util.isVazioOuZero($header, "S3_VRETCOFINS", "infNFe.total.retTrib.vRetCOFINS")} ) ||
+		 (! $!{util.isVazioOuZero($header, "S3_VRETCSLL", "infNFe.total.retTrib.vBCIRRF")} ) ||
+		 (! $!{util.isVazioOuZero($header, "S3_VBCIRRF", "infNFe.total.retTrib.vBCIRRF")} ) ||
+		 (! $!{util.isVazioOuZero($header, "S3_VIRRF", "infNFe.total.retTrib.vIRRF")} ) ||
+		 (! $!{util.isVazioOuZero($header, "S3_VBCRETPREV", "infNFe.total.retTrib.vBCRetPrev")} ) ||
+		 (! $!{util.isVazioOuZero($header, "S3_VRETPREV", "infNFe.total.retTrib.vRetPrev")} ) )
+			 
+        <retTrib>
+		#if(! $!{util.isVazioOuZero($header, "S3_VRETPIS", "infNFe.total.retTrib.vRetPIS")} )
+            <vRetPIS>#lerDecimal($header, "S3_VRETPIS", "infNFe.total.retTrib.vRetPIS", 2)</vRetPIS>
+		#end
+		#if(! $!{util.isVazioOuZero($header, "S3_VRETCOFINS", "infNFe.total.retTrib.vRetCOFINS")} )
+            <vRetCOFINS>#lerDecimal($header, "S3_VRETCOFINS", "infNFe.total.retTrib.vRetCOFINS", 2)</vRetCOFINS>
+		#end
+		#if(! $!{util.isVazioOuZero($header, "S3_VRETCSLL", "infNFe.total.retTrib.vBCIRRF")} )
+            <vRetCSLL>#lerDecimal($header, "S3_VRETCSLL", "infNFe.total.retTrib.vBCIRRF", 2)</vRetCSLL>
+		#end
+		#if(! $!{util.isVazioOuZero($header, "S3_VRETCSLL", "infNFe.total.retTrib.vBCIRRF")} )
+            <vBCIRRF>#lerDecimal($header, "S3_VRETCSLL", "infNFe.total.retTrib.vBCIRRF", 2)</vBCIRRF>
+		#end
+		#if(! $!{util.isVazioOuZero($header, "S3_VBCIRRF", "infNFe.total.retTrib.vBCIRRF")} )
+            <vIRRF>#lerDecimal($header, "S3_VBCIRRF", "infNFe.total.retTrib.vBCIRRF", 2)</vIRRF>
+		#end
+		#if(! $!{util.isVazioOuZero($header, "S3_VBCRETPREV", "infNFe.total.retTrib.vBCRetPrev")} )
+            <vBCRetPrev>#lerDecimal($header, "S3_VBCRETPREV", "infNFe.total.retTrib.vBCRetPrev", 2)</vBCRetPrev>
+		#end
+		#if(! $!{util.isVazioOuZero($header, "S3_VRETPREV", "infNFe.total.retTrib.vRetPrev")} )
+            <vRetPrev>#lerDecimal($header, "S3_VRETPREV", "infNFe.total.retTrib.vRetPrev", 2)</vRetPrev>
+		#end
+        </retTrib>
+	#end
+		
+    </tot>

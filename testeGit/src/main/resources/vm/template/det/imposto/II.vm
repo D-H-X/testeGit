@@ -1,0 +1,8 @@
+#if( $importacao.getNumRows() != 0 )
+<II>
+	<vBC>#getItem("O_VBC")</vBC>
+	<vDespAdu>#getItem("O_VDESPADU")</vDespAdu>
+	<vII>#getItem("O_VII")</vII>
+	<vIOF>#getItem("O_VIOF")</vIOF>
+</II>
+#end

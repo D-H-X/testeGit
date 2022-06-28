@@ -1,0 +1,75 @@
+##<ide>
+##    <cnf>#obterNumeroAleatorioTamanho8($header, "CNF", "infNFe.ide.cNF")</cnf>
+##   ##<cUF>#lerString($header, "CUF", "infNFe.ide.cUF")</cUF>
+##    <natOp>#removeAcentos($header, "NATOP", "infNFe.ide.natOp")</natOp>
+##    ##<mod>#lerString($header, "MOD", "infNFe.ide.mod")</mod>
+##    <serie>#lerString($header, "SERIE", "infNFe.ide.serie")</serie>
+##    <nnf>#lerString($header, "NNF", "infNFe.ide.nNF")</nnf>
+##    ###if(! $!{util.isDataVazia($header, "DSAIENT", "infNFe.ide.dhSaiEnt")} )
+##     ##<dhSaiEnt>$!{util.obterDataHoraSAP($header, "DSAIENT", "HSAIENT", "infNFe.ide.dhSaiEnt")}</dhSaiEnt>
+##    ###end
+##     <dhEmi>#lerString($null, $null, "infNFe.ide.dhEmiInv")</dhEmi>
+##     <dhSaiEnt>#lerString($null, $null, "infNFe.ide.dhEmiInv")</dhSaiEnt>	
+##    
+##       
+##       
+##        #if(! $!{util.isDataVazia($header, "DHCONT", "infNFe.ide.dhCont")} )
+##            <dhCont>$!{util.obterDataHoraSAP($header, "DHCONT", "infNFe.ide.dhCont")}</dhCont>
+##        #end
+##        #if(! $!{util.isVazio($header, "XJUST", "infNFe.ide.xJust")} )
+##    <xJust>#lerString($header, "XJUST", "infNFe.ide.xJust")</xJust>
+##        #end
+##
+##    <tpNF>#lerString($header, "TPNF", "infNFe.ide.tpNF")</tpNF>
+##    <idDest>#lerString($null, $null, "infNFe.ide.idDest")</idDest>
+##    ##<cMunFG>#lerString($header, "CMUNFG", "infNFe.ide.cMunFG")</cMunFG>
+##    
+##    #if($util.lerString($header, "TPIMP", "infNFe.ide.tpImp") == 1)
+##    <tpImp>2</tpImp>
+##    #else
+##    <tpImp>#lerString($header, "TPIMP", "infNFe.ide.tpImp")</tpImp>
+##    #end
+##    
+##    <cdv>#lerString($header, "CDV", "infNFe.ide.cDV")</cdv>
+##    <finNFe>#lerString($header, "FINNFE", "infNFe.ide.finNFe")</finNFe>
+##    <indFinal>#lerString($null, $null, "infNFe.ide.indFinal")</indFinal>
+##    <indPres>#lerString($null, $null, "infNFe.ide.indPres")</indPres>
+##    <indIntermed>0</indIntermed>
+##
+##        ##if vazio para chamar a proxima linha no JcoTable
+##
+##
+##
+##
+##
+##
+##
+###if( $util.lerInt($null,  $null, "infNFe.ide.NFref.getNumRows", $i) > 0 )
+###foreach($i in [1..$util.getNumeroLinhas($null, "infNFe.ide.NFref.getNumRows")] )
+##
+##<nfRef>
+##<refNFe>$util.lerString($null, $null, "infNFe.ide%s.NFref.refNFe_man", $i)</refNFe>
+##</nfRef>
+##
+###end
+###end
+##
+##
+##
+##
+##
+##
+##
+##    ##<tpEmis>#lerString($header, "TPEMIS", "infNFe.ide.tpEmis")</tpEmis>
+##
+##    ##<tpAmb>#lerString($header, "TPAMB", "infNFe.ide.tpAmb")</tpAmb>
+##
+##
+##
+##    ##<procEmi>#lerString($header, "PROCEMI", "infNFe.ide.procEmi")</procEmi>
+##    ##<verProc>#lerString($header, "VERPROC", "infNFe.ide.verProc")</verProc>
+##
+##
+###parse("/vm/templateDanfinha/aut.vm")
+## 
+##</ide>

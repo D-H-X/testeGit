@@ -1,0 +1,12 @@
+#if( $item.getString("L1_40_CST") == "40" || $item.getString("L1_40_CST") == "41" || $item.getString("L1_40_CST") == "50")
+	<ICMS40>
+	    <orig>#getItem("L1_40_ORIG")</orig>
+	    <CST>#getItem("L1_40_CST")</CST>
+#if( $item.getString("L1_40_VICMS") != "0.00" )
+	    <vICMS>#getItem("L1_40_VICMS")</vICMS>
+#end
+#if( $util.isCampoValido($item, "L1_40_MOTDESICMS") && $item.getString("L1_40_MOTDESICMS") != "0" )
+	    <motDesICMS>#getItem("L1_40_MOTDESICMS")</motDesICMS>
+#end
+	</ICMS40>
+#end

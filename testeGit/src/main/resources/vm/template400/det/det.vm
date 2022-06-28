@@ -1,0 +1,15 @@
+    <det nItem="$util.lerInt($null, "NITEM", "infNFe.det%s.nItem", $i)">
+        #parse("/vm/template400/det/prod/prod.vm")
+        #parse("/vm/template400/det/imposto/imposto.vm")
+	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.impostoDevol.pDevol", $i)} )
+		<impostoDevol>
+			<pDevol>$util.lerDecimal($null, $null, "infNFe.det%s.impostoDevol.pDevol", 2, $i)</pDevol>
+			<IPI>
+				<vIPIDevol>$util.lerDecimal($null, $null, "infNFe.det%s.impostoDevol.IPI.vIPIDevol", 2, $i)</vIPIDevol>
+			</IPI>
+		</impostoDevol>
+	#end
+#if(! $!{util.isVazio(null, null, "infNFe.det%s.infAdProd", $i)} )
+        <infAdProd>$util.removeAcentos(null, null, "infNFe.det%s.infAdProd", $i)</infAdProd>
+#end
+    </det>

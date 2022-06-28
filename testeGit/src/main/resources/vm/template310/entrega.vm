@@ -1,0 +1,30 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+$IT_NFE_PARTNER.firstRow()
+#foreach($i in [1..$IT_NFE_PARTNER.getNumRows()] )
+	#if($IS_NFE_PARTNER_IDS.getString("PARTNER_ID_ENTREGA").equals($IT_NFE_PARTNER.getString("ID")))
+
+    <entrega>
+        
+        #if( $IT_NFE_PARTNER.getString("CPF") == "00000000000" || $IT_NFE_PARTNER.getString("CPF") == "")
+        <CNPJ>#getPartner("CNPJ")</CNPJ>
+		#else
+        <CPF>#getPartner("CPF")</CPF>
+		#end
+		
+        <xLgr>#getPartner("X_LGR")</xLgr>
+        <nro>#getPartner("NRO")</nro>
+		
+		#if( $IT_NFE_PARTNER.getString("X_CPL") != "" )
+        <xCpl>#getPartner("X_CPL")</xCpl>
+		#end
+        
+        <xBairro>#getPartner("X_BAIRRO")</xBairro>
+        <cMun>#getPartner("C_MUN")</cMun>
+        <xMun>#getPartner("X_MUN")</xMun>
+        <UF>#getPartner("UF")</UF>
+    </entrega>
+
+	#end
+#if($IT_NFE_PARTNER.nextRow())
+#end
+#end    

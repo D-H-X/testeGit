@@ -1,0 +1,59 @@
+#macro(lerString $record $campoSAP $campoXML)
+$esc.xml($util.lerString($record, $campoSAP, $campoXML))##
+#end
+
+#macro(lerDecimal $record $campoSAP $campoXML $casasDecimais)
+$esc.xml($util.lerDecimal($record, $campoSAP, $campoXML, $casasDecimais))##
+#end
+
+#macro(isVazio $record $campoSAP $campoXML)
+!$!{util.isVazio($record, $campoSAP, $campoXML)}##
+#end
+
+#macro(removeAcentos $record $campoSAP $campoXML)
+$!{util.removeAcentos($record, $campoSAP, $campoXML)}##
+#end
+
+#macro(obterNumeroAleatorioTamanho8 $record $campoSAP $campoXML)
+$!{util.obterNumeroAleatorioTamanho8($record, $campoSAP, $campoXML)}##
+#end
+
+#macro(getRecord $key)
+$esc.xml($!{record.getString($key)})##
+#end
+
+#macro(getHeader $key)
+$esc.xml($!{header.getString($key)})##
+#end
+
+#macro(getRef $key)
+$esc.xml($!{referenciada.getString($key)})##
+#end
+
+#macro(getDuplicata $key)
+$esc.xml($!{duplicata.getString($key)})##
+#end
+
+#macro(getItem $key)
+$esc.xml($!{item.getString($key)})##
+#end
+
+#macro(getImportacao $key)
+$esc.xml($!{importacao.getString($key)})##
+#end
+
+#macro(getMedicamento $key)
+$esc.xml($!{medicamento.getString($key)})##
+#end
+
+#macro(getVol $key)
+$esc.xml($!{vol.getString($key)})##
+#end
+
+#macro(getZXmlOut $key)
+$esc.xml($!{zXmlOut.getString($key)})##
+#end
+
+#macro(removeControlCharacter $key)
+$util.removeTextControlCharacters($!{header.getString($key)})##
+#end

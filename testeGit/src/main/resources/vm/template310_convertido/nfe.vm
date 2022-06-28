@@ -1,0 +1,44 @@
+<nfeSap>
+	#parse("/vm/template310_convertido/macro.vm")
+    <docNum>#lerString($header, "DOCNUM", "sap.docnum")</docNum>
+#if (!$!{util.isVazio($header, "DHCONT", "infNFe.ide.dhCont")} && !$!{util.isVazio($header, "XJUST", "infNFe.ide.xJust")})
+    <dataEntradaCont>#lerString($header, "DHCONT", "infNFe.ide.dhCont")</dataEntradaCont>
+    <dsMotivoCont>#lerString($header, "XJUST", "infNFe.ide.xJust")</dsMotivoCont>
+#end
+	<!-- VERSÃO DO TEMPLATE: 20150120.1118 -->
+	<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+	    <infNFe Id="NFe#lerString($header, "ID", "infNFe.ide.Id")" versao="3.10">
+	        #parse("/vm/template310_convertido/ide.vm")
+	        #parse("/vm/template310_convertido/emi.vm")
+	##      #parse("/vm/template310_convertido/avulsa.vm")
+	        #parse("/vm/template310_convertido/dest.vm")
+	        #parse("/vm/template310_convertido/retirada.vm")
+	        #parse("/vm/template310_convertido/entrega.vm")
+			#parse("/vm/template310_convertido/aut.vm")
+	
+			#if($util.getNumeroLinhas($null, "infNFe.det.rowCount") > 0)
+			    ## Como os valores podem ser agrupados, não é possível iterar simultaneamente
+				## os itens customizados e os itens retornados pelo SAP.
+				## $item.firstRow()
+				
+				#foreach($i in [1..$util.getNumeroLinhas($null, "infNFe.det.rowCount")] )
+					
+					#parse("/vm/template310_convertido/det/det.vm")
+					##if vazio para chamar a proxima linha no JcoTable
+					## Removida a iteração com $item, pois em caso de itens agrupados
+					## a correspondência entre os itens customizados e os retornados
+					## pelo SAP pode não ocorrer.
+					##if($item.nextRow())#end
+				#end
+	        #end
+			
+	        #parse("/vm/template310_convertido/total.vm")
+	        #parse("/vm/template310_convertido/transp.vm")
+	        #parse("/vm/template310_convertido/cobranca.vm")
+	##      #parse("/vm/template310_convertido/pag.vm")
+	        #parse("/vm/template310_convertido/infAdic.vm")
+	        #parse("/vm/template310_convertido/exporta.vm")
+	        #parse("/vm/template310_convertido/compra.vm")
+	    </infNFe>
+	</NFe>
+</nfeSap>

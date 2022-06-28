@@ -1,0 +1,7 @@
+#if( $header.getString("XNEMP") != "" || $header.getString("XPED") != "" || $header.getString("XCONT") != "")
+    <compra>
+        <xNEmp>#getHeader("XNEMP")</xNEmp>
+        <xPed>#getHeader("XPED")</xPed>
+        <xCont>#getHeader("XCONT")</xCont>
+    </compra>
+#end

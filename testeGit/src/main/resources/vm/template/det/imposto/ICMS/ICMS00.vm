@@ -1,0 +1,10 @@
+#if( $item.getString("L1_00_CST") == "00" && $item.getString("L1_10_CST") != "10" && $item.getString("L1_20_CST") != "20" && $item.getString("L1_30_CST") != "30" && $item.getString("L1_40_CST") != "40" && $item.getString("L1_40_CST") != "41" && $item.getString("L1_40_CST") != "50" && $item.getString("L1_51_CST") != "51" && $item.getString("L1_60_CST") != "60" && $item.getString("L1_70_CST") != "70" && $item.getString("L1_90_CST") != "90" && $item.getString("CST") != "41")
+    <ICMS00>
+	    <orig>#getItem("L1_00_ORIG")</orig>
+	    <CST>#getItem("L1_00_CST")</CST>
+	    <modBC>#getItem("L1_00_MODBC")</modBC>
+	    <vBC>#getItem("L1_00_VBC")</vBC>
+	    <pICMS>#getItem("L1_00_PICMS")</pICMS>
+	    <vICMS>#getItem("L1_00_VICMS")</vICMS>
+    </ICMS00>
+#end

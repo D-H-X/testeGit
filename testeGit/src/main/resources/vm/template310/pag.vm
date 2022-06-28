@@ -1,0 +1,21 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+#if ($IT_NFE_PAG.getNumRows() > 0)
+	$IT_NFE_PAG.firstRow()
+	#foreach($i in [1..$IT_NFE_PAG.getNumRows()] )
+		<pag>
+			<tPag>#getPag("T_PAG")</tPag>
+			<vPag>#getPag("V_PAG")</vPag>	
+			#if ($IT_NFE_PAG.getString("C_AUT") != "")
+			<card>	
+				<CNPJ>#getPag("CNPJ")</CNPJ>
+				<tBand>#getPag("T_BAND")</tBand>
+				<cAut>#getPag("C_AUT")</cAut>	
+			</card>
+			#end
+		</pag>
+	
+		#if($IT_NFE_PAG.nextRow())
+		#end
+	
+	#end
+#end

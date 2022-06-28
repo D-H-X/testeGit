@@ -1,0 +1,30 @@
+#if( $util.lerString($null, "L1_30_CST", "infNFe.det%s.imposto.ICMS.ICMS30.CST", $i) == "30" )
+	<icmS30>
+	    <orig>$util.lerString($null, "L1_30_ORIG", "infNFe.trib30.danf%s.orig", $i)</orig>
+	    <modBCST>$util.lerString($null, "L1_30_MODBCST", "infNFe.trib30.danf%s.modbcst", $i)</modBCST>
+#if(! $!{util.isVazioOuZero($null, "L1_30_PMVAST", "infNFe.trib30.danf%s.pmvast", $i)} )
+	    <pmvast>$util.lerDecimal($null, "L1_30_PMVAST", "infNFe.trib30.danf%s.pmvast", 4, $i)</pmvast>
+#end
+#if(! $!{util.isVazioOuZero($null, "L1_30_PREDBCST", "infNFe.trib30.danf%s.predbcst", $i)} )
+	    <pRedBCST>$util.lerDecimal($null, "L1_30_PREDBCST", "infNFe.trib30.danf%s.predbcst", 4, $i)</pRedBCST>
+#end
+        <vbcst>$util.lerDecimal($null, "L1_30_VBCST", "infNFe.trib30.danf%s.vbcst", 2, $i)</vbcst>
+	    <picmsst>$util.lerDecimal($null, "L1_30_PICMSST", "infNFe.trib30.danf%s.picmsst", 4, $i)</picmsst>
+	    <vicmsst>$util.lerDecimal($null, "L1_30_VICMSST", "infNFe.trib30.danf%s.vicmsst", 2, $i)</vicmsst>
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib30.danf%s.vbcfcpst", $i)} )	    
+	    <vbcfcpst>$util.lerDecimal($null, $null, "infNFe.trib30.danf%s.vbcfcpst", 2, $i)</vbcfcpst>
+#end	    
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib30.danf%s.pfcpst", $i)} )	    
+	    <pfcpst>$util.lerDecimal($null, $null, "infNFe.trib30.danf%s.pfcpst", 2, $i)</pfcpst>
+#end	    
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.trib30.danf%s.vfcpst", $i)} )	    
+	    <vfcpst>$util.lerDecimal($null, $null, "infNFe.trib30.danf%s.vfcpst", 2, $i)</vfcpst>
+#end
+	#if (! $!{util.isVazioOuZero($null, $null, "infNFe.trib30.danf%s.vicmsdeson", $i)} )
+	    ##<-x->		    
+			<vicmsDeson>$util.lerDecimal($null, $null, "infNFe.trib30.danf%s.vicmsdeson", 2, $i)</vicmsDeson>
+			<motDesICMS>$util.lerDecimal($null, $null, "infNFe.trib30.danf%s.motdesicms", 0, $i)</motDesICMS>
+		##</-x->
+	#end
+    </icmS30>
+#end

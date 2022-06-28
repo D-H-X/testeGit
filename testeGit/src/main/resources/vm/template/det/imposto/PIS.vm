@@ -1,0 +1,43 @@
+	<PIS>
+#if( $item.getString("P1_CST") == "01" ||
+ $item.getString("P1_CST") == "02"  )
+	    <PISAliq>
+	        <CST>#getItem("P1_CST")</CST>
+	        <vBC>#getItem("P1_VBC")</vBC>
+	        <pPIS>#getItem("P1_PPIS")</pPIS>
+	        <vPIS>#getItem("P1_VPIS")</vPIS>
+	    </PISAliq>
+#elseif($item.getString("P2_CST") == "03")
+	    <PISQtde>
+	        <CST>#getItem("P2_CST")</CST>
+	        <qBCProd>#getItem("P2_QBCPROD")</qBCProd>
+	        <vAliqProd>#getItem("P2_VALIQPROD")</vAliqProd>
+	        <vPIS>#getItem("P2_VPIS")</vPIS>
+	    </PISQtde>
+#elseif( $item.getString("P3_CST") == "04" ||
+         $item.getString("P3_CST") == "06" ||
+         $item.getString("P3_CST") == "07" ||
+         $item.getString("P3_CST") == "08" ||
+         $item.getString("P3_CST") == "09" )
+	    <PISNT>
+	        <CST>#getItem("P3_CST")</CST>
+	    </PISNT>
+#elseif( $item.getInt("P4_CST") >= 49 )
+	    <PISOutr>
+	        <CST>#getItem("P4_CST")</CST>
+#if( $item.getString("P4_VBC") != "0.00" )
+	        <vBC>#getItem("P4_VBC")</vBC>
+	        <pPIS>#getItem("P4_PPIS")</pPIS>
+#elseif ( $item.getString("P4_VBC") == "0.00" &&
+          $item.getString("P4_QBCPROD") == "0.00" &&
+          $item.getString("P4_VALIQPROD") == "0.00" )
+	        <vBC>#getItem("P4_VBC")</vBC>
+	        <pPIS>#getItem("P4_PPIS")</pPIS>
+#else
+	        <qBCProd>#getItem("P4_QBCPROD")</qBCProd>
+	        <vAliqProd>#getItem("P4_VALIQPROD")</vAliqProd>
+#end
+	        <vPIS>#getItem("P4_VPIS")</vPIS>
+	    </PISOutr>
+#end
+	</PIS>

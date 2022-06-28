@@ -1,0 +1,41 @@
+<versao>4.0</versao>
+	#parse("/vm/templateInvoisys/macro.vm")
+	<chNFe>$util.lerString($header, "ID", "infNFe.ide.Id")</chNFe>
+	<ambiente>#lerString($header, "TPAMB", "infNFe.ide.tpAmb")</ambiente>
+	<contingAutomatico>true</contingAutomatico>
+
+	##<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+	    ##<infNFe Id="NFe#lerString($header, "ID", "infNFe.ide.Id")" versao="4.00">
+	    	<infNFe>
+	    	#parse("/vm/templateInvoisys/ide.vm")
+	        #parse("/vm/templateInvoisys/emi.vm")
+	##      #parse("/vm/templateInvoisys/avulsa.vm")
+	        #parse("/vm/templateInvoisys/dest.vm")
+	        #parse("/vm/templateInvoisys/retirada.vm")
+	        #parse("/vm/templateInvoisys/entrega.vm")
+			
+	
+			#if($util.getNumeroLinhas($null, "infNFe.det.rowCount") > 0)
+			    ## Como os valores podem ser agrupados, não é possível iterar simultaneamente
+				## os itens customizados e os itens retornados pelo SAP.
+				## $item.firstRow()
+				
+				#foreach($i in [1..$util.getNumeroLinhas($null, "infNFe.det.rowCount")] )
+					
+					#parse("/vm/templateInvoisys/det/det.vm")
+					##if vazio para chamar a proxima linha no JcoTable
+					## Removida a iteração com $item, pois em caso de itens agrupados
+					## a correspondência entre os itens customizados e os retornados
+					## pelo SAP pode não ocorrer.
+					##if($item.nextRow())#end
+				#end
+	        #end
+			
+	        #parse("/vm/templateInvoisys/total.vm")
+	        #parse("/vm/templateInvoisys/transp.vm")
+	        #parse("/vm/templateInvoisys/cobranca.vm")
+		    #parse("/vm/templateInvoisys/pag.vm")
+	        #parse("/vm/templateInvoisys/infAdic.vm")
+	        #parse("/vm/templateInvoisys/exporta.vm")
+	        #parse("/vm/templateInvoisys/compra.vm")
+	    </infNFe>

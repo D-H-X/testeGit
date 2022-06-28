@@ -1,0 +1,13 @@
+#if( $IS_NFE_INFADIC.getString("INF_AD_FISCO").length() > 0 || $IS_NFE_INFADIC.getString("INF_CPL").length() > 0 )
+    <infAdic>
+		
+		#if( $IS_NFE_INFADIC.getString("INF_AD_FISCO").length() > 0 )
+        <infAdFisco>#getInfAdiconal("INF_AD_FISCO")</infAdFisco>
+		#end
+
+		#if( $IS_NFE_INFADIC.getString("INF_CPL").length() > 0 )
+        <infCpl>#removeControlCharacter("INF_CPL")</infCpl>
+		#end
+		
+    </infAdic>
+#end

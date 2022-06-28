@@ -1,0 +1,29 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+#if ($IT_NFE_IMPOSTO_PISST.getNumRows() > 0)
+	$IT_NFE_IMPOSTO_PISST.firstRow()
+	#foreach($i in [1..$IT_NFE_IMPOSTO_PISST.getNumRows()] )
+		#if($IT_NFE_DET_IMPOSTO.getString("PISST_REF").equals($IT_NFE_IMPOSTO_PISST.getString("ID")))
+	
+			<PISST>
+				#if( $IT_NFE_IMPOSTO_PISST.getString("V_BC") != "0.00" )
+				
+				    <vBC>#getImpostoPisst("V_BC")</vBC>
+				    <pPIS>#getImpostoPisst("P_PIS")</pPIS>
+				
+				#elseif($IT_NFE_IMPOSTO_PISST.getString("Q_BCPROD") != "0.0000")
+				
+				    <qBCProd>#getImpostoPisst("Q_BCPROD")</qBCProd>
+				    <vAliqProd>#getImpostoPisst("V_ALIQ_PROD")</vAliqProd>
+				
+				#end
+				
+				<vPIS>#getImpostoPisst("V_PIS")</vPIS>
+				
+			</PISST>
+	
+		#end
+		
+		#if($IT_NFE_IMPOSTO_PISST.nextRow())
+		#end
+	#end  
+#end

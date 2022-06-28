@@ -1,0 +1,12 @@
+#if( $item.getString("P5_VPIS") != "0.00" )
+	<PISST>
+#if( $item.getString("P5_VBC") != "0.00" )
+	    <vBC>#getItem("P5_VBC")</vBC>
+	    <pPIS>#getItem("P5_PPIS")</pPIS>
+#elseif($item.getString("P5_QBCPROD") != "0.0000")
+	    <qBCProd>#getItem("P5_QBCPROD")</qBCProd>
+	    <vAliqProd>#getItem("P5_VALIQPROD")</vAliqProd>
+#end
+	    <vPIS>#getItem("P5_VPIS")</vPIS>
+	</PISST>
+#end

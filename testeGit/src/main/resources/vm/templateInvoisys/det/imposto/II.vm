@@ -1,0 +1,8 @@
+#if( $util.isCFOPImportacao($null, "CFOP", "infNFe.det%s.prod.CFOP", $i) )
+<II>
+	<vBC>$util.lerDecimal($null, "O_VBC", "infNFe.det%s.imposto.II.vBC", 2, $i)</vBC>
+	<vDespAdu>$util.lerDecimal($null, "O_VDESPADU", "infNFe.det%s.imposto.II.vDespAdu", 2, $i)</vDespAdu>
+	<vII>$util.lerDecimal($null, "O_VII", "infNFe.det%s.imposto.II.vII", 2, $i)</vII>
+	<vIOF>$util.lerDecimal($null, "O_VIOF", "infNFe.det%s.imposto.II.vIOF", 2, $i)</vIOF>
+</II>
+#end

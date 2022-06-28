@@ -1,0 +1,14 @@
+#if( $medicamento.getNumRows() != 0 )
+$medicamento.firstRow()
+#foreach($i in [1..$medicamento.getNumRows()] )
+	<med>
+	    <nLote>#getMedicamento("J_NLOTE")</nLote>
+	    <qLote>#getMedicamento("J_QLOTE")</qLote>
+	    <dFab>#getMedicamento("J_DFAB")</dFab>
+	    <dVal>#getMedicamento("J_DVAL")</dVal>
+	    <vPMC>#getMedicamento("J_VPMC")</vPMC>
+	</med>
+#end
+##if vazio para chamar a proxima linha no JcoTable
+#if($medicamento.nextRow())#end
+#end

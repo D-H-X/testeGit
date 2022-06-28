@@ -1,0 +1,21 @@
+#if( $item.getString("L1_51_CST") == "51" )
+	<ICMS51>
+	    <orig>#getItem("L1_51_ORIG")</orig>
+	    <CST>#getItem("L1_51_CST")</CST>
+#if( $item.getString("L1_51_MODBC") != "0" )
+	    <modBC>#getItem("L1_51_MODBC")</modBC>
+#end
+#if( $item.getString("L1_51_PREDBC") != "0.00" )
+	    <pRedBC>#getItem("L1_51_PREDBC")</pRedBC>
+#end
+#if( $item.getString("L1_51_VBC") != "0.00" )
+	    <vBC>#getItem("L1_51_VBC")</vBC>
+#end
+#if( $item.getString("L1_51_PICMS") != "0.00" )
+	    <pICMS>#getItem("L1_51_PICMS")</pICMS>
+#end
+#if( $item.getString("L1_51_VICMS") != "0.00" )
+	    <vICMS>#getItem("L1_51_VICMS")</vICMS>
+#end
+	</ICMS51>
+#end

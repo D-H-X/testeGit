@@ -1,0 +1,19 @@
+#if( $item.getString("OIL_CPRODANP") != "000000000" )
+	<comb>
+	    <cProdANP>#getItem("OIL_CPRODANP")</cProdANP>
+#if( $item.getString("OIL_CODIF") != "000000000000000000000" )
+	    <CODIF>#getItem("OIL_CODIF")</CODIF>
+#end
+#if( $item.getString("OIL_GTEMP") != "0.0000" )
+	    <qTemp>#getItem("OIL_GTEMP")</qTemp>
+#end
+	    <UFCons>#getItem("OIL_UFCONS")</UFCons>
+#if( $item.getString("OIL_QBCPROD") != "0.0000" )
+	    <CIDE>
+	        <qBCProd>#getItem("OIL_QBCPROD")</qBCProd>
+	        <vAliqProd>#getItem("OIL_VALIGPROD")</vAliqProd>
+	        <vCIDE>#getItem("OIL_VCIDE")</vCIDE>
+	    </CIDE>
+#end
+	</comb>
+#end

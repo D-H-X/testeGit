@@ -1,0 +1,9 @@
+###if( (! $!{util.isVazio($header, "XNEMP", "infNFe.compra.transporta.xNEmp")} ) || 
+##	 (! $!{util.isVazio($header, "XPED", "infNFe.compra.transporta.xPed")} ) ||
+##	 (! $!{util.isVazio($header, "XCONT", "infNFe.compra.transporta.xCont")} ))
+##    <compra>
+##        <xNEmp>#lerString($header, "XNEMP", "infNFe.compra.transporta.xNEmp")</xNEmp>
+##        <xPed>#lerString($header, "XPED", "infNFe.compra.transporta.xPed")</xPed>
+##        <xCont>#lerString($header, "XCONT", "infNFe.compra.transporta.xCont")</xCont>
+##    </compra>
+###end

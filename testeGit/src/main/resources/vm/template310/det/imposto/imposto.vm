@@ -1,0 +1,25 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+$IT_NFE_DET_IMPOSTO.firstRow()
+#foreach($i in [1..$IT_NFE_DET_IMPOSTO.getNumRows()] )
+	#if($IT_NFE_DET.getString("IMPOSTO_REF").equals($IT_NFE_DET_IMPOSTO.getString("ID")))
+
+    <imposto>
+    
+		<vTotTrib>#getImposto("VTOTTRIB")</vTotTrib>
+
+		#parse("/vm/template310/det/imposto/ICMS.vm")
+		#parse("/vm/template310/det/imposto/IPI.vm")
+		#parse("/vm/template310/det/imposto/II.vm")
+		#parse("/vm/template310/det/imposto/ISSQN.vm")
+		#parse("/vm/template310/det/imposto/PIS.vm")
+		#parse("/vm/template310/det/imposto/PISST.vm")
+		#parse("/vm/template310/det/imposto/COFINS.vm")
+		#parse("/vm/template310/det/imposto/COFINSST.vm")
+		
+    </imposto>
+    
+	#end
+	
+	#if($IT_NFE_DET_IMPOSTO.nextRow())
+	#end
+#end        

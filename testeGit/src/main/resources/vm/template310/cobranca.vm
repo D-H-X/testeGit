@@ -1,0 +1,34 @@
+
+#if( $IS_NFE_FAT.getString("N_FAT") != "" || $IT_NFE_DUP.getNumRows() != 0)
+    <cobr>
+		#if( $IS_NFE_FAT.getString("N_FAT") != "" )
+        <fat>
+            <nFat>#getFat("N_FAT")</nFat>
+			
+			#if( $IS_NFE_FAT.getString("V_ORIG") != "0.00" )
+            <vOrig>#getFat("V_ORIG")</vOrig>
+			#end
+			
+			#if( $IS_NFE_FAT.getString("V_DESC") != "0.00" )
+            <vDesc>#getFat("V_DESC")</vDesc>
+			#end
+			
+			#if( $IS_NFE_FAT.getString("V_LIQ") != "0.00" )
+            <vLiq>#getFat("V_LIQ")</vLiq>
+			#end			
+        </fat>
+		#end
+
+		#if( $IT_NFE_DUP.getNumRows() != 0 )
+			#foreach($i in [1..$IT_NFE_DUP.getNumRows()] )
+		        <dup>
+		            <nDup>#getDuplicata("N_DUP")</nDup>
+		            <dVenc>#getDuplicata("D_VENC")</dVenc>
+		            <vDup>#getDuplicata("V_DUP")</vDup>
+		        </dup>
+				##if vazio para chamar a proxima linha no JcoTable
+				#if($IT_NFE_DUP.nextRow())#end
+			#end
+		#end
+    </cobr>
+#end

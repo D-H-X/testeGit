@@ -1,0 +1,21 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+#if ($IT_NFE_IMPOSTO_ISSQN.getNumRows() > 0)
+	$IT_NFE_IMPOSTO_ISSQN.firstRow()
+	#foreach($i in [1..$IT_NFE_IMPOSTO_ISSQN.getNumRows()] )
+		#if($IT_NFE_DET_IMPOSTO.getString("ISSQN_REF").equals($IT_NFE_IMPOSTO_ISSQN.getString("ID")))
+	
+		<ISSQN>
+			<vBC>#getImpostoIssqn("V_BC")</vBC>
+			<vAliq>#getImpostoIssqn("V_ALIQ")</vAliq>
+			<vISSQN>#getImpostoIssqn("V_ISSQN")</vISSQN>
+			<cMunFG>#getImpostoIssqn("C_MUN_FG")</cMunFG>
+			<cListServ>#getImpostoIssqn("C_LIST_SERV")</cListServ>
+			<cSitTrib>#getImpostoIssqn("C_SIT_TRIB")</cSitTrib>
+		</ISSQN>
+	
+		#end
+		
+		#if($IT_NFE_IMPOSTO_ISSQN.nextRow())
+		#end
+	#end  	
+#end

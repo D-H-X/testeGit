@@ -1,0 +1,72 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+#if ($IT_NFE_IMPOSTO_PIS.getNumRows() > 0)
+	$IT_NFE_IMPOSTO_PIS.firstRow()
+	#foreach($i in [1..$IT_NFE_IMPOSTO_PIS.getNumRows()] )
+		#if($IT_NFE_DET_IMPOSTO.getString("PIS_REF").equals($IT_NFE_IMPOSTO_PIS.getString("ID")))
+	
+	
+		<PIS>
+			#if( $IT_NFE_IMPOSTO_PIS.getString("CST") == "01" || $IT_NFE_IMPOSTO_PIS.getString("CST") == "02"  )
+		    
+		    <PISAliq>
+		        <CST>#getImpostoPis("CST")</CST>
+		        <vBC>#getImpostoPis("V_BC")</vBC>
+		        <pPIS>#getImpostoPis("P_PIS")</pPIS>
+		        <vPIS>#getImpostoPis("V_PIS")</vPIS>
+		    </PISAliq>
+			
+			#elseif($IT_NFE_IMPOSTO_PIS.getString("CST") == "03")
+		    
+		    <PISQtde>
+		        <CST>#getImpostoPis("CST")</CST>
+		        <qBCProd>#getImpostoPis("Q_BCPROD")</qBCProd>
+		        <vAliqProd>#getImpostoPis("V_ALIQ_PROD")</vAliqProd>
+		        <vPIS>#getImpostoPis("V_PIS")</vPIS>
+		    </PISQtde>
+		    
+			#elseif( $IT_NFE_IMPOSTO_PIS.getString("CST") == "04" ||
+			         $IT_NFE_IMPOSTO_PIS.getString("CST") == "06" ||
+			         $IT_NFE_IMPOSTO_PIS.getString("CST") == "07" ||
+			         $IT_NFE_IMPOSTO_PIS.getString("CST") == "08" ||
+			         $IT_NFE_IMPOSTO_PIS.getString("CST") == "09" )
+	
+		    <PISNT>
+		        <CST>#getImpostoPis("CST")</CST>
+		    </PISNT>
+	
+			#elseif( $IT_NFE_IMPOSTO_PIS.getInt("CST") >= 49 )
+		    
+		    <PISOutr>
+		        <CST>#getImpostoPis("CST")</CST>
+				
+				#if( $IT_NFE_IMPOSTO_PIS.getString("V_BC") != "0.00" )
+				
+		        <vBC>#getImpostoPis("V_BC")</vBC>
+		        <pPIS>#getImpostoPis("P_PIS")</pPIS>
+	
+				#elseif ( $IT_NFE_IMPOSTO_PIS.getString("V_BC") == "0.00" &&
+				          $IT_NFE_IMPOSTO_PIS.getString("Q_BCPROD") == "0.00" &&
+				          $IT_NFE_IMPOSTO_PIS.getString("V_ALIQ_PROD") == "0.00" )
+		        
+		        <vBC>#getImpostoPis("V_BC")</vBC>
+		        <pPIS>#getImpostoPis("P_PIS")</pPIS>
+				
+				#else
+		        
+		        <qBCProd>#getImpostoPis("Q_BCPROD")</qBCProd>
+		        <vAliqProd>#getImpostoPis("V_ALIQ_PROD")</vAliqProd>
+		        
+				#end
+		        
+		        <vPIS>#getImpostoPis("V_PIS")</vPIS>
+		    </PISOutr>
+			
+			#end
+		</PIS>
+		
+		#end
+		
+		#if($IT_NFE_IMPOSTO_PIS.nextRow())
+		#end
+	#end  	
+#end

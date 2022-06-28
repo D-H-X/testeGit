@@ -1,0 +1,45 @@
+    <dest>
+        
+#if( $header.getString("E_CPF") != "" && $header.getString("E_CPF") != "00000000000" )
+        <CPF>#getHeader("E_CPF")</CPF>
+#else
+        <CNPJ>#getHeader("E_CNPJ")</CNPJ>
+#end
+        <xNome>#getHeader("E_XNOME")</xNome>
+        <enderDest>
+            <xLgr>#getHeader("E1_XLGR")</xLgr>
+            <nro>#getHeader("E1_NRO")</nro>
+#if( $header.getString("E1_XCPL") != "" )
+            <xCpl>#getHeader("E1_XCPL")</xCpl>
+#end
+            <xBairro>#getHeader("E1_XBAIRRO")</xBairro>
+            <cMun>#getHeader("E1_CMUN")</cMun>
+            <xMun>#getHeader("E1_XMUN")</xMun>
+            <UF>#getHeader("E1_UF")</UF>
+#if( $header.getString("E1_CEP") != "" )
+            <CEP>#getHeader("E1_CEP")</CEP>
+#end
+#if($header.getString("E1_CPAIS") != "" )
+            <cPais>#getHeader("E1_CPAIS")</cPais>
+#end
+#if( $header.getString("E1_XPAIS") != "" )
+            <xPais>#getHeader("E1_XPAIS")</xPais>
+#end
+#if( $header.getString("E1_FONE") != "" )
+            <fone>#getHeader("E1_FONE")</fone>
+#end
+        </enderDest>
+        <IE>#getHeader("E1_IE")</IE>
+#if( $header.getString("E1_ISUF") != "" )
+        <ISUF>#getHeader("E1_ISUF")</ISUF>
+#end
+#set( $email =  $util.getValueFromExt2($ext2, "EMAIL"))
+#if ($util.isCampoValidoETemValor($zXmlOut, "EMAIL_CUSTOM"))
+        <email>#getZXmlOut("EMAIL_CUSTOM")</email>
+#elseif ($email != "" )
+		<email>$email</email>
+#elseif ( $header.getString("EMAIL") != "" )
+        <email>#getHeader("EMAIL")</email>
+#end
+
+    </dest>

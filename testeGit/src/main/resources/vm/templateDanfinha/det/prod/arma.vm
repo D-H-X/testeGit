@@ -1,0 +1,8 @@
+#if(! $!{util.isVazioOuZero($null, "K_NSERIE", "infNFe.det%s.prod.arma.nSerie", $i)} )
+	<arma>
+		<tpArma>$util.lerString($null, "K_TPARMA", "infNFe.det%s.prod.arma.tpArma", $i)</tpArma>
+		<nSerie>$util.lerString($null, "K_NSERIE", "infNFe.det%s.prod.arma.nSerie", $i)</nSerie>
+		<nCano>$util.lerString($null, "K_NCANO", "infNFe.det%s.prod.arma.nCano", $i)</nCano>
+		<descr>$util.lerString($null, "K_DESCR", "infNFe.det%s.prod.arma.descr", $i)</descr>
+	</arma>
+#end

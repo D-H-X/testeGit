@@ -1,0 +1,10 @@
+#if( $header.getString("INFADFISCO").length() > 0 || $header.getString("INFCOMP").length() > 0 )
+    <infAdic>
+#if( $header.getString("INFADFISCO").length() > 0 )
+        <infAdFisco>#getHeader("INFADFISCO")</infAdFisco>
+#end
+#if( $header.getString("INFCOMP").length() > 0 )
+        <infCpl>#removeControlCharacter("INFCOMP")</infCpl>
+#end
+    </infAdic>
+#end

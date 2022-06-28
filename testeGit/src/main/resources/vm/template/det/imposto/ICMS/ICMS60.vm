@@ -1,0 +1,12 @@
+#if( $item.getString("L1_60_CST") == "60" )
+    <ICMS60>
+        <orig>#getItem("L1_60_ORIG")</orig>
+        <CST>#getItem("L1_60_CST")</CST>
+#if( $item.getString("L1_60_VBCST") != "0.00" )
+        <vBCSTRet>#getItem("L1_60_VBCST")</vBCSTRet>
+#end
+#if( $item.getString("L1_60_VICMSST") != "0.00" )
+        <vICMSSTRet>#getItem("L1_60_VICMSST")</vICMSSTRet>
+#end
+    </ICMS60>
+#end

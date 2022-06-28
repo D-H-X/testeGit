@@ -1,0 +1,26 @@
+#if( $util.lerString($null, "L1_00_CST", "infNFe.det%s.imposto.ICMS.ICMS00.CST", $i) == "00" &&
+	 $util.lerString($null, "L1_10_CST", "infNFe.det%s.imposto.ICMS.ICMS10.CST", $i) != "10" &&
+	 $util.lerString($null, "L1_20_CST", "infNFe.det%s.imposto.ICMS.ICMS20.CST", $i) != "20" &&
+	 $util.lerString($null, "L1_30_CST", "infNFe.det%s.imposto.ICMS.ICMS30.CST", $i) != "30" &&
+	 $util.lerString($null, "L1_40_CST", "infNFe.det%s.imposto.ICMS.ICMS40.CST", $i) != "40" &&
+	 $util.lerString($null, "L1_40_CST", "infNFe.det%s.imposto.ICMS.ICMS40.CST", $i) != "41" &&
+	 $util.lerString($null, "L1_40_CST", "infNFe.det%s.imposto.ICMS.ICMS40.CST", $i) != "50" &&
+	 $util.lerString($null, "L1_51_CST", "infNFe.det%s.imposto.ICMS.ICMS51.CST", $i) != "51" &&
+	 $util.lerString($null, "L1_60_CST", "infNFe.det%s.imposto.ICMS.ICMS60.CST", $i) != "60" &&
+	 $util.lerString($null, "L1_70_CST", "infNFe.det%s.imposto.ICMS.ICMS70.CST", $i) != "70" &&
+	 $util.lerString($null, "L1_90_CST", "infNFe.det%s.imposto.ICMS.ICMS90.CST", $i) != "90" &&
+	 $util.lerString($null, "CST", $null) != "41")
+	 <icmS00>
+	    <orig>$util.lerString($null, "L1_00_ORIG", "infNFe.det%s.imposto.ICMS.ICMS00.orig", $i)</orig>
+	    <modBC>$util.lerString($null, "L1_00_MODBC", "infNFe.det%s.imposto.ICMS.ICMS00.modBC", $i)</modBC>
+	    <vbc>$util.lerDecimal($null, "L1_00_VBC", "infNFe.det%s.imposto.ICMS.ICMS00.vBC", 2, $i)</vbc>
+	    <picms>$util.lerDecimal($null, "L1_00_PICMS", "infNFe.det%s.imposto.ICMS.ICMS00.pICMS", 4, $i)</picms>
+	    <vicms>$util.lerDecimal($null, "L1_00_VICMS", "infNFe.det%s.imposto.ICMS.ICMS00.vICMS", 2, $i)</vicms>
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS00.pFCP", $i)} )	    
+	    <pfcp>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS00.pFCP", 2, $i)</pfcp>
+#end    
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS00.vFCP", $i)} )
+	    <vfcp>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS00.vFCP", 2, $i)</vfcp>
+#end	    
+    </icmS00>
+#end

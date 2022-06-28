@@ -1,0 +1,16 @@
+#if( $item.getString("L1_30_CST") == "30" )
+    <ICMS30>
+        <orig>#getItem("L1_30_ORIG")</orig>
+        <CST>#getItem("L1_30_CST")</CST>
+        <modBCST>#getItem("L1_30_MODBCST")</modBCST>
+#if( $item.getString("L1_30_PMVAST") != "0.00" )
+        <pMVAST>#getItem("L1_30_PMVAST")</pMVAST>
+#end
+#if( $item.getString("L1_30_PREDBCST") != "0.00" )
+        <pRedBCST>#getItem("L1_30_PREDBCST")</pRedBCST>
+#end
+        <vBCST>#getItem("L1_30_VBCST")</vBCST>
+        <pICMSST>#getItem("L1_30_PICMSST")</pICMSST>
+        <vICMSST>#getItem("L1_30_VICMSST")</vICMSST>
+    </ICMS30>
+#end

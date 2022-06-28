@@ -1,0 +1,21 @@
+#if( $item.getString("L1_00_CST") == "00" || $item.getString("L1_10_CST") == "10" || $item.getString("L1_20_CST") == "20" || $item.getString("L1_30_CST") == "30" || $item.getString("L1_40_CST") == "40" || $item.getString("L1_40_CST") == "41" || $item.getString("L1_40_CST") == "50" || $item.getString("L1_51_CST") == "51" || $item.getString("L1_60_CST") == "60" || $item.getString("L1_70_CST") == "70" || $item.getString("L1_90_CST") == "90" || $item.getString("CST") == "41")
+    <ICMS>
+#parse("/vm/template/det/imposto/ICMS/ICMS00.vm")
+#parse("/vm/template/det/imposto/ICMS/ICMS10.vm")
+#parse("/vm/template/det/imposto/ICMS/ICMS20.vm")
+#parse("/vm/template/det/imposto/ICMS/ICMS30.vm")
+#parse("/vm/template/det/imposto/ICMS/ICMS40.vm")
+#parse("/vm/template/det/imposto/ICMS/ICMS51.vm")
+#parse("/vm/template/det/imposto/ICMS/ICMS60.vm")
+#parse("/vm/template/det/imposto/ICMS/ICMS70.vm")
+#parse("/vm/template/det/imposto/ICMS/ICMS90.vm")
+#parse("/vm/template/det/imposto/ICMS/ICMSPart.vm")
+#parse("/vm/template/det/imposto/ICMS/ICMSST.vm")
+##parse("/vm/template/det/imposto/ICMS/ICMSSN/ICMSSN101.vm")
+##parse("/vm/template/det/imposto/ICMS/ICMSSN/ICMSSN102.vm")
+##parse("/vm/template/det/imposto/ICMS/ICMSSN/ICMSSN201.vm")
+##parse("/vm/template/det/imposto/ICMS/ICMSSN/ICMSSN202.vm")
+##parse("/vm/template/det/imposto/ICMS/ICMSSN/ICMSSN500.vm")
+##parse("/vm/template/det/imposto/ICMS/ICMSSN/ICMSSN900.vm")
+    </ICMS>
+#end

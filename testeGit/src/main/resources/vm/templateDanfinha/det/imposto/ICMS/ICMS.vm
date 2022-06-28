@@ -1,0 +1,26 @@
+#if( $util.lerString($item, "L1_00_CST", "infNFe.det%s.imposto.ICMS.ICMS00.CST", $i) == "00" || 
+	 $util.lerString($item, "L1_10_CST", "infNFe.det%s.imposto.ICMS.ICMS10.CST", $i) == "10" ||
+	 $util.lerString($item, "L1_20_CST", "infNFe.det%s.imposto.ICMS.ICMS20.CST", $i) == "20" ||
+	 $util.lerString($item, "L1_30_CST", "infNFe.det%s.imposto.ICMS.ICMS30.CST", $i) == "30" ||
+	 $util.lerString($item, "L1_40_CST", "infNFe.det%s.imposto.ICMS.ICMS40.CST", $i) == "40" ||
+	 $util.lerString($item, "L1_40_CST", "infNFe.det%s.imposto.ICMS.ICMS40.CST", $i) == "41" ||
+	 $util.lerString($item, "L1_40_CST", "infNFe.det%s.imposto.ICMS.ICMS40.CST", $i) == "50" ||
+	 $util.lerString($item, "L1_51_CST", "infNFe.det%s.imposto.ICMS.ICMS51.CST", $i) == "51" ||
+	 $util.lerString($item, "L1_60_CST", "infNFe.det%s.imposto.ICMS.ICMS60.CST", $i) == "60" ||
+	 $util.lerString($item, "L1_70_CST", "infNFe.det%s.imposto.ICMS.ICMS70.CST", $i) == "70" ||
+	 $util.lerString($item, "L1_90_CST", "infNFe.det%s.imposto.ICMS.ICMS90.CST", $i) == "90" ||
+	 $util.lerString($item, "CST", $null) == "41")
+    <ICMS>
+#parse("/vm/templateDanfinha/det/imposto/ICMS/ICMS00.vm")
+#parse("/vm/templateDanfinha/det/imposto/ICMS/ICMS10.vm")
+#parse("/vm/templateDanfinha/det/imposto/ICMS/ICMS20.vm")
+#parse("/vm/templateDanfinha/det/imposto/ICMS/ICMS30.vm")
+#parse("/vm/templateDanfinha/det/imposto/ICMS/ICMS40.vm")
+#parse("/vm/templateDanfinha/det/imposto/ICMS/ICMS51.vm")
+#parse("/vm/templateDanfinha/det/imposto/ICMS/ICMS60.vm")
+#parse("/vm/templateDanfinha/det/imposto/ICMS/ICMS70.vm")
+#parse("/vm/templateDanfinha/det/imposto/ICMS/ICMS90.vm")
+#parse("/vm/templateDanfinha/det/imposto/ICMS/ICMSPart.vm")
+#parse("/vm/templateDanfinha/det/imposto/ICMS/ICMSST.vm")
+    </ICMS>
+#end

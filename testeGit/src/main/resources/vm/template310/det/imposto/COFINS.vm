@@ -1,0 +1,72 @@
+## Posicionando no emissor da estrutura IT_NFE_PARTNER a partir de IS_NFE_PARTNER_IDS
+#if($IT_NFE_IMPOSTO_COFINS.getNumRows() > 0)
+	$IT_NFE_IMPOSTO_COFINS.firstRow()
+	#foreach($i in [1..$IT_NFE_IMPOSTO_COFINS.getNumRows()] )
+		#if($IT_NFE_DET_IMPOSTO.getString("COFINS_REF").equals($IT_NFE_IMPOSTO_COFINS.getString("ID")))
+	
+			<COFINS>
+		
+				#if( $IT_NFE_IMPOSTO_COFINS.getString("CST") == "01" || $IT_NFE_IMPOSTO_COFINS.getString("CST") == "02" )
+				    
+				    <COFINSAliq>
+				        <CST>#getImpostoCofins("CST")</CST>
+				        <vBC>#getImpostoCofins("V_BC")</vBC>
+				        <pCOFINS>#getImpostoCofins("P_COFINS")</pCOFINS>
+				        <vCOFINS>#getImpostoCofins("V_COFINS")</vCOFINS>
+				    </COFINSAliq>
+				    
+				#elseif( $IT_NFE_IMPOSTO_COFINS.getString("CST") == "03" )
+				
+				    <COFINSQtde>
+				        <CST>#getImpostoCofins("CST")</CST>
+				        <qBCProd>#getImpostoCofins("Q_BCPROD")</qBCProd>
+				        <vAliqProd>#getImpostoCofins("V_ALIQ_PROD")</vAliqProd>
+				        <vCOFINS>#getImpostoCofins("V_COFINS")</vCOFINS>
+				    </COFINSQtde>
+				    
+				#elseif( $IT_NFE_IMPOSTO_COFINS.getString("CST") == "04" ||
+				         $IT_NFE_IMPOSTO_COFINS.getString("CST") == "06" ||
+				         $IT_NFE_IMPOSTO_COFINS.getString("CST") == "07" ||
+				         $IT_NFE_IMPOSTO_COFINS.getString("CST") == "08" ||
+				         $IT_NFE_IMPOSTO_COFINS.getString("CST") == "09" )
+	
+				    <COFINSNT>
+				        <CST>#getImpostoCofins("CST")</CST>
+				    </COFINSNT>
+	
+				#elseif( $IT_NFE_IMPOSTO_COFINS.getInt("CST") >= 49 )
+				
+				    <COFINSOutr>
+				        <CST>#getImpostoCofins("CST")</CST>
+				
+						#if( $IT_NFE_IMPOSTO_COFINS.getString("V_BC") != "0.00" )
+						
+				        <vBC>#getImpostoCofins("V_BC")</vBC>
+				        <pCOFINS>#getImpostoCofins("P_COFINS")</pCOFINS>
+						
+						#elseif ( $IT_NFE_IMPOSTO_COFINS.getString("V_BC") == "0.00" && $IT_NFE_IMPOSTO_COFINS.getString("Q_BCPROD") == "0.00" && $IT_NFE_IMPOSTO_COFINS.getString("V_ALIQ_PROD") == "0.00" )
+				        
+				        <vBC>#getImpostoCofins("V_BC")</vBC>
+				        <pCOFINS>#getImpostoCofins("P_COFINS")</pCOFINS>
+						
+						#else
+				        
+				        <qBCProd>#getImpostoCofins("Q_BCPROD")</qBCProd>
+				        <vAliqProd>#getImpostoCofins("V_ALIQ_PROD")</vAliqProd>
+						
+						#end
+				        
+				        <vCOFINS>#getImpostoCofins("V_COFINS")</vCOFINS>
+				        
+				    </COFINSOutr>
+				
+				#end
+			
+			</COFINS>
+		
+		#end
+		
+		#if($IT_NFE_IMPOSTO_COFINS.nextRow())
+		#end
+	#end
+#end

@@ -1,0 +1,65 @@
+    <total>
+        <ICMSTot>
+            <vBC>#getHeader("S1_VBC")</vBC>
+            <vICMS>#getHeader("S1_VICMS")</vICMS>
+            <vBCST>#getHeader("S1_VBCST")</vBCST>
+            <vST>#getHeader("S1_VST")</vST>
+            <vProd>#getHeader("S1_VPROD")</vProd>
+            <vFrete>#getHeader("S1_VFRETE")</vFrete>
+            <vSeg>#getHeader("S1_VSEG")</vSeg>
+            <vDesc>#getHeader("S1_VDESC")</vDesc>
+            <vII>#getHeader("S1_VII")</vII>
+            <vIPI>#getHeader("S1_VIPI")</vIPI>
+            <vPIS>#getHeader("S1_VPIS")</vPIS>
+            <vCOFINS>#getHeader("S1_VCOFINS")</vCOFINS>
+            <vOutro>#getHeader("S1_VOUTRO")</vOutro>
+            <vNF>#getHeader("S1_VNF")</vNF>
+#if ($util.isCampoValido($header, "VTOTTRIB"))
+		<vTotTrib>#getHeader("VTOTTRIB")</vTotTrib>
+#end
+        </ICMSTot>
+#if( $header.getString("S2_VSERV") != "0.00" )
+        <ISSQNtot>
+#if( $header.getString("S2_VSERV") != "0.00" )
+            <vServ>#getHeader("S2_VSERV")</vServ>
+#end
+#if( $header.getString("S2_VBC") != "0.00" )
+            <vBC>#getHeader("S2_VBC")</vBC>
+#end
+#if( $header.getString("S2_VISS") != "0.00" )
+            <vISS>#getHeader("S2_VISS")</vISS>
+#end
+#if( $header.getString("S2_VPISISS") != "0.00" )
+            <vPIS>#getHeader("S2_VPISISS")</vPIS>
+#end
+#if( $header.getString("S2_VCOFINSISS") != "0.00" )
+            <vCOFINS>#getHeader("S2_VCOFINSISS")</vCOFINS>
+#end
+        </ISSQNtot>
+#end
+#if( $header.getString("S2_VSERV") != "0.00" )
+        <retTrib>
+#if( $header.getString("S3_VRETPIS") != "0.00" )
+            <vRetPIS>#getHeader("S3_VRETPIS")</vRetPIS>
+#end
+#if( $header.getString("S3_VRETCOFINS") != "0.00" )
+            <vRetCOFINS>#getHeader("S3_VRETCOFINS")</vRetCOFINS>
+#end
+#if( $header.getString("S3_VRETCSLL") != "0.00" )
+            <vRetCSLL>#getHeader("S3_VRETCSLL")</vRetCSLL>
+#end
+#if( $header.getString("S3_VBCIRRF") != "0.00" )
+            <vBCIRRF>#getHeader("S3_VBCIRRF")</vBCIRRF>
+#end
+#if( $header.getString("S3_VIRRF") != "0.00" )
+            <vIRRF>#getHeader("S3_VIRRF")</vIRRF>
+#end
+#if( $header.getString("S3_VBCRETPREV") != "0.00" )
+            <vBCRetPrev>#getHeader("S3_VBCRETPREV")</vBCRetPrev>
+#end
+#if( $header.getString("S3_VRETPREV") != "0.00" )
+            <vRetPrev>#getHeader("S3_VRETPREV")</vRetPrev>
+#end
+        </retTrib>
+#end
+    </total>

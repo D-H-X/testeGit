@@ -1,0 +1,30 @@
+#if( (! $!{util.isVazioOuZero($header, "NFAT", "infNFe.cobr.fat.nFat")} )
+	 || ($duplicata.getNumRows() != 0) )
+    <cobr>
+#if(! $!{util.isVazioOuZero($header, "NFAT", "infNFe.cobr.fat.nFat")} )
+        <fat>
+            <nFat>#lerString($header, "NFAT", "infNFe.cobr.fat.nFat")</nFat>
+#if(! $!{util.isVazioOuZero($header, "VORIG", "infNFe.cobr.fat.vOrig")} )
+            <vOrig>#lerDecimal($header, "VORIG", "infNFe.cobr.fat.vOrig", 2)</vOrig>
+#end
+#if(! $!{util.isVazioOuZero($header, "VDESC", "infNFe.cobr.fat.vDesc")} )
+            <vDesc>#lerDecimal($header, "VDESC", "infNFe.cobr.fat.vDesc", 2)</vDesc>
+#end
+#if(! $!{util.isVazioOuZero($header, "VLIQ", "infNFe.cobr.fat.vLiq")} )
+            <vLiq>#lerDecimal($header, "VLIQ", "infNFe.cobr.fat.vLiq", 2)</vLiq>
+#end
+        </fat>
+#end
+#if( $duplicata.getNumRows() != 0 )
+#foreach($i in [1..$duplicata.getNumRows()] )
+        <dup>
+            <nDup>#lerString($duplicata, "NDUP", "infNFe.dup$i.nDup")</nDup>
+            <dVenc>#lerString($duplicata, "DVENC", "infNFe.dup$i.dVenc")</dVenc>
+            <vDup>#lerDecimal($duplicata, "VDUP", "infNFe.dup$i.vDup", 2)</vDup>
+        </dup>
+##if vazio para chamar a proxima linha no JcoTable
+#if($duplicata.nextRow())#end
+#end
+#end
+    </cobr>
+#end

@@ -1,0 +1,116 @@
+    <total>
+        <ICMSTot>
+            <vBC>#getTotal("V_BC")</vBC>
+            <vICMS>#getTotal("V_ICMS")</vICMS>
+            <vICMSDeson>#getTotal("V_ICMSDESON")</vICMSDeson>
+            <vBCST>#getTotal("V_BCST")</vBCST>
+            <vST>#getTotal("V_ST")</vST>
+            <vProd>#getTotal("V_PROD")</vProd>
+            <vFrete>#getTotal("V_FRETE")</vFrete>
+            <vSeg>#getTotal("V_SEG")</vSeg>
+            <vDesc>#getTotal("V_DESC")</vDesc>
+            <vII>#getTotal("V_II")</vII>
+            <vIPI>#getTotal("V_IPI")</vIPI>
+            <vPIS>#getTotal("V_PIS")</vPIS>
+            <vCOFINS>#getTotal("V_COFINS")</vCOFINS>
+            <vOutro>#getTotal("V_OUTRO")</vOutro>
+            <vNF>#getTotal("V_NF")</vNF>
+		
+			#if ($util.isCampoValido($IS_NFE_ICMSTOT, "V_TOT_TRIB"))
+			<vTotTrib>#getTotal("V_TOT_TRIB")</vTotTrib>
+			#end
+        
+        </ICMSTot>
+        
+		#if( $IS_NFE_ISSQNTOT.getString("V_SERV") != "0.00" )
+        <ISSQNtot>
+			
+			#if( $IS_NFE_ISSQNTOT.getString("V_SERV") != "0.00" )
+            <vServ>#getTotalServ("V_SERV")</vServ>
+			#end
+			
+			#if( $IS_NFE_ISSQNTOT.getString("V_BC") != "0.00" )
+            <vBC>#getTotalServ("V_BC")</vBC>
+			#end
+
+			#if( $IS_NFE_ISSQNTOT.getString("V_ISS") != "0.00" )
+            <vISS>#getTotalServ("V_ISS")</vISS>
+			#end
+
+			#if( $IS_NFE_ISSQNTOT.getString("V_PIS") != "0.00" )
+            <vPIS>#getTotalServ("V_PIS")</vPIS>
+			#end
+
+			#if( $IS_NFE_ISSQNTOT.getString("V_COFINS") != "0.00" )
+            <vCOFINS>#getTotalServ("V_COFINS")</vCOFINS>
+			#end
+			
+			<dCompet>$!{util.dateiso8601SAP($IS_NFE_ISSQNTOT.getString("D_COMPET"))}</dCompet>
+			
+			#if( $IS_NFE_ISSQNTOT.getString("V_DEDUCAO") != "0.00") 
+			<vDeducao>#getTotalServ("V_DEDUCAO")</vDeducao>
+			#end
+			
+			#if( $IS_NFE_ISSQNTOT.getString("V_OUTRO") != "0.00" ) 
+			<vOutro>#getTotalServ("V_OUTRO")</vOutro>
+			#end
+			
+			#if( $IS_NFE_ISSQNTOT.getString("V_DESC_INCOND") != "0.00" ) 
+			<vDescIncond>#getTotalServ("V_DESC_INCOND")</vDescIncond>
+			#end
+			
+			#if( $IS_NFE_ISSQNTOT.getString("V_DESC_COND") != "0.00" ) 
+			<vDescCond>#getTotalServ("V_DESC_COND")</vDescCond>
+			#end
+			
+			#if( $IS_NFE_ISSQNTOT.getString("V_ISSRET") != "0.00" ) 
+			<vISSRet>#getTotalServ("V_ISSRET")</vISSRet>
+			#end
+			
+			#if( $IS_NFE_ISSQNTOT.getString("C_REG_TRIB") != "" ) 
+			<cRegTrib>#getTotalServ("C_REG_TRIB")</cRegTrib>
+			#end
+						
+        </ISSQNtot>
+		#end
+
+		#if( $IS_NFE_RETTRIB.getString("V_RET_PIS") != "0.00" ||
+			 $IS_NFE_RETTRIB.getString("V_RET_COFINS") != "0.00" ||
+			 $IS_NFE_RETTRIB.getString("V_RET_CSLL") != "0.00" ||
+			 $IS_NFE_RETTRIB.getString("V_BCIRRF") != "0.00" ||
+			 $IS_NFE_RETTRIB.getString("V_IRRF") != "0.00" ||
+			 $IS_NFE_RETTRIB.getString("V_BCRET_PREV") != "0.00" ||
+			 $IS_NFE_RETTRIB.getString("V_RET_PREV") != "0.00")
+			 
+        <retTrib>
+			#if( $IS_NFE_RETTRIB.getString("V_RET_PIS") != "0.00" )
+            <vRetPIS>#getTotalRetido("V_RET_PIS")</vRetPIS>
+			#end
+
+			#if( $IS_NFE_RETTRIB.getString("V_RET_COFINS") != "0.00" )
+            <vRetCOFINS>#getTotalRetido("V_RET_COFINS")</vRetCOFINS>
+			#end
+
+			#if( $IS_NFE_RETTRIB.getString("V_RET_CSLL") != "0.00" )
+            <vRetCSLL>#getTotalRetido("V_RET_CSLL")</vRetCSLL>
+			#end
+
+			#if( $IS_NFE_RETTRIB.getString("V_BCIRRF") != "0.00" )
+            <vBCIRRF>#getTotalRetido("V_BCIRRF")</vBCIRRF>
+			#end
+
+			#if( $IS_NFE_RETTRIB.getString("V_IRRF") != "0.00" )
+            <vIRRF>#getTotalRetido("V_IRRF")</vIRRF>
+			#end
+
+			#if( $IS_NFE_RETTRIB.getString("V_BCRET_PREV") != "0.00" )
+            <vBCRetPrev>#getTotalRetido("V_BCRET_PREV")</vBCRetPrev>
+			#end
+
+			#if( $IS_NFE_RETTRIB.getString("V_RET_PREV") != "0.00" )
+            <vRetPrev>#getTotalRetido("V_RET_PREV")</vRetPrev>
+			#end
+        </retTrib>
+		#end
+		
+    </total>

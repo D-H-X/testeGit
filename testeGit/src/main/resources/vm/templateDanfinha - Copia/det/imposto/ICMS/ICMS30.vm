@@ -1,0 +1,30 @@
+###if( $util.lerString($null, "L1_30_CST", "infNFe.det%s.imposto.ICMS.ICMS30.CST", $i) == "30" )
+##	<icmS30>
+##	    <orig>$util.lerString($null, "L1_30_ORIG", "infNFe.det%s.imposto.ICMS.ICMS30.orig", $i)</orig>
+##	    <modBCST>$util.lerString($null, "L1_30_MODBCST", "infNFe.det%s.imposto.ICMS.ICMS30.modBCST", $i)</modBCST>
+###if(! $!{util.isVazioOuZero($null, "L1_30_PMVAST", "infNFe.det%s.imposto.ICMS.ICMS30.pMVAST", $i)} )
+##	    <pmvast>$util.lerDecimal($null, "L1_30_PMVAST", "infNFe.det%s.imposto.ICMS.ICMS30.pMVAST", 4, $i)</pmvast>
+###end
+###if(! $!{util.isVazioOuZero($null, "L1_30_PREDBCST", "infNFe.det%s.imposto.ICMS.ICMS30.pRedBCST", $i)} )
+##	    <pRedBCST>$util.lerDecimal($null, "L1_30_PREDBCST", "infNFe.det%s.imposto.ICMS.ICMS30.pRedBCST", 4, $i)</pRedBCST>
+###end
+##        <vbcst>$util.lerDecimal($null, "L1_30_VBCST", "infNFe.det%s.imposto.ICMS.ICMS30.vBCST", 2, $i)</vbcst>
+##	    <picmsst>$util.lerDecimal($null, "L1_30_PICMSST", "infNFe.det%s.imposto.ICMS.ICMS30.pICMSST", 4, $i)</picmsst>
+##	    <vicmsst>$util.lerDecimal($null, "L1_30_VICMSST", "infNFe.det%s.imposto.ICMS.ICMS30.vICMSST", 2, $i)</vicmsst>
+###if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS30.vBCFCPST", $i)} )	    
+##	    <vbcfcpst>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS30.vBCFCPST", 2, $i)</vbcfcpst>
+###end	    
+###if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS30.pFCPST", $i)} )	    
+##	    <pfcpst>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS30.pFCPST", 2, $i)</pfcpst>
+###end	    
+###if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS30.vFCPST", $i)} )	    
+##	    <vfcpst>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS30.vFCPST", 2, $i)</vfcpst>
+###end
+##	#if (! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS30.x.vICMSDeson", $i)} )
+##	    ##<-x->		    
+##			<vicmsDeson>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS30.x.vICMSDeson", 2, $i)</vicmsDeson>
+##			<motDesICMS>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS30.x.motDesICMS", 0, $i)</motDesICMS>
+##		##</-x->
+##	#end
+##    </icmS30>
+###end

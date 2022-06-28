@@ -1,0 +1,21 @@
+    <imposto>
+##if ($!{util.isCampoValido($null, "VTOTTRIB")})
+##		<vTotTrib>$util.lerDecimal($null, "VTOTTRIB", "infNFe.det%s.imposto.vTotTrib", 2, $i)</vTotTrib>
+###end
+#if( $util.lerString($null, "VTOTTRIB", "infNFe.det%s.imposto.vTotTrib", $i) != "")
+    <vTotTrib>$util.lerDecimal($null, "VTOTTRIB", "infNFe.det%s.imposto.vTotTrib", 2, $i)</vTotTrib>
+#else
+    <vTotTrib>0.00</vTotTrib>
+#end
+		#parse("/vm/templateDanfinha/det/imposto/ICMS/ICMS.vm")
+		#parse("/vm/templateDanfinha/det/imposto/PIS.vm")
+		#parse("/vm/templateDanfinha/det/imposto/PISST.vm")
+		#parse("/vm/templateDanfinha/det/imposto/COFINS.vm")
+		#parse("/vm/templateDanfinha/det/imposto/COFINSST.vm")
+		#parse("/vm/templateDanfinha/det/imposto/IPI.vm")
+		#parse("/vm/templateDanfinha/det/imposto/II.vm")
+		##parse("/vm/templateDanfinha/det/imposto/ISSQN.vm")
+		
+		
+	
+    </imposto>

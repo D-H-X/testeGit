@@ -1,0 +1,15 @@
+    <det nItem="$i">
+        #parse("/vm/template310_convertido/det/prod/prod.vm")
+        #parse("/vm/template310_convertido/det/imposto/imposto.vm")
+	#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.impostoDevol.pDevol", $i)} )
+		<impostoDevol>
+			<pDevol>$util.lerDecimal($null, $null, "infNFe.det%s.impostoDevol.pDevol", 2, $i)</pDevol>
+			<IPI>
+				<vIPIDevol>$util.lerDecimal($null, $null, "infNFe.det%s.impostoDevol.IPI.vIPIDevol", 2, $i)</vIPIDevol>
+			</IPI>
+		</impostoDevol>
+	#end
+#if(! $!{util.isVazio($null, $null, "infNFe.det%s.infAdProd", $i)} )
+        <infAdProd>$util.removeAcentos($null, $null, "infNFe.det%s.infAdProd", $i)</infAdProd>
+#end
+    </det>

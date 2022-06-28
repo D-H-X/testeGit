@@ -1,0 +1,147 @@
+#macro(getRecord $key)
+$esc.xml($!{record.getString($key)})##
+#end
+
+#macro(getHeader $key)
+$esc.xml($!{IS_NFE_HEADER.getString($key)})##
+#end
+
+#macro(getExporta $key)
+$esc.xml($!{IS_NFE_EXPORTA.getString($key)})##
+#end
+
+#macro(getCompra $key)
+$esc.xml($!{IS_NFE_COMPRA.getString($key)})##
+#end
+
+#macro(getAut $key)
+$esc.xml($!{IT_NFE_AUTXML.getString($key)})##
+#end
+
+#macro(getInfAdiconal $key)
+$esc.xml($!{INF_AD_FISCO.getString($key)})##
+#end
+
+#macro(getPag $key)
+$esc.xml($!{IT_NFE_PAG.getString($key)})##
+#end
+
+#macro(getIde $key)
+$esc.xml($!{IS_NFE_IDE.getString($key)})##
+#end
+
+#macro(getRef $key)
+$esc.xml($!{IT_NFE_NFREF.getString($key)})##
+#end
+
+#macro(getPartner $key)
+$esc.xml($!{IT_NFE_PARTNER.getString($key)})##
+#end
+
+#macro(getDuplicata $key)
+$esc.xml($!{IT_NFE_DUP.getString($key)})##
+#end
+
+#macro(getItem $key)
+$esc.xml($!{IT_NFE_DET.getString($key)})##
+#end
+
+#macro(getItemProd $key)
+$esc.xml($!{IT_NFE_DET_PROD.getString($key)})##
+#end
+
+#macro(getImportacao $key)
+$esc.xml($!{IT_NFE_PROD_DI.getString($key)})##
+#end
+
+#macro(getAdicao $key)
+$esc.xml($!{IT_NFE_DI_ADI.getString($key)})##
+#end
+
+#macro(getMedicamento $key)
+$esc.xml($!{IT_NFE_PROD_MED.getString($key)})##
+#end
+
+#macro(getArma $key)
+$esc.xml($!{IT_NFE_PROD_ARMA.getString($key)})##
+#end
+
+#macro(getComb $key)
+$esc.xml($!{IT_NFE_PROD_COMB.getString($key)})##
+#end
+
+#macro(getImposto $key)
+$esc.xml($!{IT_NFE_DET_IMPOSTO.getString($key)})##
+#end
+
+#macro(getImpostoIcms $key)
+$esc.xml($!{IT_NFE_IMPOSTO_ICMS.getString($key)})##
+#end
+
+#macro(getImpostoIpi $key)
+$esc.xml($!{IT_NFE_IMPOSTO_IPI.getString($key)})##
+#end
+
+#macro(getImpostoIi $key)
+$esc.xml($!{IT_NFE_IMPOSTO_II.getString($key)})##
+#end
+
+#macro(getImpostoIssqn $key)
+$esc.xml($!{IT_NFE_IMPOSTO_ISSQN.getString($key)})##
+#end
+
+#macro(getImpostoPis $key)
+$esc.xml($!{IT_NFE_IMPOSTO_PIS.getString($key)})##
+#end
+
+#macro(getImpostoPisst $key)
+$esc.xml($!{IT_NFE_IMPOSTO_PISST.getString($key)})##
+#end
+
+#macro(getImpostoCofins $key)
+$esc.xml($!{IT_NFE_IMPOSTO_COFINS.getString($key)})##
+#end
+
+#macro(getImpostoCofinsst $key)
+$esc.xml($!{IT_NFE_IMPOSTO_COFINSST.getString($key)})##
+#end
+
+#macro(getTotal $key)
+$esc.xml($!{IS_NFE_ICMSTOT.getString($key)})##
+#end
+
+#macro(getTotalServ $key)
+$esc.xml($!{IS_NFE_ISSQNTOT.getString($key)})##
+#end
+
+#macro(getTotalRetido $key)
+$esc.xml($!{IS_NFE_RETTRIB.getString($key)})##
+#end
+
+#macro(getTransportadora $key)
+$esc.xml($!{IS_NFE_TRANSP.getString($key)})##
+#end
+
+#macro(getReboque $key)
+$esc.xml($!{IT_NFE_REBOQUE.getString($key)})##
+#end
+
+#macro(getVol $key)
+$esc.xml($!{IT_NFE_VOL.getString($key)})##
+#end
+
+#macro(getText $key)
+$esc.xml($!{IT_NFE_TEXT.getString($key)})##
+#end
+
+#macro(getFat $key)
+$esc.xml($!{IS_NFE_FAT.getString($key)})##
+#end
+
+#macro(getZXmlOut $key)
+$esc.xml($!{zXmlOut.getString($key)})##
+#end
+
+#macro(removeControlCharacter $key)
+$util.removerCaractereControl($!{IS_NFE_INFADIC.getString($key)})##
+#end

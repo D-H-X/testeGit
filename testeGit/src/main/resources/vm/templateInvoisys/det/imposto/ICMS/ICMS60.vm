@@ -1,0 +1,28 @@
+#if( $util.lerString($null, "L1_60_CST", "infNFe.det%s.imposto.ICMS.ICMS60.CST", $i) == "60" )
+	<icmS60>
+	    <orig>$util.lerString($null, "L1_60_ORIG", "infNFe.det%s.imposto.ICMS.ICMS60.orig", $i)</orig>
+	#if(! $!{util.isVazioOuZero($null, "L1_60_VBCSTRET", "infNFe.det%s.imposto.ICMS.ICMS60.vBCSTRet", $i)} )
+        <vbcstRet>$util.lerDecimal($null, "L1_60_VBCSTRET", "infNFe.det%s.imposto.ICMS.ICMS60.vBCSTRet", 2, $i)</vbcstRet>
+        <pst>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS60.pST", 4, $i)</pst>                
+		<vicmsstRet>$util.lerDecimal($null, "L1_60_VICMSSTRET", "infNFe.det%s.imposto.ICMS.ICMS60.vICMSSTRet", 2, $i)</vicmsstRet>
+#end
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.det%s.imposto.ICMS.ICMS60.vBCFCPSTRet", $i)} )
+	    <vbcfcpstRet>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS60.vBCFCPSTRet", 2, $i)</vbcfcpstRet>
+		<pfcpstRet>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS60.pFCPSTRet", 2, $i)</pfcpstRet>
+		<vfcpstRet>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS60.vFCPSTRet", 2, $i)</vfcpstRet>
+#end	   
+#if( $util.lerString($null, "STATUS", "infNFe.det%s.imposto.ICMS.ICMS60.status", $i) == "S")
+		<pRedBCEfet>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS60.pRedBcEfet", 2, $i)</pRedBCEfet> 
+		<vbcEfet>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS60.vBcEfet", 2, $i)</vbcEfet>
+		<picmsEfet>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS60.pIcmsEfet", 2, $i)</picmsEfet>
+		<vicmsEfet>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS60.vIcmsEfet", 2, $i)</vicmsEfet>
+#end
+#if(! $!{util.isVazioOuZero($null, "VICMSSUBSTITUTO", "infNFe.det%s.imposto.ICMS.ICMS60.vIicmsSubstituto", $i)} )
+		<vicmsSubstituto>$util.lerDecimal($null, $null, "infNFe.det%s.imposto.ICMS.ICMS60.vIicmsSubstituto", 2, $i)</vicmsSubstituto>
+#end
+    </icmS60>
+#end
+
+
+
+

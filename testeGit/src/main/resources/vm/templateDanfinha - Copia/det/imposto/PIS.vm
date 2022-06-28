@@ -1,0 +1,53 @@
+###if( $util.lerString($null, "P1_CST", "infNFe.det%s.imposto.PIS.PISAliq.CST", $i) == "01" ||
+##     $util.lerString($null, "P1_CST", "infNFe.det%s.imposto.PIS.PISAliq.CST", $i) == "02" ||
+##	 $util.lerString($null, "P2_CST", "infNFe.det%s.imposto.PIS.PISQtde.CST", $i) == "03" ||
+##	 $util.lerString($null, "P3_CST", "infNFe.det%s.imposto.PIS.PISNT.CST", $i) == "04" ||
+##	 $util.lerString($null, "P3_CST", "infNFe.det%s.imposto.PIS.PISNT.CST", $i) == "06" ||
+##	 $util.lerString($null, "P3_CST", "infNFe.det%s.imposto.PIS.PISNT.CST", $i) == "07" ||
+##	 $util.lerString($null, "P3_CST", "infNFe.det%s.imposto.PIS.PISNT.CST", $i) == "08" ||
+##	 $util.lerString($null, "P3_CST", "infNFe.det%s.imposto.PIS.PISNT.CST", $i) == "09" ||
+##	 $util.lerInt($null, "P4_CST", "infNFe.det%s.imposto.PIS.PISOutr.CST", $i) >= 49 )
+##	<pis>
+###if( $util.lerString($null, "P1_CST", "infNFe.det%s.imposto.PIS.PISAliq.CST", $i) == "01" ||
+##     $util.lerString($null, "P1_CST", "infNFe.det%s.imposto.PIS.PISAliq.CST", $i) == "02" )
+##	    <pisAliq>
+##	        <cst>$util.lerString($null, "P1_CST", "infNFe.det%s.imposto.PIS.PISAliq.CST", $i)</cst>
+##	        <vbc>$util.lerDecimal($null, "P1_VBC", "infNFe.det%s.imposto.PIS.PISAliq.vBC", 2, $i)</vbc>
+##	        <ppis>$util.lerDecimal($null, "P1_PPIS", "infNFe.det%s.imposto.PIS.PISAliq.pPIS", 4, $i)</ppis>
+##	        <vpis>$util.lerDecimal($null, "P1_VPIS", "infNFe.det%s.imposto.PIS.PISAliq.vPIS", 2, $i)</vpis>
+##	    </pisAliq>
+###elseif( $util.lerString($null, "P2_CST", "infNFe.det%s.imposto.PIS.PISQtde.CST", $i) == "03" )
+##	    <pisQtde>
+##	        <cst>$util.lerString($null, "P2_CST", "infNFe.det%s.imposto.PIS.PISQtde.CST", $i)</cst>
+##	        <qbcProd>$util.lerDecimal($null, "P2_QBCPROD", "infNFe.det%s.imposto.PIS.PISQtde.qBCProd", 4, $i)</qbcProd>
+##	        <vAliqProd>$util.lerDecimal($null, "P2_VALIQPROD", "infNFe.det%s.imposto.PIS.PISQtde.vAliqProd", 4, $i)</vAliqProd>
+##	        <vpis>$util.lerDecimal($null, "P2_VPIS", "infNFe.det%s.imposto.PIS.PISQtde.vPIS", 2, $i)</vpis>
+##	    </pisQtde>
+###elseif( $util.lerString($null, "P3_CST", "infNFe.det%s.imposto.PIS.PISNT.CST", $i) == "04" ||
+##         $util.lerString($null, "P3_CST", "infNFe.det%s.imposto.PIS.PISNT.CST", $i) == "06" ||
+##         $util.lerString($null, "P3_CST", "infNFe.det%s.imposto.PIS.PISNT.CST", $i) == "07" ||
+##         $util.lerString($null, "P3_CST", "infNFe.det%s.imposto.PIS.PISNT.CST", $i) == "08" ||
+##         $util.lerString($null, "P3_CST", "infNFe.det%s.imposto.PIS.PISNT.CST", $i) == "09" )
+##	    <pisnt>
+##	        <cst>$util.lerString($null, "P3_CST", "infNFe.det%s.imposto.PIS.PISNT.CST", $i)</cst>
+##	    </pisnt>
+###elseif( $util.lerInt($null, "P4_CST", "infNFe.det%s.imposto.PIS.PISOutr.CST", $i) >= 49 )
+##	    <pisOutr>
+##	        <cst>$util.lerString($null, "P4_CST", "infNFe.det%s.imposto.PIS.PISOutr.CST", $i)</cst>
+###if(! $!{util.isVazioOuZero($null, "P4_VBC", "infNFe.det%s.imposto.PIS.PISOutr.vBC", $i)} )
+##	        <vbc>$util.lerDecimal($null, "P4_VBC", "infNFe.det%s.imposto.PIS.PISOutr.vBC", 2, $i)</v>
+##	        <ppis>$util.lerDecimal($null, "P4_PPIS", "infNFe.det%s.imposto.PIS.PISOutr.pPIS", 4, $i)</ppis>
+###elseif ( $!{util.isVazioOuZero($null, "P4_VBC", "infNFe.det%s.imposto.PIS.PISOutr.vBC", $i)} &&
+##          $!{util.isVazioOuZero($null, "P4_QBCPROD", "infNFe.det%s.imposto.PIS.PISOutr.qBCProd", $i)} &&
+##          $!{util.isVazioOuZero($null, "P4_VALIQPROD", "infNFe.det%s.imposto.PIS.PISOutr.vAliqProd", $i)} )
+##	        <vbc>$util.lerDecimal($null, "P4_VBC", "infNFe.det%s.imposto.PIS.PISOutr.vBC", 2, $i)</vbc>
+##	        <ppis>$util.lerDecimal($null, "P4_PPIS", "infNFe.det%s.imposto.PIS.PISOutr.pPIS", 4, $i)</ppis>
+###else
+##	        <qbcProd>$util.lerDecimal($null, "P4_QBCPROD", "infNFe.det%s.imposto.PIS.PISOutr.qBCProd", 4, $i)</qbcProd>
+##	        <vAliqProd>$util.lerDecimal($null, "P4_VALIQPROD", "infNFe.det%s.imposto.PIS.PISOutr.vAliqProd", 4, $i)</vAliqProd>
+###end
+##	        <vpis>$util.lerDecimal($null, "P4_VPIS", "infNFe.det%s.imposto.PIS.PISOutr.vPIS", 2, $i)</vpis>
+##	    </pisOutr>
+###end
+##	</pis>
+###end

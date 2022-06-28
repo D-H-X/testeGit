@@ -1,0 +1,106 @@
+<ide>
+    <cUF>#lerString($header, "CUF", "infNFe.ide.cUF")</cUF>
+    <cNF>#obterNumeroAleatorioTamanho8($header, "CNF", "infNFe.ide.cNF")</cNF>
+    <natOp>#removeAcentos($header, "NATOP", "infNFe.ide.natOp")</natOp>
+    <mod>#lerString($header, "MOD", "infNFe.ide.mod")</mod>
+    <serie>#lerString($header, "SERIE", "infNFe.ide.serie")</serie>
+    <nNF>#lerString($header, "NNF", "infNFe.ide.nNF")</nNF>
+	<dhEmi>#lerString($null, $null, "infNFe.ide.dhEmi")</dhEmi>
+	###if(! $!{util.isDataVazia($header, "DSAIENT", "infNFe.ide.dhSaiEnt")} )
+	##<dhSaiEnt>$!{util.obterDataHoraSAP($header, "DSAIENT", "HSAIENT", "infNFe.ide.dhSaiEnt")}</dhSaiEnt>
+	###end
+    
+    <tpNF>#lerString($header, "TPNF", "infNFe.ide.tpNF")</tpNF>
+    <idDest>#lerString($null, $null, "infNFe.ide.idDest")</idDest>
+    <cMunFG>#lerString($header, "CMUNFG", "infNFe.ide.cMunFG")</cMunFG>
+    <tpImp>#lerString($header, "TPIMP", "infNFe.ide.tpImp")</tpImp>
+    <tpEmis>#lerString($header, "TPEMIS", "infNFe.ide.tpEmis")</tpEmis>
+    <cDV>#lerString($header, "CDV", "infNFe.ide.cDV")</cDV>
+    <tpAmb>#lerString($header, "TPAMB", "infNFe.ide.tpAmb")</tpAmb>
+    <finNFe>#lerString($header, "FINNFE", "infNFe.ide.finNFe")</finNFe>
+    <indFinal>#lerString($null, $null, "infNFe.ide.indFinal")</indFinal>
+	<indPres>#lerString($null, $null, "infNFe.ide.indPres")</indPres>
+
+#if(! $!{util.isVazio($null, $null, "infNFe.ide.indIntermed")} )
+   <indIntermed>#lerString($null, $null, "infNFe.ide.indIntermed")</indIntermed>
+#end
+    <procEmi>#lerString($header, "PROCEMI", "infNFe.ide.procEmi")</procEmi>
+    ##<verProc>#lerString($header, "VERPROC", "infNFe.ide.verProc")</verProc>
+    <verProc>3.98.0</verProc>
+	
+#if(! $!{util.isDataVazia($header, "DHCONT", "infNFe.ide.dhCont")} )
+    <dhCont>$!{util.obterDataHoraSAP($header, "DHCONT", "infNFe.ide.dhCont")}</dhCont>
+#end
+	
+#if(! $!{util.isVazio($header, "XJUST", "infNFe.ide.xJust")} )
+    <xJust>#lerString($header, "XJUST", "infNFe.ide.xJust")</xJust>
+#end
+
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.ide.NFrefba.refNFe_ba")} )
+  #if($util.getNumeroLinhas($referenciada, "infNFe.NFref.rowCount") == 0 )
+     <NFref>
+         <refNFe>$util.lerString($null, $null, "infNFe.ide.NFrefba.refNFe_ba")</refNFe>
+     </NFref>
+  #end
+#end
+
+#if($util.getNumeroLinhas($referenciada, "infNFe.NFref.rowCount") > 0 )
+#foreach($i in [1..$util.getNumeroLinhas($referenciada, "infNFe.NFref.rowCount")] )
+    <NFref>
+#if(! $!{util.isVazioOuZero($referenciada, "B12_REFNFE", "infNFe.ide.NFref%s.refNFe", $i)} )
+       <refNFe>$util.lerString($referenciada, "B12_REFNFE", "infNFe.ide.NFref%s.refNFe", $i)</refNFe>   
+#end
+
+
+#if(! $!{util.isVazioOuZero($null, $null, "infNFe.ide.NFref%s.refNFP.nNF", $i)} )
+        <refNFP>
+            <cUF>$util.lerString($null, $null, "infNFe.ide.NFref%s.refNFP.cUF", $i)</cUF>
+            <AAMM>$util.lerString($null, $null, "infNFe.ide.NFref%s.refNFP.AAMM", $i)</AAMM>
+		#if(! $!{util.isVazio($null, $null, "infNFe.ide.NFref%s.refNFP.CNPJ", $i)} )
+            <CNPJ>$util.lerString($null, $null, "infNFe.ide.NFref%s.refNFP.CNPJ", $i)</CNPJ>
+		#else
+            <CPF>$util.lerString($null, $null, "infNFe.ide.NFref%s.refNFP.CPF", $i)</CPF>
+		#end
+            <IE>$util.lerString($null, $null, "infNFe.ide.NFref%s.refNFP.IE", $i)</IE>
+            <mod>$util.lerString($null, $null, "infNFe.ide.NFref%s.refNFP.mod", $i)</mod>
+            <serie>$util.lerInt($null, $null, "infNFe.ide.NFref%s.refNFP.serie", $i)</serie>
+            <nNF>$util.lerInt($null, $null, "infNFe.ide.NFref%s.refNFP.nNF", $i)</nNF>
+        </refNFP>
+#else        
+
+#if((! $!{util.isVazioOuZero($referenciada, "B12_NNF", "infNFe.ide.NFref%s.refNF.nNF", $i)} ) &&
+	(! $!{util.lerString($referenciada, "B12_MOD", "infNFe.ide.NFref%s.refNF.mod", $i).equals("04")} ))
+        <refNF>
+            <cUF>$util.lerString($referenciada, "B12_CUF", "infNFe.ide.NFref%s.refNF.cUF", $i)</cUF>
+            <AAMM>$util.lerString($referenciada, "B12_AAMM", "infNFe.ide.NFref%s.refNF.AAMM", $i)</AAMM>
+            <CNPJ>$util.lerString($referenciada, "B12_CNPJ", "infNFe.ide.NFref%s.refNF.CNPJ", $i)</CNPJ>
+            <mod>$util.lerString($referenciada, "B12_MOD", "infNFe.ide.NFref%s.refNF.mod", $i)</mod>
+            <serie>$util.lerDecimal($referenciada, "B12_SERIE", "infNFe.ide.NFref%s.refNF.serie", 0, $i)</serie>
+            <nNF>$util.lerDecimal($referenciada, "B12_NNF", "infNFe.ide.NFref%s.refNF.nNF", 0, $i)</nNF>
+        </refNF>
+#end
+
+
+#end
+				
+#if(! $!{util.isVazioOuZero($referenciada, "REFCTE", "infNFe.ide.NFref%s.refCTe")} )
+        <refCTe>$util.lerString($referenciada, "REFCTE", "infNFe.ide.NFref%s.refCTe")</refCTe>
+#end
+#if(! $!{util.isVazioOuZero($referenciada, "NECF", "infNFe.ide.NFref%s.refECF.nECF")} )
+        <refECF>
+            <mod>$util.lerString($referenciada, "B20K_MOD", "infNFe.ide.NFref%s.refECF.mod")</mod>
+            <nECF>$util.lerString($referenciada, "NECF", "infNFe.ide.NFref%s.refECF.nECF")</nECF>
+            <nCOO>$util.lerString($referenciada, "NCOO", "infNFe.ide.NFref%s.refECF.nCOO")</nCOO>
+        </refECF>
+#end
+    </NFref>
+         #if(! $!{util.isVazioOuZero($null, $null, "infNFe.ide.NFrefba.refNFe_ba")} )
+	    <NFref>
+	         <refNFe>$util.lerString($null, $null, "infNFe.ide.NFrefba.refNFe_ba")</refNFe>
+	    </NFref>
+        #end
+##if vazio para chamar a proxima linha no JcoTable
+#if($referenciada.nextRow())#end
+#end
+#end
+</ide>

@@ -1,0 +1,7 @@
+    <det nItem="$item.getInt("NITEM")">
+        #parse("/vm/template/det/prod/prod.vm")
+        #parse("/vm/template/det/imposto/imposto.vm")
+#if( $item.getString("INFADPROD") && $item.getString("INFADPROD") != "")
+        <infAdProd>#getItem("INFADPROD")</infAdProd>
+#end
+    </det>
